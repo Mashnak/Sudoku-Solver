@@ -7,8 +7,8 @@ const newArr = [];
 let x = 0;
 
 function preload(){
-  img = loadImage('https://github.com/Mashnak/Sudoku-Solver/blob/main/Sudoku.jpg');
-  subimg = loadImage('https://github.com/Mashnak/Sudoku-Solver/blob/main/Sudoku.jpg');
+  img = loadImage('sudoku.jpg');
+  subimg = loadImage('sudoku.jpg');
 }
 
 function setup() {
