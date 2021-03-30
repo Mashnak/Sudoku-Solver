@@ -7,8 +7,8 @@ const newArr = [];
 let x = 0;
 
 function preload(){
-  img = loadImage('sudoku.jpg');
-  subimg = loadImage('sudoku.jpg');
+  img = loadImage('Sudoku.jpg');
+  subimg = loadImage('Sudoku.jpg');
 }
 
 function setup() {
