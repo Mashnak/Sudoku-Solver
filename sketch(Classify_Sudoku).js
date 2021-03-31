@@ -7,6 +7,7 @@ const newArr = [];
 let x = 0;
 let video;
 let getImageButton;
+let resetButton;
 
 function preload(){
 }
@@ -35,6 +36,11 @@ function setup() {
   getImageButton.position(windowWidth/4,10);
   getImageButton.size(windowWidth/2,50);
   getImageButton.mousePressed(getImage);
+  resetButton = createButton('Neues Foto aufnehmen!');
+  resetButton.position(windowWidth/4,10);
+  resetButton.size(windowWidth/2,50);
+  resetButton.mousePressed(resetVideo);
+  resetButton.hide();
 
   let options = {
 	inputs: [28,28,4],
@@ -60,6 +66,7 @@ function getImage(){
   console.log(img.width,img.height);
   video.stop();
   getImageButton.hide();
+  resetButton.show();
 }
 // function mousePressed(){
 //   imgwidth = img.width/9;
@@ -76,6 +83,9 @@ function getImage(){
 //   console.table(newArr);
 // }
 
+function resetVideo(){
+  window.location.reload();
+}
 function gotResults(err, results){
   if (err){
     console.error(err);
