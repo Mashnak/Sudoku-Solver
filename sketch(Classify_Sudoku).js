@@ -14,7 +14,10 @@ function preload(){
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
   background(0);
-  video = createCapture({
+  console.log(getDeviceType());
+  if (getDeviceType() == 'mobile'|| getDeviceType() =='tablet'){
+  video =
+   createCapture({
     audio: false,
     video: {
       facingMode: {
@@ -22,6 +25,10 @@ function setup() {
       }
     }
   });
+} else {
+  video =
+   createCapture(VIDEO);
+}
   video.size(windowWidth/2, windowHeight/2);
   video.position(windowWidth/4,70);
   getImageButton = createButton('Sudoku aufnehmen!');
@@ -90,3 +97,19 @@ function draw() {
   image(img,windowWidth/4,70);
 }
 }
+
+
+const getDeviceType = () => {
+  const ua = navigator.userAgent;
+  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+    return "tablet";
+  }
+  if (
+    /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+      ua
+    )
+  ) {
+    return "mobile";
+  }
+  return "desktop";
+};
