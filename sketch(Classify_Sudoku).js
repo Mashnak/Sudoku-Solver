@@ -14,8 +14,8 @@ function preload(){
 }
 
 function setup() {
-  canvas = createCanvas(windowWidth, windowHeight);
-  background(0);
+  canvas = createCanvas(windowWidth, windowHeight-200);
+  background(255);
   console.log(getDeviceType());
   if (getDeviceType() == 'mobile'|| getDeviceType() =='tablet'){
   video =
@@ -58,6 +58,7 @@ function setup() {
     weights: 'model/model.weights.bin'
   }
   numberClassifier.load(modelDetails, modelLoaded);
+  resultsDiv = createDiv("Model loaded!");
 }
 
 function modelLoaded(){
@@ -75,7 +76,7 @@ function getImage(){
   calculateButton.show();
 }
 
-function calculateSudoku(){
+async function calculateSudoku(){
   imgwidth = img.width/9;
   imgheight = img.height/9;
   for (let i = 0; i < 9; i++){
@@ -86,7 +87,7 @@ function calculateSudoku(){
     }
   }
   while(numbers.length) newArr.push(numbers.splice(0,9));
-  //resultsDiv.html(newArr.splice(0,9));
+  resultsDiv.html(newArr.splice(0,9));
   console.log(newArr);
 }
 
@@ -105,14 +106,18 @@ function gotResults(err, results){
   }
   else {
     numbers[x] = 0;
-  }
+}
   x++;
 }
 
 function draw() {
+
+  
   if(img != null){
   image(img,windowWidth/4,70);
-}
+
+  }
+  resultsDiv.html(newArr);
 }
 
 
