@@ -1,5 +1,5 @@
 let numberClassifier;
-let img;
+let img = null;
 let subimg;
 let resultsDiv;
 const numbers = [];
@@ -9,15 +9,17 @@ let video;
 let getImageButton;
 
 function preload(){
-
 }
 
 function setup() {
+  canvas = createCanvas(windowWidth, windowHeight);
+  background(0);
   video = createCapture(VIDEO);
-  img = video;
+  video.size(windowWidth/2,windowHeight/2);
+  video.position(windowWidth/4,70);
   getImageButton = createButton('Sudoku aufnehmen!');
-  getImageButton.position(100,100);
-  getImageButton.size(300,50);
+  getImageButton.position(windowWidth/4,10);
+  getImageButton.size(windowWidth/2,50);
   getImageButton.mousePressed(getImage);
 
   let options = {
@@ -38,7 +40,12 @@ function modelLoaded(){
 }
 
 function getImage(){
-  console.log(windowWidth, windowHeight);
+  console.log(video.width, video.height);
+  img = video;
+  img.size(windowWidth/2, windowHeight/2);
+  console.log(img.width,img.height);
+  video.stop();
+  getImageButton.hide();
 }
 // function mousePressed(){
 //   imgwidth = img.width/9;
@@ -72,5 +79,7 @@ function gotResults(err, results){
 }
 
 function draw() {
-  image(img,0,0);
+  if(img != null){
+  image(img,windowWidth/4,70);
+}
 }
