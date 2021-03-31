@@ -8,6 +8,7 @@ let x = 0;
 let video;
 let getImageButton;
 let resetButton;
+let calculateButton;
 
 function preload(){
 }
@@ -27,8 +28,7 @@ function setup() {
     }
   });
 } else {
-  video =
-   createCapture(VIDEO);
+  video = createCapture(VIDEO);
 }
   video.size(windowWidth/2, windowHeight/2);
   video.position(windowWidth/4,70);
@@ -37,10 +37,15 @@ function setup() {
   getImageButton.size(windowWidth/2,50);
   getImageButton.mousePressed(getImage);
   resetButton = createButton('Neues Foto aufnehmen!');
-  resetButton.position(windowWidth/4,10);
-  resetButton.size(windowWidth/2,50);
+  resetButton.position(windowWidth/8,10);
+  resetButton.size(windowWidth/4,50);
   resetButton.mousePressed(resetVideo);
   resetButton.hide();
+  calculateButton = createButton('Sudoku berechnen!');
+  calculateButton.position(windowWidth/8+windowWidth/2,10);
+  calculateButton.size(windowWidth/4,50);
+  calculateButton.mousePressed(calculateSudoku);
+  calculateButton.hide();
 
   let options = {
 	inputs: [28,28,4],
@@ -67,21 +72,23 @@ function getImage(){
   video.stop();
   getImageButton.hide();
   resetButton.show();
+  calculateButton.show();
 }
-// function mousePressed(){
-//   imgwidth = img.width/9;
-//   imgheight = img.height/9;
-//   for (let i = 0; i < 9; i++){
-//     for (let j = 0; j < 9; j++){
-//       subimg = get(j*imgwidth+imgwidth*0.1,i*imgheight+imgheight*0.1,imgwidth*0.8,imgheight*0.8);
-//       subimg.resize(28,28);
-//       numberClassifier.classify({image: subimg}, gotResults);
-//     }
-//   }
-//   while(numbers.length) newArr.push(numbers.splice(0,9));
-//   //resultsDiv.html(newArr.splice(0,9));
-//   console.table(newArr);
-// }
+
+function calculateSudoku(){
+  imgwidth = img.width/9;
+  imgheight = img.height/9;
+  for (let i = 0; i < 9; i++){
+    for (let j = 0; j < 9; j++){
+      subimg = get(j*imgwidth+imgwidth*0.1,i*imgheight+imgheight*0.1,imgwidth*0.8,imgheight*0.8);
+      subimg.resize(28,28);
+      numberClassifier.classify({image: subimg}, gotResults);
+    }
+  }
+  while(numbers.length) newArr.push(numbers.splice(0,9));
+  //resultsDiv.html(newArr.splice(0,9));
+  console.log(newArr);
+}
 
 function resetVideo(){
   window.location.reload();
