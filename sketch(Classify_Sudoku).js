@@ -14,8 +14,15 @@ function preload(){
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
   background(0);
-  video = createCapture(VIDEO);
-  video.size(windowWidth/2,windowHeight/2);
+  video = createCapture({
+    audio: false,
+    video: {
+      facingMode: {
+        exact: "environment"
+      }
+    }
+  });
+  video.size(windowWidth/2, windowHeight/2);
   video.position(windowWidth/4,70);
   getImageButton = createButton('Sudoku aufnehmen!');
   getImageButton.position(windowWidth/4,10);
