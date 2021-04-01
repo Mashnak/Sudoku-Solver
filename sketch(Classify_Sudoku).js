@@ -14,7 +14,8 @@ function preload(){
 }
 
 function setup() {
-  canvas = createCanvas(windowWidth, windowHeight-200);
+
+  canvas = createCanvas(windowWidth, windowHeight-50);
   background(255);
   console.log(getDeviceType());
   if (getDeviceType() == 'mobile'|| getDeviceType() =='tablet'){
@@ -30,23 +31,23 @@ function setup() {
 } else {
   video = createCapture(VIDEO);
 }
+  video.position(160,70);
   video.size(windowWidth/2, windowHeight/2);
-  video.position(windowWidth/4,70);
   getImageButton = createButton('Sudoku aufnehmen!');
-  getImageButton.position(windowWidth/4,10);
-  getImageButton.size(windowWidth/2,50);
+  getImageButton.position(160,10);
+  getImageButton.size(320,50);
   getImageButton.mousePressed(getImage);
   resetButton = createButton('Neues Foto aufnehmen!');
-  resetButton.position(windowWidth/8,10);
-  resetButton.size(windowWidth/4,50);
+  resetButton.position(80,10);
+  resetButton.size(160,50);
   resetButton.mousePressed(resetVideo);
   resetButton.hide();
   calculateButton = createButton('Sudoku berechnen!');
-  calculateButton.position(windowWidth/8+windowWidth/2,10);
-  calculateButton.size(windowWidth/4,50);
+  calculateButton.position(400,10);
+  calculateButton.size(160,50);
   calculateButton.mousePressed(calculateSudoku);
   calculateButton.hide();
-
+  console.log(video.width, video.height);
   let options = {
 	inputs: [28,28,4],
 	task: 'imageClassification',
@@ -65,18 +66,16 @@ function modelLoaded(){
   console.log('Model loaded!');
 }
 
+//
 function getImage(){
-  console.log(video.width, video.height);
   img = video;
-  img.size(windowWidth/2, windowHeight/2);
-  console.log(img.width,img.height);
   video.stop();
   getImageButton.hide();
   resetButton.show();
   calculateButton.show();
 }
 
-async function calculateSudoku(){
+function calculateSudoku(){
   imgwidth = img.width/9;
   imgheight = img.height/9;
   for (let i = 0; i < 9; i++){
@@ -94,6 +93,7 @@ async function calculateSudoku(){
 function resetVideo(){
   window.location.reload();
 }
+
 function gotResults(err, results){
   if (err){
     console.error(err);
@@ -111,11 +111,14 @@ function gotResults(err, results){
 }
 
 function draw() {
-
-  
   if(img != null){
-  image(img,windowWidth/4,70);
-
+    sq = square(0,0,img.width);
+    stroke(255, 0, 0);
+    strokeWeight(4);
+    image(img,0,0);
+    sq = square(0,0,img.width);
+    stroke(255, 0, 0);
+    strokeWeight(4);
   }
   resultsDiv.html(newArr);
 }
