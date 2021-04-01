@@ -1,5 +1,6 @@
 let numberClassifier;
 let img = null;
+clearCanvas = false;
 let subimg;
 let resultsDiv;
 const numbers = [];
@@ -15,7 +16,7 @@ function preload(){
 
 function setup() {
 
-  canvas = createCanvas(windowWidth, windowHeight);
+  canvas = createCanvas(windowWidth, windowHeight-100);
   background(255);
   console.log(getDeviceType());
   if (getDeviceType() == 'mobile'|| getDeviceType() =='tablet'){
@@ -67,6 +68,7 @@ function modelLoaded(){
 
 //
 function getImage(){
+  clearCanvas = false;
   img = video;
   console.log(img.width, img.height);
   if (img.width<=img.height){
@@ -84,6 +86,7 @@ function getImage(){
 }
 
 function calculateSudoku(){
+  clearCanvas = true;
   imgwidth = img.width/9;
   imgheight = img.height/9;
   for (let i = 0; i < 9; i++){
@@ -121,6 +124,10 @@ function gotResults(err, results){
 function draw() {
   if(img != null){
     image(img,0,0);
+
+  }
+  if (clearCanvas){
+    clear();
   }
   resultsDiv.html(newArr);
 }
