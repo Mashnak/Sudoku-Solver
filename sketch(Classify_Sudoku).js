@@ -39,11 +39,11 @@ function setup() {
   getImageButton.mousePressed(getImage);
   resetButton = createButton('Neues Foto aufnehmen!');
   resetButton.position(windowWidth/2-80,10);
-  resetButton.size((160,50);
+  resetButton.size(160,50);
   resetButton.mousePressed(resetVideo);
   resetButton.hide();
   calculateButton = createButton('Sudoku berechnen!');
-  calculateButton.(windowWidth/2-80,windowHeight-100);
+  calculateButton.position(windowWidth/2-80,windowHeight-100);
   calculateButton.size(160,50);
   calculateButton.mousePressed(calculateSudoku);
   calculateButton.hide();
