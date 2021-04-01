@@ -68,7 +68,13 @@ function modelLoaded(){
 //
 function getImage(){
   img = video;
-  img = img.get(0,(img.height-img.width)/2,img.width,img.width);
+  console.log(img.width, img.height);
+  if (img.width<=img.height){
+    img = img.get(0,(img.height-img.width)/2,img.width,img.width);
+  } else {
+    img = img.get((img.width-img.height)/2,0,img.height,img.height);
+  }
+
   console.log(img.width, img.height);
   video.stop();
   video.hide();
