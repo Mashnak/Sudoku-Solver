@@ -33,9 +33,9 @@ function setup() {
 }
   video.position(160,70);
   video.size(windowWidth/2, windowHeight/2);
-  getImageButton = createButton('Sudoku aufnehmen!');
-  getImageButton.position(160,10);
-  getImageButton.size(320,50);
+  getImageButton = createButton('Foto');
+  getImageButton.position(160,windowHeight-100);
+  getImageButton.size(50,50);
   getImageButton.mousePressed(getImage);
   resetButton = createButton('Neues Foto aufnehmen!');
   resetButton.position(80,10);
