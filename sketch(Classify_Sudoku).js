@@ -31,8 +31,8 @@ function setup() {
 } else {
   video = createCapture(VIDEO);
 }
-  video.position(160,70);
-  video.size(windowWidth/2, windowHeight/2);
+  video.position(0,0);
+  video.size(windowWidth, windowHeight);
   getImageButton = createButton('Foto');
   getImageButton.position(160,windowHeight-100);
   getImageButton.size(50,50);
