@@ -38,7 +38,7 @@ function setup() {
   getImageButton.size(50,50);
   getImageButton.mousePressed(getImage);
   resetButton = createButton('Neues Foto aufnehmen!');
-  resetButton.position(windowWidth/2-80,10);
+  resetButton.position(windowWidth/2-80,300);
   resetButton.size(160,50);
   resetButton.mousePressed(resetVideo);
   resetButton.hide();
