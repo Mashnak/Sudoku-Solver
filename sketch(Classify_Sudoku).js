@@ -47,7 +47,6 @@ function setup() {
   calculateButton.size(160,50);
   calculateButton.mousePressed(calculateSudoku);
   calculateButton.hide();
-  console.log(video.width, video.height);
   let options = {
 	inputs: [28,28,4],
 	task: 'imageClassification',
@@ -69,7 +68,10 @@ function modelLoaded(){
 //
 function getImage(){
   img = video;
+  img = img.get(0,(img.height-img.width)/2,img.width,img.width);
+  console.log(img.width, img.height);
   video.stop();
+  video.hide();
   getImageButton.hide();
   resetButton.show();
   calculateButton.show();
@@ -112,13 +114,7 @@ function gotResults(err, results){
 
 function draw() {
   if(img != null){
-    sq = square(0,0,img.width);
-    stroke(255, 0, 0);
-    strokeWeight(4);
     image(img,0,0);
-    sq = square(0,0,img.width);
-    stroke(255, 0, 0);
-    strokeWeight(4);
   }
   resultsDiv.html(newArr);
 }
