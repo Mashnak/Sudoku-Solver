@@ -15,7 +15,7 @@ function preload(){
 
 function setup() {
 
-  canvas = createCanvas(windowWidth, windowHeight-50);
+  canvas = createCanvas(windowWidth, windowHeight);
   background(255);
   console.log(getDeviceType());
   if (getDeviceType() == 'mobile'|| getDeviceType() =='tablet'){
@@ -34,7 +34,7 @@ function setup() {
   video.position(0,0);
   video.size(windowWidth, windowHeight);
   getImageButton = createButton('Foto');
-  getImageButton.position(windowWidth/2-25,windowHeight-100);
+  getImageButton.position(windowWidth/2-25,windowHeight-200);
   getImageButton.size(50,50);
   getImageButton.mousePressed(getImage);
   resetButton = createButton('Neues Foto aufnehmen!');
@@ -43,7 +43,7 @@ function setup() {
   resetButton.mousePressed(resetVideo);
   resetButton.hide();
   calculateButton = createButton('Sudoku berechnen!');
-  calculateButton.position(windowWidth/2-80,windowHeight-100);
+  calculateButton.position(windowWidth/2-80,windowHeight-200);
   calculateButton.size(160,50);
   calculateButton.mousePressed(calculateSudoku);
   calculateButton.hide();
