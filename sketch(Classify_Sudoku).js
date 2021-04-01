@@ -35,7 +35,7 @@ function setup() {
   video.position(0,0);
   video.size(windowWidth, windowHeight);
   getImageButton = createButton('Foto');
-  getImageButton.position(windowWidth/2-25,windowHeight-50);
+  getImageButton.position(windowWidth/2-25,windowHeight-75);
   getImageButton.size(50,50);
   getImageButton.mousePressed(getImage);
   resetButton = createButton('Neues Foto aufnehmen!');
