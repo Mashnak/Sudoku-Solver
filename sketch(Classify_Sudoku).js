@@ -10,7 +10,8 @@ let video;
 let getImageButton;
 let resetButton;
 let calculateButton;
-let mouselicks = [];
+let mouselicksx = [];
+let mouselicksy = [];
 
 function preload(){
 }
@@ -71,31 +72,31 @@ function modelLoaded(){
 function getImage(){
 
   clearCanvas = false;
-  img = loadImage("Sudoku.jpg");
-
-  if (img.width<img.height){
-    img = img.get(0,mouselicks[1],img.width,mouselicks[1]-mouselicks[0]);
-  } else if (img.width>img.height){
-    img = img.get((img.width-img.height)/2,0,img.height,img.height);
-  }
-
+  img = video;
   video.stop();
   video.hide();
   getImageButton.hide();
   resetButton.show();
   calculateButton.show();
   console.log(img.width, img.height);
-  mouselicks = [];
-  console.log(mouselicks);
+  mouselicksx = [];
+  mouselicksy = [];
+  console.log(mouselicksx, mouselicksy);
 }
 
 function mousePressed(){
-  mouselicks.push(mouseY);
-  console.log(mouselicks);
+  mouselicksx.push(mouseX);
+  mouselicksy.push(mouseY);
+  console.log(mouselicksx,mouselicksy);
 }
 
 function calculateSudoku(){
+  if (img.width<img.height){
+    img = img.get(mouselicksx[1],mouselicksy[1],mouselicksx[2]-mouselicksx[1],mouselicksy[2]-mouselicksy[1]);
+  } else if (img.width>img.height);
+    img = img.get(mouselicksx[1],mouselicksy[1],mouselicksx[2]-mouselicksx[1],mouselicksy[2]-mouselicksy[1]);
   console.log(img.width, img.height);
+  img.resize(252, 252);
   //clearCanvas = true;
   imgwidth = img.width/9;
   imgheight = img.height/9;
@@ -139,6 +140,10 @@ function draw() {
   if (clearCanvas){
     clear();
   }
+  rect(mouselicksx[1], mouselicksy[1], mouselicksx[2]-mouselicksx[1],mouselicksy[2]-mouselicksy[1]);
+  stroke(255,0,0);
+  strokeWeight(5);
+  noFill();
   if(subimg != null){
   image(subimg, img.height,0);
 }
