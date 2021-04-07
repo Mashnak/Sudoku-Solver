@@ -10,6 +10,7 @@ let video;
 let getImageButton;
 let resetButton;
 let calculateButton;
+let mouselicks = [];
 
 function preload(){
 }
@@ -39,7 +40,7 @@ function setup() {
   getImageButton.size(50,50);
   getImageButton.mousePressed(getImage);
   resetButton = createButton('Neues Foto aufnehmen!');
-  resetButton.position(windowWidth/2-80,windowHeight-200);
+  resetButton.position(windowWidth/2-80,windowHeight-150);
   resetButton.size(160,50);
   resetButton.mousePressed(resetVideo);
   resetButton.hide();
@@ -68,25 +69,34 @@ function modelLoaded(){
 
 //
 function getImage(){
+
   clearCanvas = false;
-  img = video;
-  console.log(img.width, img.height);
-  if (img.width<=img.height){
-    img = img.get(0,(img.height-img.width)/2,img.width,img.width);
-  } else {
+  img = loadImage("Sudoku.jpg");
+
+  if (img.width<img.height){
+    img = img.get(0,mouselicks[1],img.width,mouselicks[1]-mouselicks[0]);
+  } else if (img.width>img.height){
     img = img.get((img.width-img.height)/2,0,img.height,img.height);
   }
 
-  console.log(img.width, img.height);
   video.stop();
   video.hide();
   getImageButton.hide();
   resetButton.show();
   calculateButton.show();
+  console.log(img.width, img.height);
+  mouselicks = [];
+  console.log(mouselicks);
+}
+
+function mousePressed(){
+  mouselicks.push(mouseY);
+  console.log(mouselicks);
 }
 
 function calculateSudoku(){
-  clearCanvas = true;
+  console.log(img.width, img.height);
+  //clearCanvas = true;
   imgwidth = img.width/9;
   imgheight = img.height/9;
   for (let i = 0; i < 9; i++){
@@ -129,6 +139,9 @@ function draw() {
   if (clearCanvas){
     clear();
   }
+  if(subimg != null){
+  image(subimg, img.height,0);
+}
   resultsDiv.html(newArr);
 }
 
