@@ -71,7 +71,6 @@ function modelLoaded(){
 
 //
 function getImage(){
-
   clearCanvas = false;
   img = video.get(0,0,video.width, video.height);
   video.stop();
@@ -93,10 +92,8 @@ function mousePressed(){
 
 function calculateSudoku(){
   showSquare = false;
-  if (img.width<img.height){
-    img2 = img.get(mouselicksx[1],mouselicksy[1],mouselicksx[2]-mouselicksx[1],mouselicksy[2]-mouselicksy[1]);
-  } else if (img.width>img.height);
-    img2 = img.get(mouselicksx[1],mouselicksy[1],mouselicksx[2]-mouselicksx[1],mouselicksy[2]-mouselicksy[1]);
+    if(img != null){img2 = img.get(mouselicksx[1],mouselicksy[1],mouselicksx[2]-mouselicksx[1],mouselicksy[2]-mouselicksy[1]);
+    }//img2 = img.get(mouselicksx[1],mouselicksy[1],mouselicksx[2]-mouselicksx[1],mouselicksy[2]-mouselicksy[1]);
   //console.log(img.width, img.height);
   img2.resize(315, 315);
   console.log(img2.width, img2.height);
