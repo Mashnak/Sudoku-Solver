@@ -2,11 +2,12 @@ let numberClassifier;
 let img = null;
 let img2 = null;
 let clearCanvas = false;
-let subimg;
+let subimg = [];
 let resultsDiv;
 const numbers = [];
 const newArr = [];
 let x = 0;
+let y = 0;
 let video;
 let getImageButton;
 let resetButton;
@@ -81,6 +82,7 @@ function getImage(){
   //console.log(img.width, img.height);
   mouselicksx = [];
   mouselicksy = [];
+  calculateSudoku();
   //console.log(mouselicksx, mouselicksy);
 }
 
@@ -89,29 +91,37 @@ function mousePressed(){
   mouselicksy.push(mouseY);
   //console.log(mouselicksx,mouselicksy);
 }
-
 function calculateSudoku(){
+  if(img != null){
+    img2 = img.get(mouselicksx[1],mouselicksy[1],mouselicksx[2]-mouselicksx[1],mouselicksy[2]-mouselicksy[1]);
+  }
+  y++;
   showSquare = false;
-    if(img != null){img2 = img.get(mouselicksx[1],mouselicksy[1],mouselicksx[2]-mouselicksx[1],mouselicksy[2]-mouselicksy[1]);
-    }//img2 = img.get(mouselicksx[1],mouselicksy[1],mouselicksx[2]-mouselicksx[1],mouselicksy[2]-mouselicksy[1]);
+    //img2 = img.get(mouselicksx[1],mouselicksy[1],mouselicksx[2]-mouselicksx[1],mouselicksy[2]-mouselicksy[1]);
   //console.log(img.width, img.height);
-  img2.resize(315, 315);
+  img2.resize(252, 252);
   console.log(img2.width, img2.height);
   //clearCanvas = true;
   imgwidth = img2.width/9;
   imgheight = img2.height/9;
+  if(subimg.length<81){
   for (let i = 0; i < 9; i++){
     for (let j = 0; j < 9; j++){
-      subimg = img2.get(j*imgwidth+imgwidth*0.1,i*imgheight+imgheight*0.1,imgwidth*0.8,imgheight*0.8);
-      console.log(subimg.width, subimg.height);
-      subimg.resize(28,28);
-      numberClassifier.classify({image: subimg}, gotResults);
+      subimg.push(img2.get(j*imgwidth,i*imgheight,imgwidth,imgheight));
+      console.log(subimg[0].width);
     }
-  }
-  //console.log(subimg);
+  }}
+  console.log(subimg.length);
   while(numbers.length) newArr.push(numbers.splice(0,9));
   resultsDiv.html(newArr.splice(0,9));
-  //console.log(newArr);
+  classifySubImages();
+  console.log(newArr);
+}
+function classifySubImages(){
+  for(let z = 0; z < subimg.length; z++){
+    numberClassifier.classify({image: subimg[z]}, gotResults);
+  }
+
 }
 
 function resetVideo(){
@@ -135,6 +145,9 @@ function gotResults(err, results){
 }
 
 function draw() {
+  if(y>0&&y<=1){
+    calculateSudoku();
+  }
   if(img != null){
     image(img,0,0);
   }
@@ -151,9 +164,6 @@ function draw() {
   stroke(255,0,0);
   strokeWeight(5);
   noFill();
-}
-  if(subimg != null){
-  image(subimg, img2.height,0);
 }
   resultsDiv.html(newArr);
 }
