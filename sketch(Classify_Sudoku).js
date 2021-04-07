@@ -82,7 +82,7 @@ function getImage(){
   //console.log(img.width, img.height);
   mouselicksx = [];
   mouselicksy = [];
-  calculateSudoku();
+  //calculateSudoku();
   //console.log(mouselicksx, mouselicksy);
 }
 
