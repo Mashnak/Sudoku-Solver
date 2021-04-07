@@ -142,6 +142,7 @@ function draw() {
     image(img,0,0);
   }
   if(img2 != null){
+    clear();
     img = null;
     image(img2,0,0);
   }
