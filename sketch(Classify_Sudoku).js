@@ -1,6 +1,7 @@
 let numberClassifier;
 let img = null;
-clearCanvas = false;
+let img2 = null;
+let clearCanvas = false;
 let subimg;
 let resultsDiv;
 const numbers = [];
@@ -12,6 +13,7 @@ let resetButton;
 let calculateButton;
 let mouselicksx = [];
 let mouselicksy = [];
+let showSquare = true;
 
 function preload(){
 }
@@ -71,44 +73,48 @@ function modelLoaded(){
 function getImage(){
 
   clearCanvas = false;
-  img = video;
+  img = video.get(0,0,video.width, video.height);
   video.stop();
   video.hide();
   getImageButton.hide();
   resetButton.show();
   calculateButton.show();
-  console.log(img.width, img.height);
+  //console.log(img.width, img.height);
   mouselicksx = [];
   mouselicksy = [];
-  console.log(mouselicksx, mouselicksy);
+  //console.log(mouselicksx, mouselicksy);
 }
 
 function mousePressed(){
   mouselicksx.push(mouseX);
   mouselicksy.push(mouseY);
-  console.log(mouselicksx,mouselicksy);
+  //console.log(mouselicksx,mouselicksy);
 }
 
 function calculateSudoku(){
+  showSquare = false;
   if (img.width<img.height){
-    img = img.get(mouselicksx[1],mouselicksy[1],mouselicksx[2]-mouselicksx[1],mouselicksy[2]-mouselicksy[1]);
+    img2 = img.get(mouselicksx[1],mouselicksy[1],mouselicksx[2]-mouselicksx[1],mouselicksy[2]-mouselicksy[1]);
   } else if (img.width>img.height);
-    img = img.get(mouselicksx[1],mouselicksy[1],mouselicksx[2]-mouselicksx[1],mouselicksy[2]-mouselicksy[1]);
-  console.log(img.width, img.height);
-  img.resize(252, 252);
+    img2 = img.get(mouselicksx[1],mouselicksy[1],mouselicksx[2]-mouselicksx[1],mouselicksy[2]-mouselicksy[1]);
+  //console.log(img.width, img.height);
+  img2.resize(315, 315);
+  console.log(img2.width, img2.height);
   //clearCanvas = true;
-  imgwidth = img.width/9;
-  imgheight = img.height/9;
+  imgwidth = img2.width/9;
+  imgheight = img2.height/9;
   for (let i = 0; i < 9; i++){
     for (let j = 0; j < 9; j++){
-      subimg = get(j*imgwidth+imgwidth*0.1,i*imgheight+imgheight*0.1,imgwidth*0.8,imgheight*0.8);
+      subimg = img2.get(j*imgwidth+imgwidth*0.1,i*imgheight+imgheight*0.1,imgwidth*0.8,imgheight*0.8);
+      console.log(subimg.width, subimg.height);
       subimg.resize(28,28);
       numberClassifier.classify({image: subimg}, gotResults);
     }
   }
+  //console.log(subimg);
   while(numbers.length) newArr.push(numbers.splice(0,9));
   resultsDiv.html(newArr.splice(0,9));
-  console.log(newArr);
+  //console.log(newArr);
 }
 
 function resetVideo(){
@@ -134,17 +140,22 @@ function gotResults(err, results){
 function draw() {
   if(img != null){
     image(img,0,0);
-
+  }
+  if(img2 != null){
+    img = null;
+    image(img2,0,0);
   }
   if (clearCanvas){
     clear();
   }
-  rect(mouselicksx[1], mouselicksy[1], mouselicksx[2]-mouselicksx[1],mouselicksy[2]-mouselicksy[1]);
+  if (showSquare){
+    rect(mouselicksx[1], mouselicksy[1], mouselicksx[2]-mouselicksx[1],mouselicksy[2]-mouselicksy[1]);
   stroke(255,0,0);
   strokeWeight(5);
   noFill();
+}
   if(subimg != null){
-  image(subimg, img.height,0);
+  image(subimg, img2.height,0);
 }
   resultsDiv.html(newArr);
 }
