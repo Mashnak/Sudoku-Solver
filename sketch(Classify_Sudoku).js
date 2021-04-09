@@ -97,6 +97,7 @@ function calculateSudoku() {
     if (img != null) {
         //img2 = img.get(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
         img2 = loadImage("Sudoku.jpg");
+
     }
     y++;
     showSquare = false;
@@ -153,8 +154,8 @@ function draw() {
         calculateSudoku();
     }
     if (img != null) {
-        textSize(30);
-        strokeWeight(1);
+        textSize(5);
+noStroke();
         text('Bitte linke obere und rechte untere Ecke des Sudokufelds anklicken!', 10, 30);
         image(img, 0, 50);
     }
