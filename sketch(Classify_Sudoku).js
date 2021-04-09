@@ -2,7 +2,8 @@ let numberClassifier;
 let img = null;
 let img2 = null;
 let clearCanvas = false;
-let subimg = [];
+let subimgarray = [];
+let subimg;
 let resultsDiv;
 const numbers = [];
 const newArr = [];
@@ -108,11 +109,11 @@ function calculateSudoku() {
     //clearCanvas = true;
     imgwidth = img2.width / 9;
     imgheight = img2.height / 9;
-    if (subimg.length < 81) {
+    if (subimgarray.length < 81) {
         for (i = 0; i < 9; i++) {
             for (j = 0; j < 9; j++) {
-                subimg.push(img2.get(j * imgwidth, i * imgheight, imgwidth, imgheight));
-                image(img2.get(j * imgwidth, i * imgheight, imgwidth, imgheight),500,j*30);
+                subimgarray.push(img2.get(j * imgwidth, i * imgheight, imgwidth, imgheight));
+                subimg = img2.get(j*imgwidth+imgwidth*0.1,i*imgheight+imgheight*0.1,imgwidth*0.8,imgheight*0.8);
             }
         }
     }
@@ -209,9 +210,9 @@ function draw() {
                 }
             }
         }
-        image(subimg[0],0,0);
-        for (i = 0; i<subimg.length;i++){
-            image(subimg[i], 600, i * 30);
+        image(subimg,500,0);
+        for (i = 0; i<subimgarray.length;i++){
+            image(subimgarray[i], 600, i * 30);
         }
     }
 }
