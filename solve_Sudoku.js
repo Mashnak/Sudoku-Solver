@@ -46,12 +46,12 @@ function number_possible(y, x, number) {
 function solve_Sudoku_BF() {
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++)  {
-            if (grid[y][x] === 0) {
+            if (grid[j][i] === 0) {
                 for (let n = 1; n < 10; n++) {
-                    if (number_possible(y,x,n)) {
-                        grid[y][x] = n
+                    if (number_possible(j,i,n)) {
+                        grid[j][i] = n
                         solve_Sudoku_BF();
-                        grid[y][x] = 0;
+                        grid[j][i] = 0;
                     }
                 }
                 return;
