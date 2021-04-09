@@ -199,7 +199,9 @@ function draw() {
                     fill("green");
                     text(newArr[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
                 } else if (newArr[i][j] === 0) {
-                    // keep the cell empty.
+                    stroke("green");
+                    fill("green");
+                    text(newArr[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
                 } else {
                     stroke("orange");
                     fill("orange");
