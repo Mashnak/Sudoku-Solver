@@ -150,7 +150,7 @@ function draw() {
     calculateSudoku();
   }
   if(img != null){
-	  textSize(32);
+	  textSize(16);
 text('Bitte linke obere und rechte untere Ecke des Sudokufelds anklicken!', 10, 30);
 	fill(255,0,0);
     	image(img,0,50);
