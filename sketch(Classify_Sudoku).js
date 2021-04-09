@@ -179,6 +179,7 @@ function draw() {
             line(cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i * 3));
         }
         noStroke();
+        textSize(20);
         for (i = 0; i < 9; i++) {
             for (j = 0; j < 9; j++) {
                 if (newArr[i][j]!==0) {
