@@ -1,7 +1,9 @@
 /*****************************************************************************
  ***  Methoden um das vorhandene und erkannte Sudoku vollständig zu lösen.  ***
  *****************************************************************************/
-let numberClassifier;
+
+/** Definition der globalen Variablen */
+let numberClassifier; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let img = null;
 let img2 = null;
 let clearCanvas = false;
@@ -21,10 +23,11 @@ let showSquare = true;
 let cell_size = 40;
 
 function preload() {
+
 }
 
 function setup() {
-
+    solve_Sudoku.possible();
     canvas = createCanvas(windowWidth, windowHeight - 100);
     background(255);
     console.log(getDeviceType());

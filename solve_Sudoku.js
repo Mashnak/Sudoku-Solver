@@ -16,4 +16,7 @@ let grid = [
 ];
 
 
-/** */
+/** Funktion die kontrolliert, ob an der gegebenen Position im Array die gegebene Zahl möglich ist*/
+function possible(x, y, number){
+    console.log(grid);
+}
