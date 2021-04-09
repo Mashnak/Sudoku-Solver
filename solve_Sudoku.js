@@ -15,7 +15,7 @@ var grid = [
     [0,8,1,5,0,0,0,0,9],
     [0,5,0,0,0,2,0,0,0]
 ];
-console.log(grid);
+
 
 /** Hilfsfunktion die kontrolliert, ob an der gegebenen Position im Array die gegebene Zahl möglich ist*/
 function number_possible(y, x, number) {
@@ -44,7 +44,8 @@ function number_possible(y, x, number) {
 
 /** Funktion die das Sudoku Brute force löst */
 function solve_Sudoku_BF() {
-    for (let i = 0; i < 9; i++) {
+    console.log(grid);
+    /*for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++)  {
             if (grid[j][i] === 0) {
                 for (let n = 1; n < 10; n++) {
@@ -58,6 +59,6 @@ function solve_Sudoku_BF() {
             }
         }
     }
-    console.log(grid);
+    console.log(grid);*/
 }
 solve_Sudoku_BF();
