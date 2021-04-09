@@ -155,7 +155,7 @@ function draw() {
     }
     if (img != null) {
         textSize(5);
-noStroke();
+        noStroke();
         text('Bitte linke obere und rechte untere Ecke des Sudokufelds anklicken!', 10, 30);
         image(img, 0, 50);
     }
@@ -168,11 +168,10 @@ noStroke();
         clear();
     }
     if (showSquare) {
-        rect(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
+        strokeWeight(1);
         noFill();
         stroke(255, 0, 0);
-        strokeWeight(1);
-
+        rect(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
     }
     if (newArr.length === 9) {
         clear();
