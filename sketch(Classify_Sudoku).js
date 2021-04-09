@@ -155,7 +155,8 @@ function draw() {
     }
     if (img != null) {
         textSize(5);
-        noStroke();
+        strokeWeight(1);
+        stroke(0,0,0);
         text('Bitte linke obere und rechte untere Ecke des Sudokufelds anklicken!', 10, 30);
         image(img, 0, 50);
     }
