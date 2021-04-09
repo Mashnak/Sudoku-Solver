@@ -27,7 +27,7 @@ function preload() {
 }
 
 function setup() {
-    solve_Sudoku.possible();
+    possible();
     canvas = createCanvas(windowWidth, windowHeight - 100);
     background(255);
     console.log(getDeviceType());
