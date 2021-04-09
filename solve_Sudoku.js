@@ -57,6 +57,5 @@ function solve_Sudoku_BF() {
             }
         }
     }
-    return grid;
-
+    console.log(grid);
 }
