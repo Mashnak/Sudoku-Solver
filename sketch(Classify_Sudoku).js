@@ -75,7 +75,6 @@ function modelLoaded(){
 function getImage(){
   clearCanvas = false;
   img = video.get(0,0,video.width, video.height);
-img.position(0,50);
   video.stop();
   video.hide();
   getImageButton.hide();
@@ -154,7 +153,7 @@ function draw() {
 	  textSize(32);
 text('Bitte linke obere und rechte untere Ecke des Sudokufelds anklicken!', 10, 30);
 	  fill(255,0,0);
-    image(img,0,0);
+    image(img,0,50);
   }
   if(img2 != null){
     clear();
