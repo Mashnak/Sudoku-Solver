@@ -141,6 +141,9 @@ function gotResults(err, results) {
 }
 
 function draw() {
+    if(subimg){
+        image(subimg,500,200);
+    }
     if (y > 0 && y <= 1) {
         calculateSudoku();
     }
@@ -180,6 +183,7 @@ function draw() {
         }
         noStroke();
         textSize(20);
+
         for (i = 0; i < 9; i++) {
             for (j = 0; j < 9; j++) {
                 if (newArr[i][j]!==0) {
