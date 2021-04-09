@@ -27,7 +27,6 @@ function preload() {
 }
 
 function setup() {
-    number_possible();
     canvas = createCanvas(windowWidth, windowHeight - 100);
     background(255);
     console.log(getDeviceType());
