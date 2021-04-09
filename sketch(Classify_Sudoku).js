@@ -74,7 +74,8 @@ function modelLoaded() {
 //
 function getImage() {
     clearCanvas = false;
-    img = video.get(0, 0, video.width, video.height);
+    //img = video.get(0, 0, video.width, video.height);
+    img = "Sukdoku.jpg";
     video.stop();
     video.hide();
     getImageButton.hide();
