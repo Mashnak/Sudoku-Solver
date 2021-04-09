@@ -117,7 +117,7 @@ function calculateSudoku() {
             }
         }
     }
-    console.log(subimg.length);
+    console.log(subimgarray.length);
     while (numbers.length) newArr.push(numbers.splice(0, 9));
     resultsDiv.html(newArr.splice(0, 9));
     classifySubImages();
@@ -125,7 +125,7 @@ function calculateSudoku() {
 }
 
 function classifySubImages() {
-    for (z = 0; z < subimg.length; z++) {
+    for (z = 0; z < subimgarray.length; z++) {
         numberClassifier.classify({image: subimg[z]}, gotResults);
     }
 
