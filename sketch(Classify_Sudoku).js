@@ -211,7 +211,7 @@ function draw() {
                 }
             }
         }
-        image(subimg,500,0);
+        image(subimg,500,200);
         for (i = 0; i<subimgarray.length;i++){
             image(subimgarray[i], 600, i * 30);
         }
