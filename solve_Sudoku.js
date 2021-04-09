@@ -17,6 +17,26 @@ let grid = [
 
 
 /** Funktion die kontrolliert, ob an der gegebenen Position im Array die gegebene Zahl möglich ist*/
-function number_possible(x, y, number){
-    console.log(grid);
+function number_possible(x, y, number) {
+    for (let i = 0; i < 9; i++) {
+        if (grid[y][i] === number) {
+            return false;
+        }
+    }
+    for (let i = 0; i < 9; i++) {
+        if (grid[i][x] === number) {
+            return false;
+        }
+    }
+    let x0 = Math.floor(x)*3;
+    let y0 = Math.floor(y)*3;
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; i++) {
+            if (grid[y0+i][x0+j] === number) {
+                return false;
+            }
+        }
+    }
+    return true;
 }
+
