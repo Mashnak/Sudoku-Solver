@@ -112,8 +112,9 @@ function calculateSudoku() {
     if (subimgarray.length < 81) {
         for (i = 0; i < 9; i++) {
             for (j = 0; j < 9; j++) {
-                subimgarray.push(img2.get(j * imgwidth, i * imgheight, imgwidth, imgheight));
-                subimg = img2.get(j*imgwidth+imgwidth*0.1,i*imgheight+imgheight*0.1,imgwidth*0.8,imgheight*0.8);
+                subimg = get(j*imgwidth+imgwidth*0.1,i*imgheight+imgheight*0.1,imgwidth*0.8,imgheight*0.8);
+                subimg.resize(28,28);
+                numberClassifier.classify({image: subimg}, gotResults);
             }
         }
     }
