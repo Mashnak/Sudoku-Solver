@@ -75,6 +75,7 @@ function modelLoaded(){
 function getImage(){
   clearCanvas = false;
   img = video.get(0,0,video.width, video.height);
+img.position(0,50);
   video.stop();
   video.hide();
   getImageButton.hide();
