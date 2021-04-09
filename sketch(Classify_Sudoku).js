@@ -74,8 +74,7 @@ function modelLoaded() {
 //
 function getImage() {
     clearCanvas = false;
-    //img = video.get(0, 0, video.width, video.height);
-    img = "Sukdoku.jpg";
+    img = video.get(0, 0, video.width, video.height);
     video.stop();
     video.hide();
     getImageButton.hide();
@@ -96,7 +95,8 @@ function mousePressed() {
 
 function calculateSudoku() {
     if (img != null) {
-        img2 = img.get(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
+        //img2 = img.get(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
+        img2 = loadImage("Sudoku.jpg");
     }
     y++;
     showSquare = false;
