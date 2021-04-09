@@ -77,7 +77,7 @@ function modelLoaded() {
     console.log('Model loaded!');
 }
 
-//
+
 function getImage() {
     clearCanvas = false;
     img = video.get(0, 0, video.width, video.height);
