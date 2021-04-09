@@ -141,7 +141,6 @@ function gotResults(err, results) {
 }
 
 function draw() {
-    image(subimg, 500, 500);
     if (y > 0 && y <= 1) {
         calculateSudoku();
     }
