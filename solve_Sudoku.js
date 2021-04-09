@@ -1,7 +1,7 @@
 /*****************************************************************************
 ***  Methoden um das vorhandene und erkannte Sudoku vollständig zu lösen.  ***
  *****************************************************************************/
-
+solve_Sudoku_BF();
 /** Hilfsarray um die Funktionen zu testen, solange die Erkennung nicht gut funktioniert*/
 var grid = [
     [1,0,0,9,0,0,6,5,0],
