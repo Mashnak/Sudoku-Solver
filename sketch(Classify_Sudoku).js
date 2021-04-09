@@ -202,7 +202,7 @@ function draw() {
                 }
             }
         }
-        image(img2, 0,400);
+        image(img2, 400,20);
     }
 }
 
