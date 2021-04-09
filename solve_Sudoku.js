@@ -32,7 +32,7 @@ function number_possible(y, x, number) {
     let xx = Math.floor(x)*3;
     let yy = Math.floor(y)*3;
     for (let i = 0; i < 3; i++) {
-        for (let j = 0; j < 3; i++) {
+        for (let j = 0; j < 3; j++) {
             if (grid[yy+i][xx+j] === number) {
                 return false;
             }
@@ -44,8 +44,7 @@ function number_possible(y, x, number) {
 
 /** Funktion die das Sudoku Brute force löst */
 function solve_Sudoku_BF() {
-    console.log(grid);
-    /*for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++)  {
             if (grid[j][i] === 0) {
                 for (let n = 1; n < 10; n++) {
@@ -59,6 +58,6 @@ function solve_Sudoku_BF() {
             }
         }
     }
-    console.log(grid);*/
+    console.log(grid);
 }
 solve_Sudoku_BF();
