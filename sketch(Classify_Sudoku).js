@@ -154,7 +154,6 @@ function draw() {
     if (img != null) {
         textSize(16);
         text('Bitte linke obere und rechte untere Ecke des Sudokufelds anklicken!', 10, 30);
-        fill(255, 0, 0);
         image(img, 0, 50);
     }
     if (img2 != null) {
@@ -175,6 +174,7 @@ function draw() {
     if (newArr.length === 9) {
         clear();
         stroke(245);
+        strokeWeight(1);
         for (i = 1; i < 9; i++) {
             line(cell_size * (1 / 2 + i), cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2));
             line(cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i));
