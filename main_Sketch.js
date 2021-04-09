@@ -1,3 +1,6 @@
+/*****************************************************************************
+ ***  Methoden um das vorhandene und erkannte Sudoku vollständig zu lösen.  ***
+ *****************************************************************************/
 let numberClassifier;
 let img = null;
 let img2 = null;

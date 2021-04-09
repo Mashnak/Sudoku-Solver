@@ -1,3 +1,7 @@
+/*****************************************************************************
+ ***  Methoden um das vorhandene und erkannte Sudoku vollständig zu lösen.  ***
+ *****************************************************************************/
+
 let one = [];
 let two = [];
 let three = [];
@@ -24,7 +28,7 @@ function preload() {
 		seven[i] = loadImage('newtrainingSet/7/Img'+index+'.jpg');
 		eight[i] = loadImage('newtrainingSet/8/Img'+index+'.jpg');
 		nine[i] = loadImage('newtrainingSet/9/Img'+index+'.jpg');
-		if (i%100==0) {
+		if (i%100===0) {
 			console.log((i/100+1)*100+' images loaded!');
 		}
 	}
