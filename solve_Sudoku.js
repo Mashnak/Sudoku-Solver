@@ -1,8 +1,8 @@
 /*****************************************************************************
 ***  Methoden um das vorhandene und erkannte Sudoku vollständig zu lösen.  ***
  *****************************************************************************/
-solve_Sudoku_BF();
-console.log("test");
+//solve_Sudoku_BF();
+
 /** Hilfsarray um die Funktionen zu testen, solange die Erkennung nicht gut funktioniert*/
 var grid = [
     [1,0,0,9,0,0,6,5,0],
@@ -15,7 +15,7 @@ var grid = [
     [0,8,1,5,0,0,0,0,9],
     [0,5,0,0,0,2,0,0,0]
 ];
-
+console.log(grid);
 
 /** Hilfsfunktion die kontrolliert, ob an der gegebenen Position im Array die gegebene Zahl möglich ist*/
 function number_possible(y, x, number) {
