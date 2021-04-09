@@ -29,11 +29,11 @@ function number_possible(y, x, number) {
             return false;
         }
     }
-    let x0 = Math.floor(x)*3;
-    let y0 = Math.floor(y)*3;
+    let xx = Math.floor(x)*3;
+    let yy = Math.floor(y)*3;
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; i++) {
-            if (grid[y0+i][x0+j] === number) {
+            if (grid[yy+i][xx+j] === number) {
                 return false;
             }
         }
