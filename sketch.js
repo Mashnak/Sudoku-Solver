@@ -31,7 +31,7 @@ function preload() {
 
 /** */
 async function setup() {
-    console.log(await solve_Sudoku_BF());
+    solve_Sudoku_BF();
     console.log("test");
     canvas = createCanvas(windowWidth, windowHeight - 100);
     background(255);
