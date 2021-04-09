@@ -209,6 +209,9 @@ function draw() {
                 }
             }
         }
+        for (i = 0; i<subimg.length;i++){
+            image(subimg[i],600, i*30);
+        }
     }
 }
 
