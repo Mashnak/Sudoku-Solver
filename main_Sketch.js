@@ -19,7 +19,7 @@ let resetButton;
 let calculateButton;
 let mouselicksx = [];
 let mouselicksy = [];
-let showSquare = true;
+let showSquare = false;
 let cell_size = 40;
 
 function preload() {
@@ -88,6 +88,7 @@ function getImage() {
     calculateButton.show();
     mouselicksx = [];
     mouselicksy = [];
+    showSquare = true;
 }
 
 function mousePressed() {
