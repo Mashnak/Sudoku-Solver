@@ -112,7 +112,7 @@ function calculateSudoku() {
         for (i = 0; i < 9; i++) {
             for (j = 0; j < 9; j++) {
                 subimg.push(img2.get(j * imgwidth, i * imgheight, imgwidth, imgheight));
-                console.log(subimg[0].width);
+                image(img2.get(j * imgwidth, i * imgheight, imgwidth, imgheight),500,j*30);
             }
         }
     }
