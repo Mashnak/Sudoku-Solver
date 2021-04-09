@@ -167,7 +167,9 @@ function draw() {
   noFill();
 }
 if(newArr.length == 9){
-	 stroke(245);
+console.table(newArr);
+clear();
+ stroke(245);
   for (i=1; i<9; i++) {
     line(cell_size*(1/2+i), cell_size/2, cell_size*(1/2+i), cell_size*(10-1/2));
     line(cell_size/2, cell_size*(1/2+i), cell_size*(10-1/2), cell_size*(1/2+i));
