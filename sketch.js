@@ -32,6 +32,7 @@ function preload() {
 /** */
 async function setup() {
     console.log(await solve_Sudoku_BF());
+    console.log("test");
     canvas = createCanvas(windowWidth, windowHeight - 100);
     background(255);
     if (getDeviceType() === 'mobile' || getDeviceType() === 'tablet') {
