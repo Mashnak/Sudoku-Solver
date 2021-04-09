@@ -60,3 +60,4 @@ function solve_Sudoku_BF() {
     }
     console.log(grid);
 }
+solve_Sudoku_BF();
