@@ -22,14 +22,17 @@ let mouselicksy = [];
 let showSquare = false;
 let cell_size = 40;
 
+
+/**  */
 function preload() {
 
 }
 
+
+/** */
 function setup() {
     canvas = createCanvas(windowWidth, windowHeight - 100);
     background(255);
-    console.log(getDeviceType());
     if (getDeviceType() === 'mobile' || getDeviceType() === 'tablet') {
         video =
             createCapture({
@@ -72,9 +75,7 @@ function setup() {
     resultsDiv = createDiv("Model loaded!");
 }
 
-function modelLoaded() {
-    console.log('Model loaded!');
-}
+
 
 
 function getImage() {
@@ -126,21 +127,6 @@ function calculateSudoku() {
 
 function resetVideo() {
     window.location.reload();
-}
-
-function gotResults(err, results) {
-    if (err) {
-        console.error(err);
-        return;
-    }
-    let label = results[0].label;
-    let confidence = nf(100 * results[0].confidence, 2, 0);
-    if (confidence >= 50) {
-        numbers[x] = int(label);
-    } else {
-        numbers[x] = 0;
-    }
-    x++;
 }
 
 function draw() {
@@ -209,7 +195,7 @@ function draw() {
     }
 }
 
-
+/** Funktion zur Bestimmung des aktuellen Gerätes */
 const getDeviceType = () => {
     const ua = navigator.userAgent;
     if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
@@ -224,3 +210,24 @@ const getDeviceType = () => {
     }
     return "desktop";
 };
+
+
+/** Callback Funktionen für die Rückmeldungen der verschiedenen Funktionen */
+function modelLoaded() {
+    console.log('Model loaded!');
+}
+
+function gotResults(err, results) {
+    if (err) {
+        console.error(err);
+        return;
+    }
+    let label = results[0].label;
+    let confidence = nf(100 * results[0].confidence, 2, 0);
+    if (confidence >= 50) {
+        numbers[x] = int(label);
+    } else {
+        numbers[x] = 0;
+    }
+    x++;
+}
