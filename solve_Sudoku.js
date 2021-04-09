@@ -3,7 +3,7 @@
  *****************************************************************************/
 
 /** Hilfsarray um die Funktionen zu testen, solange die Erkennung nicht gut funktioniert*/
-let grid = [
+var grid = [
     [1,0,0,9,0,0,6,5,0],
     [0,9,0,2,0,0,3,0,0],
     [0,0,7,1,3,0,0,4,0],
@@ -16,8 +16,8 @@ let grid = [
 ];
 
 
-/** Funktion die kontrolliert, ob an der gegebenen Position im Array die gegebene Zahl möglich ist*/
-function number_possible(x, y, number) {
+/** Hilfsfunktion die kontrolliert, ob an der gegebenen Position im Array die gegebene Zahl möglich ist*/
+function number_possible(y, x, number) {
     for (let i = 0; i < 9; i++) {
         if (grid[y][i] === number) {
             return false;
@@ -40,3 +40,22 @@ function number_possible(x, y, number) {
     return true;
 }
 
+
+/** Funktion die das Sudoku Brute force löst */
+function solve_Sudoku_BF() {
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++)  {
+            if (grid[y][x] === 0) {
+                for (let n = 1; n < 10; n++) {
+                    if (number_possible(y,x,n)) {
+                        grid[y][x] = n
+                        solve_Sudoku_BF();
+                        grid[y][x] = 0;
+                    }
+                }
+                return;
+            }
+        }
+    }
+    return grid;
+}
