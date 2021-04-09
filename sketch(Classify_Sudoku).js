@@ -150,6 +150,9 @@ function draw() {
     calculateSudoku();
   }
   if(img != null){
+	  textSize(32);
+text('Bitte linke obere und rechte untere Ecke des Sudokufelds anklicken!', 10, 30);
+	  fill(255,0,0);
     image(img,0,0);
   }
   if(img2 != null){
@@ -180,7 +183,6 @@ clear();
     line(cell_size/2, cell_size*(1/2+i*3), cell_size*(10-1/2), cell_size*(1/2+i*3));
   }
 }
-  resultsDiv.html(newArr);
 }
 
 
