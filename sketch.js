@@ -31,6 +31,7 @@ function preload() {
 
 /** */
 function setup() {
+    number_possible(1,2,3);
     canvas = createCanvas(windowWidth, windowHeight - 100);
     background(255);
     if (getDeviceType() === 'mobile' || getDeviceType() === 'tablet') {
