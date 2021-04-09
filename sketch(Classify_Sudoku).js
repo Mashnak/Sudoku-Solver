@@ -15,6 +15,7 @@ let calculateButton;
 let mouselicksx = [];
 let mouselicksy = [];
 let showSquare = true;
+let cell_size = 40;
 
 function preload(){
 }
@@ -164,6 +165,18 @@ function draw() {
   stroke(255,0,0);
   strokeWeight(5);
   noFill();
+}
+if(newArr.length == 9){
+	 stroke(245);
+  for (i=1; i<9; i++) {
+    line(cell_size*(1/2+i), cell_size/2, cell_size*(1/2+i), cell_size*(10-1/2));
+    line(cell_size/2, cell_size*(1/2+i), cell_size*(10-1/2), cell_size*(1/2+i));
+  }
+  stroke(45);
+  for (i=0; i<=3; i++) {
+    line(cell_size*(1/2+i*3), cell_size/2, cell_size*(1/2+i*3), cell_size*(10-1/2));
+    line(cell_size/2, cell_size*(1/2+i*3), cell_size*(10-1/2), cell_size*(1/2+i*3));
+  }
 }
   resultsDiv.html(newArr);
 }
