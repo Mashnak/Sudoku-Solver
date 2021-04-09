@@ -27,7 +27,7 @@ function preload() {
 }
 
 function setup() {
-    possible();
+    number_possible();
     canvas = createCanvas(windowWidth, windowHeight - 100);
     background(255);
     console.log(getDeviceType());
@@ -86,11 +86,8 @@ function getImage() {
     getImageButton.hide();
     resetButton.show();
     calculateButton.show();
-    //console.log(img.width, img.height);
     mouselicksx = [];
     mouselicksy = [];
-    //calculateSudoku();
-    //console.log(mouselicksx, mouselicksy);
 }
 
 function mousePressed() {
