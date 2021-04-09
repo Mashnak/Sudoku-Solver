@@ -209,8 +209,8 @@ function draw() {
                 }
             }
         }
+        image(subimg[0],0,0);
         for (i = 0; i<subimg.length;i++){
-            console.log("subimg "+(i+1));
             image(subimg[i], 600, i * 30);
         }
     }
