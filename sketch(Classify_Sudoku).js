@@ -166,9 +166,10 @@ text('Bitte linke obere und rechte untere Ecke des Sudokufelds anklicken!', 10, 
   }
   if (showSquare){
     rect(mouselicksx[1], mouselicksy[1], mouselicksx[2]-mouselicksx[1],mouselicksy[2]-mouselicksy[1]);
+	  noFill();
   stroke(255,0,0);
   strokeWeight(5);
-  noFill();
+  
 }
 if(newArr.length == 9){
 console.table(newArr);
