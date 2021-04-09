@@ -169,7 +169,7 @@ function draw() {
         rect(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
         noFill();
         stroke(255, 0, 0);
-        strokeWeight(5);
+        strokeWeight(1);
 
     }
     if (newArr.length === 9) {
