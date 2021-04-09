@@ -2,7 +2,6 @@ let numberClassifier;
 let img = null;
 let img2 = null;
 let clearCanvas = false;
-let subimgarray = [];
 let subimg;
 let resultsDiv;
 const numbers = [];
@@ -109,7 +108,6 @@ function calculateSudoku() {
     //clearCanvas = true;
     imgwidth = img2.width / 9;
     imgheight = img2.height / 9;
-    if (subimgarray.length < 81) {
         for (i = 0; i < 9; i++) {
             for (j = 0; j < 9; j++) {
                 subimg = get(j*imgwidth,i*imgheight,imgwidth,imgheight);
@@ -117,20 +115,11 @@ function calculateSudoku() {
                 numberClassifier.classify({image: subimg}, gotResults);
             }
         }
-    }
-    console.log(subimgarray.length);
     while (numbers.length) newArr.push(numbers.splice(0, 9));
     resultsDiv.html(newArr.splice(0, 9));
-    classifySubImages();
     console.log(newArr);
 }
 
-function classifySubImages() {
-    for (z = 0; z < subimgarray.length; z++) {
-        numberClassifier.classify({image: subimg[z]}, gotResults);
-    }
-
-}
 
 function resetVideo() {
     window.location.reload();
