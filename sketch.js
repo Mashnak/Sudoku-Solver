@@ -205,6 +205,7 @@ function draw() {
                 }
             }
         }
+        img2.resize(400,400);
         image(img2, 20, 400);
     }
 }
