@@ -155,7 +155,7 @@ function one_value_cell_constraint(board) {
     // Convert every gap into an array of possibilities
     for (let r = 0; r < 9; r++) {
         for (let c = 0; c < 9; c++) {
-            if (board[r][c] === 0) {
+            if (board[r][c] == 0) {
                 updated = complete_cell(board, r, c) || updated
             }
         }
