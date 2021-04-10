@@ -10,7 +10,7 @@ let clearCanvas = false;
 let subimg;
 let resultsDiv;
 let numbers = [];
-const newArr = [];
+let newArr = [];
 let x = 0;
 let y = 0;
 let video;
@@ -135,7 +135,6 @@ function calculateSudoku() {
     numbers = [...getGrid(grid)];
     console.log(numbers, "numbers");
     while (numbers.length) newArr.push(numbers.splice(0, 9));
-    resultsDiv.html(newArr.splice(0, 9));
     console.log(newArr, "newArr");
 }
 
