@@ -10,7 +10,7 @@ let clearCanvas = false;
 let subimg;
 let resultsDiv;
 const numbers = [];
-let newArr;
+let newArr = null;
 let x = 0;
 let y = 0;
 let video;
@@ -166,7 +166,7 @@ function draw() {
         stroke(255, 0, 0);
         rect(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
     }
-    if (newArr.length === 9) {
+    if (newArr.length !== null) {
         console.log(newArr);
         clear();
         stroke(245);
