@@ -19,12 +19,11 @@ var grid = [
 
 /** Hilfsfunktion die kontrolliert, ob an der gegebenen Position im Array die gegebene Zahl möglich ist
  *
- *
- *
- *
+ * @param {number} y
+ * @param {number} x
+ * @param {number} number
  * */
-
-function number_possible(y, x, number) {
+const number_possible = (y, x, number) => {
     for (let i = 0; i < 9; i++) {
         if (grid[y][i] === number) {
             return false;
@@ -45,11 +44,13 @@ function number_possible(y, x, number) {
         }
     }
     return true;
-}
+};
 
 
-/** Funktion die das Sudoku Brute force löst */
-function solve_Sudoku_BF() {
+/** Funktion die das Sudoku Brute force löst
+ *
+ * */
+const solve_Sudoku_BF = () => {
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++)  {
             if (grid[i][j] === 0) {
@@ -65,7 +66,7 @@ function solve_Sudoku_BF() {
         }
     }
     console.log(grid);
-}
+};
 solve_Sudoku_BF();
 
 
