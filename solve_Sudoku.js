@@ -37,8 +37,8 @@ const number_possible = (y, x, number) => {
             return false;
         }
     }
-    let xx = Math.floor(x)*3;
-    let yy = Math.floor(y)*3;
+    let xx = Math.floor(x/3)*3;
+    let yy = Math.floor(y/3)*3;
     console.log(xx,yy);
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
