@@ -177,20 +177,20 @@ function draw() {
         clear();
         stroke(245);
         strokeWeight(1);
-        for (i = 1; i < 9; i++) {
+        for (let i = 1; i < 9; i++) {
             line(cell_size * (1 / 2 + i), cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2));
             line(cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i));
         }
         stroke(45);
-        for (i = 0; i <= 3; i++) {
+        for (let i = 0; i <= 3; i++) {
             line(cell_size * (1 / 2 + i * 3), cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2));
             line(cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i * 3));
         }
         noStroke();
         textSize(20);
 
-        for (i = 0; i < 9; i++) {
-            for (j = 0; j < 9; j++) {
+        for (let i = 0; i < 9; i++) {
+            for (let j = 0; j < 9; j++) {
                 if (newArr[i][j] !== 0) {
                     stroke("black");
                     fill("black");
