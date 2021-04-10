@@ -131,16 +131,12 @@ function calculateSudoku() {
         }
     }
 
-    helpArr = getGrid(grid);
-    console.log(helpArr);
-    for (let i = 0; i < 9; i++) {
-        for (let j = 0; j < 9; j++) {
-            newArr[i][j] = helpArr[i][j];
-        }
+    if (newArr.length === 0) {
+        newArr = getGrid(grid);
     }
+    console.log(newArr);
     // while (numbers.length) newArr.push(numbers.splice(0, 9));
     resultsDiv.html(newArr.splice(0, 9));
-    console.log(newArr);
 }
 
 
