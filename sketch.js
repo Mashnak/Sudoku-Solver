@@ -10,6 +10,7 @@ let clearCanvas = false;
 let subimg;
 let resultsDiv;
 const numbers = [];
+let newArr;
 let x = 0;
 let y = 0;
 let video;
@@ -116,7 +117,7 @@ function calculateSudoku() {
             numberClassifier.classify({image: subimg}, gotResults);
         }
     }
-    let newArr = getGrid();
+    newArr = getGrid();
     // while (numbers.length) newArr.push(numbers.splice(0, 9));
     resultsDiv.html(newArr.splice(0, 9));
     console.log(newArr);
