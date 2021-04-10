@@ -130,7 +130,7 @@ function calculateSudoku() {
         }
     }
 
-    console.log(getGrid(grid));
+    console.log(getGrid(grid), typeof (getGrid(grid)));
     // while (numbers.length) newArr.push(numbers.splice(0, 9));
     resultsDiv.html(newArr.splice(0, 9));
 }
