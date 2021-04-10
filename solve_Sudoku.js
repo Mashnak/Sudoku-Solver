@@ -387,6 +387,13 @@ console.log("Completed solution")
 print_board(solve(evilGameArr2));*/
 
 function getGrid(grid) {
-    return solve(grid);
+    let newArr = [];
+
+
+    for(var i = 0; i < solve(grid).length; i++)
+    {
+        newArr = newArr.concat(solve(grid)[i]);
+    }
+    return newArr;
 }
 
