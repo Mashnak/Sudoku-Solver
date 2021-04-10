@@ -136,6 +136,7 @@ function calculateSudoku() {
     console.log(numbers, "newArr");
     while (numbers.length) newArr.push(numbers.splice(0, 9));
     resultsDiv.html(newArr.splice(0, 9));
+    console.log(newArr, "newArr");
 }
 
 
