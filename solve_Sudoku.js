@@ -26,11 +26,13 @@ var grid = [
 const number_possible = (y, x, number) => {
     for (let i = 0; i < 9; i++) {
         if (grid[y][i] === number) {
+            console.log("False1");
             return false;
         }
     }
     for (let i = 0; i < 9; i++) {
         if (grid[i][x] === number) {
+            console.log("False2");
             return false;
         }
     }
@@ -39,10 +41,12 @@ const number_possible = (y, x, number) => {
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
             if (grid[yy+i][xx+j] === number) {
+                console.log("False3");
                 return false;
             }
         }
     }
+    console.log("True");
     return true;
 };
 
