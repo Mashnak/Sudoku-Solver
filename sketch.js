@@ -10,7 +10,7 @@ let clearCanvas = false;
 let subimg;
 let resultsDiv;
 const numbers = [];
-let newArr = [];
+const newArr = [];
 let x = 0;
 let y = 0;
 let video;
