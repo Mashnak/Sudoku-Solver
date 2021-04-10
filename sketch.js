@@ -22,6 +22,18 @@ let mouselicksy = [];
 let showSquare = false;
 let cell_size = 40;
 
+const grid = [
+    [1,0,0,9,0,0,6,5,0],
+    [0,9,0,2,0,0,3,0,0],
+    [0,0,7,1,3,0,0,4,0],
+    [0,0,0,0,0,6,0,0,0],
+    [9,0,8,0,7,0,0,0,0],
+    [7,0,0,0,0,0,8,0,0],
+    [3,0,0,0,0,0,0,0,0],
+    [0,8,1,5,0,0,0,0,9],
+    [0,5,0,0,0,2,0,0,0]
+];
+
 
 /**  */
 function preload() {
@@ -117,7 +129,7 @@ function calculateSudoku() {
             numberClassifier.classify({image: subimg}, gotResults);
         }
     }
-    newArr = getGrid();
+    newArr = getGrid(grid);
     // while (numbers.length) newArr.push(numbers.splice(0, 9));
     resultsDiv.html(newArr.splice(0, 9));
     console.log(newArr);

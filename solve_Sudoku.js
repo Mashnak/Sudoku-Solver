@@ -386,7 +386,7 @@ console.log("");
 console.log("Completed solution")
 print_board(solve(evilGameArr2));*/
 
-function getGrid() {
-    return solve(veryeasyGameArr);
+function getGrid(grid) {
+    return solve(grid);
 }
 console.log(getGrid());
