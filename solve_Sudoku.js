@@ -50,7 +50,7 @@ const number_possible = (y, x, number) => {
 /** Funktion die das Sudoku Brute force löst
  *
  * */
-async function solve_Sudoku_BF() {
+const solve_Sudoku_BF = async () => {
     console.log("test");
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++)  {
@@ -67,6 +67,6 @@ async function solve_Sudoku_BF() {
         }
     }
     console.log(grid);
-}
-solve_Sudoku_BF();
-console.log(grid);
+};
+solve_Sudoku_BF().then(r => console.log(grid));
+
