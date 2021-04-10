@@ -131,9 +131,7 @@ function calculateSudoku() {
         }
     }
 
-    if (newArr.length === 0) {
         newArr = getGrid(grid);
-    }
     console.log(newArr);
     // while (numbers.length) newArr.push(numbers.splice(0, 9));
     resultsDiv.html(newArr.splice(0, 9));
