@@ -129,7 +129,7 @@ function calculateSudoku() {
             numberClassifier.classify({image: subimg}, gotResults);
         }
     }
-    helpArr = getGrid(grid);
+    let helpArr = getGrid(grid);
     for (i = 0; i < 9; i++) {
         for (j = 0; j < 9; j++) {
             newArr[i][j] = helpArr[i][j];
