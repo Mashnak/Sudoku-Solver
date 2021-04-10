@@ -51,14 +51,14 @@ const number_possible = (y, x, number) => {
 /** Funktion die das Sudoku Brute force löst
  *
  * */
-const solve_Sudoku_BF = () => {
+async function solve_Sudoku_BF() {
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++)  {
             if (grid[i][j] === 0) {
                 for (let n = 1; n < 10; n++) {
                     if (number_possible(i,j,n)) {
                         grid[i][j] = n
-                        solve_Sudoku_BF();
+                        await solve_Sudoku_BF();
                         grid[i][j] = 0;
                     }
                 }
@@ -67,5 +67,5 @@ const solve_Sudoku_BF = () => {
         }
     }
     console.log(grid);
-};
+}
 solve_Sudoku_BF();
