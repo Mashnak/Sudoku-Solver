@@ -331,7 +331,7 @@ var evilGameArr2 = [
     [0, 0, 0, 0, 4, 0, 0, 0, 9]
 ];
 
-console.log("");
+/*console.log("");
 console.log("Starting game - VERY EASY")
 print_board(veryeasyGameArr)
 console.log("");
@@ -384,7 +384,7 @@ console.log("Starting game - EVIL #2")
 print_board(evilGameArr2)
 console.log("");
 console.log("Completed solution")
-print_board(solve(evilGameArr2));
+print_board(solve(evilGameArr2));*/
 
 function getGrid() {
     return solve(evilGameArr2);
