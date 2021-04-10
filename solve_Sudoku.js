@@ -29,7 +29,7 @@ function get_square(board, square) {
     let cells = []
     for (let r = 0; r < 9; r++) {
         for (let c = 0; c < 9; c++) {
-            if (square == square_coordinates[r][c]) {
+            if (square === square_coordinates[r][c]) {
                 cells.push(board[r][c])
             }
         }
@@ -45,7 +45,7 @@ function complete_cell(board, r, c) {
             possibilities.push(p)
         }
     }
-    if (possibilities.length == 1) {
+    if (possibilities.length === 1) {
         // If there is only one valid possibility, fill it in
         board[r][c] = possibilities[0]
         return true
@@ -66,12 +66,12 @@ function appears_once_only(board, possibilities, segment, r, c) {
                     counter++
                 }
             } else {
-                if (cell == possibility) {
+                if (cell === possibility) {
                     counter++
                 }
             }
         })
-        if (counter == 1) {
+        if (counter === 1) {
             board[r][c] = possibility
             updated = true
             break
@@ -90,19 +90,19 @@ function is_solved(board) {
     let expected = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     let valid = true
     // Check all rows
-    for (r = 0; r < 9 && valid == true; r++) {
+    for (r = 0; r < 9 && valid === true; r++) {
         if (!compare(expected, get_row(board, r))) {
             valid = false
         }
     }
     // Check all columns
-    for (c = 0; c < 9 && valid == true; c++) {
+    for (c = 0; c < 9 && valid === true; c++) {
         if (!compare(expected, get_column(board, c))) {
             valid = false
         }
     }
     // Check all quadrants
-    for (q = 1; q < 9 && valid == true; q++) {
+    for (q = 1; q < 9 && valid === true; q++) {
         if (!compare(expected, get_square(board, q))) {
             valid = false
         }
@@ -118,7 +118,7 @@ function backtrack_based(orig_board) {
     for (let r = 0; r < 9; r++) {
         for (let c = 0; c < 9; c++) {
             // Process each incomplete cell
-            if (board[r][c] == 0) {
+            if (board[r][c] === 0) {
                 complete_cell(board, r, c)
                 if (is_solved(board)) return board;
                 let cell = board[r][c]
@@ -155,7 +155,7 @@ function one_value_cell_constraint(board) {
     // Convert every gap into an array of possibilities
     for (let r = 0; r < 9; r++) {
         for (let c = 0; c < 9; c++) {
-            if (board[r][c] == 0) {
+            if (board[r][c] === 0) {
                 updated = complete_cell(board, r, c) || updated
             }
         }
@@ -218,7 +218,7 @@ function solve(board) {
 function print_cell(value) {
     if (Array.isArray(value)) {
         return "."
-    } else if (value == 0) {
+    } else if (value === 0) {
         return "."
     } else {
         return value
@@ -229,7 +229,7 @@ function print_board(gameArr) {
     console.log()
     for (i = 0; i < 9; i++) {
         let row = get_row(gameArr, i)
-        if (i % 3 == 0) {
+        if (i % 3 === 0) {
             console.log("|=======|=======|=======|")
         }
         console.log("|",
