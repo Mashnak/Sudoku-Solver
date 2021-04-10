@@ -11,6 +11,7 @@ let subimg;
 let resultsDiv;
 const numbers = [];
 let newArr = [];
+let helpArr;
 let x = 0;
 let y = 0;
 let video;
@@ -120,8 +121,8 @@ function calculateSudoku() {
     img2.resize(252, 252);
     console.log(img2.width, img2.height);
     //clearCanvas = true;
-    imgwidth = img2.width / 9;
-    imgheight = img2.height / 9;
+    let imgwidth = img2.width / 9;
+    let imgheight = img2.height / 9;
     for (i = 0; i < 9; i++) {
         for (j = 0; j < 9; j++) {
             subimg = get(j * imgwidth, i * imgheight, imgwidth, imgheight);
@@ -129,7 +130,8 @@ function calculateSudoku() {
             numberClassifier.classify({image: subimg}, gotResults);
         }
     }
-    let helpArr = getGrid(grid);
+
+    helpArr = getGrid(grid);
     for (i = 0; i < 9; i++) {
         for (j = 0; j < 9; j++) {
             newArr[i][j] = helpArr[i][j];
