@@ -17,7 +17,13 @@ var grid = [
 ];
 
 
-/** Hilfsfunktion die kontrolliert, ob an der gegebenen Position im Array die gegebene Zahl möglich ist*/
+/** Hilfsfunktion die kontrolliert, ob an der gegebenen Position im Array die gegebene Zahl möglich ist
+ *
+ *
+ *
+ *
+ * */
+
 function number_possible(y, x, number) {
     for (let i = 0; i < 9; i++) {
         if (grid[y][i] === number) {
@@ -46,12 +52,12 @@ function number_possible(y, x, number) {
 function solve_Sudoku_BF() {
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++)  {
-            if (grid[j][i] === 0) {
+            if (grid[i][j] === 0) {
                 for (let n = 1; n < 10; n++) {
-                    if (number_possible(j,i,n)) {
-                        grid[j][i] = n
+                    if (number_possible(i,j,n)) {
+                        grid[i][j] = n
                         solve_Sudoku_BF();
-                        grid[j][i] = 0;
+                        grid[i][j] = 0;
                     }
                 }
                 return;
@@ -61,3 +67,8 @@ function solve_Sudoku_BF() {
     console.log(grid);
 }
 solve_Sudoku_BF();
+
+
+function modelLoaded() {
+    console.log('Model loaded!');
+}
