@@ -52,6 +52,7 @@ const number_possible = (y, x, number) => {
  *
  * */
 async function solve_Sudoku_BF() {
+    console.log("test");
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++)  {
             if (grid[i][j] === 0) {
