@@ -2,7 +2,7 @@
  ***  Methoden um das vorhandene und erkannte Sudoku vollständig zu lösen.  ***
  *****************************************************************************/
 
-const grid = [
+const _board = [
     ['.', '9', '.', '.', '4', '2', '1', '3', '6'],
     ['.', '.', '.', '9', '6', '.', '4', '8', '5'],
     ['.', '.', '.', '5', '8', '1', '.', '.', '.'],
@@ -13,8 +13,8 @@ const grid = [
     ['7', '.', '6', '.', '.', '.', '8', '1', '.'],
     ['3', '.', '.', '.', '9', '.', '.', '.', '.'],
 ];
-sudokoSolver(grid);
-console.log(grid);
+sudokoSolver(_board);
+console.log(_board);
 
 function isValid(board, row, col, k) {
     for (let i = 0; i < 9; i++) {
@@ -50,5 +50,5 @@ function sudokoSolver(data) {
 }
 
 function getGrid() {
-    return grid;
+    return _board;
 }

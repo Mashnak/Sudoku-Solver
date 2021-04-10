@@ -10,7 +10,6 @@ let clearCanvas = false;
 let subimg;
 let resultsDiv;
 const numbers = [];
-const newArr = [];
 let x = 0;
 let y = 0;
 let video;
@@ -76,8 +75,6 @@ function setup() {
 }
 
 
-
-
 function getImage() {
     clearCanvas = false;
     img = video.get(0, 0, video.width, video.height);
@@ -112,14 +109,15 @@ function calculateSudoku() {
     //clearCanvas = true;
     imgwidth = img2.width / 9;
     imgheight = img2.height / 9;
-        for (i = 0; i < 9; i++) {
-            for (j = 0; j < 9; j++) {
-                subimg = get(j*imgwidth,i*imgheight,imgwidth,imgheight);
-                subimg.resize(28,28);
-                numberClassifier.classify({image: subimg}, gotResults);
-            }
+    for (i = 0; i < 9; i++) {
+        for (j = 0; j < 9; j++) {
+            subimg = get(j * imgwidth, i * imgheight, imgwidth, imgheight);
+            subimg.resize(28, 28);
+            numberClassifier.classify({image: subimg}, gotResults);
         }
-    while (numbers.length) newArr.push(numbers.splice(0, 9));
+    }
+    let newArr = getGrid();
+    // while (numbers.length) newArr.push(numbers.splice(0, 9));
     resultsDiv.html(newArr.splice(0, 9));
     console.log(newArr);
 }
@@ -136,7 +134,7 @@ function draw() {
     if (img != null) {
         textSize(5);
         strokeWeight(1);
-        stroke(0,0,0);
+        stroke(0, 0, 0);
         text('Bitte linke obere und rechte untere Ecke des Sudokufelds anklicken!', 10, 30);
         image(img, 0, 50);
     }
@@ -172,7 +170,7 @@ function draw() {
 
         for (i = 0; i < 9; i++) {
             for (j = 0; j < 9; j++) {
-                if (newArr[i][j]!==0) {
+                if (newArr[i][j] !== 0) {
                     stroke("black");
                     fill("black");
                     text(newArr[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
@@ -191,7 +189,7 @@ function draw() {
                 }
             }
         }
-        image(img2, 400,20);
+        image(img2, 400, 20);
     }
 }
 
