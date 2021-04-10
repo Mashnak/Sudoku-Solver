@@ -385,3 +385,7 @@ print_board(evilGameArr2)
 console.log("");
 console.log("Completed solution")
 print_board(solve(evilGameArr2));
+
+function getGrid() {
+    return solve(evilGameArr2);
+}
