@@ -27,28 +27,23 @@ const number_possible = (y, x, number) => {
     console.log(y,x,number);
     for (let i = 0; i < 9; i++) {
         if (grid[y][i] === number) {
-            console.log("False1");
             return false;
         }
     }
     for (let i = 0; i < 9; i++) {
         if (grid[i][x] === number) {
-            console.log("False2");
             return false;
         }
     }
     let xx = Math.floor(x/3)*3;
     let yy = Math.floor(y/3)*3;
-    console.log(xx,yy);
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
             if (grid[yy+i][xx+j] === number) {
-                console.log("False3");
                 return false;
             }
         }
     }
-    console.log("True");
     return true;
 };
 
@@ -74,8 +69,3 @@ const solve_Sudoku_BF = () => {
     console.log(grid);
 };
 solve_Sudoku_BF();
-
-
-function modelLoaded() {
-    console.log('Model loaded!');
-}
