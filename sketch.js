@@ -123,7 +123,7 @@ function calculateSudoku() {
     //clearCanvas = true;
     let imgwidth = img2.width / 9;
     let imgheight = img2.height / 9;
-    for (i = 0; i < 9; i++) {
+    for (let i = 0; i < 9; i++) {
         for (j = 0; j < 9; j++) {
             subimg = get(j * imgwidth, i * imgheight, imgwidth, imgheight);
             subimg.resize(28, 28);
@@ -131,7 +131,7 @@ function calculateSudoku() {
         }
     }
 
-        newArr = getGrid(grid);
+    newArr = getGrid(grid);
     console.log(newArr);
     // while (numbers.length) newArr.push(numbers.splice(0, 9));
     resultsDiv.html(newArr.splice(0, 9));
