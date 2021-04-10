@@ -10,7 +10,7 @@ let clearCanvas = false;
 let subimg;
 let resultsDiv;
 const numbers = [];
-let newArr = null;
+let newArr = [];
 let x = 0;
 let y = 0;
 let video;
@@ -123,15 +123,14 @@ function calculateSudoku() {
     let imgwidth = img2.width / 9;
     let imgheight = img2.height / 9;
     for (let i = 0; i < 9; i++) {
-        for (j = 0; j < 9; j++) {
+        for (let j = 0; j < 9; j++) {
             subimg = get(j * imgwidth, i * imgheight, imgwidth, imgheight);
             subimg.resize(28, 28);
             numberClassifier.classify({image: subimg}, gotResults);
         }
     }
 
-    newArr = getGrid(grid);
-    console.log(newArr);
+    console.log(getGrid(grid));
     // while (numbers.length) newArr.push(numbers.splice(0, 9));
     resultsDiv.html(newArr.splice(0, 9));
 }
@@ -166,7 +165,7 @@ function draw() {
         stroke(255, 0, 0);
         rect(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
     }
-    if (newArr !== null) {
+    if (newArr.length === 9) {
         console.log(newArr);
         clear();
         stroke(245);
