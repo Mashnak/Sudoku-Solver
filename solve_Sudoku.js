@@ -1,69 +1,46 @@
-/*****************************************************************************
-***  Methoden um das vorhandene und erkannte Sudoku vollständig zu lösen.  ***
- *****************************************************************************/
-
-/** Hilfsarray um die Funktionen zu testen, solange die Erkennung nicht gut funktioniert*/
-const grid = [
-    [1,0,0,9,0,0,6,5,0],
-    [0,9,0,2,0,0,3,0,0],
-    [0,0,7,1,3,0,0,4,0],
-    [0,0,0,0,0,6,0,0,0],
-    [9,0,8,0,7,0,0,0,0],
-    [7,0,0,0,0,0,8,0,0],
-    [3,0,0,0,0,0,0,0,0],
-    [0,8,1,5,0,0,0,0,9],
-    [0,5,0,0,0,2,0,0,0]
+const _board = [
+    ['.', '9', '.', '.', '4', '2', '1', '3', '6'],
+    ['.', '.', '.', '9', '6', '.', '4', '8', '5'],
+    ['.', '.', '.', '5', '8', '1', '.', '.', '.'],
+    ['.', '.', '4', '.', '.', '.', '.', '.', '.'],
+    ['5', '1', '7', '2', '.', '.', '9', '.', '.'],
+    ['6', '.', '2', '.', '.', '.', '3', '7', '.'],
+    ['1', '.', '.', '8', '.', '4', '.', '2', '.'],
+    ['7', '.', '6', '.', '.', '.', '8', '1', '.'],
+    ['3', '.', '.', '.', '9', '.', '.', '.', '.'],
 ];
+sodokoSolver(_board);
+console.log(_board);
 
-
-/** Hilfsfunktion die kontrolliert, ob an der gegebenen Position im Array die gegebene Zahl möglich ist
- *
- * @param {number} y
- * @param {number} x
- * @param {number} number
- * */
-const number_possible = (y, x, number) => {
+function isValid(board, row, col, k) {
     for (let i = 0; i < 9; i++) {
-        if (grid[y][i] === number) {
+        const m = 3 * Math.floor(row / 3) + Math.floor(i / 3);
+        const n = 3 * Math.floor(col / 3) + i % 3;
+        if (board[row][i] == k || board[i][col] == k || board[m][n] == k) {
             return false;
         }
     }
+    return true;
+}
+
+
+function sodokoSolver(data) {
     for (let i = 0; i < 9; i++) {
-        if (grid[i][x] === number) {
-            return false;
-        }
-    }
-    let xx = Math.floor(x/3)*3;
-    let yy = Math.floor(y/3)*3;
-    for (let i = 0; i < 3; i++) {
-        for (let j = 0; j < 3; j++) {
-            if (grid[yy+i][xx+j] === number) {
+        for (let j = 0; j < 9; j++) {
+            if (data[i][j] == '.') {
+                for (let k = 1; k <= 9; k++) {
+                    if (isValid(data, i, j, k)) {
+                        data[i][j] = `${k}`;
+                        if (sodokoSolver(data)) {
+                            return true;
+                        } else {
+                            data[i][j] = '.';
+                        }
+                    }
+                }
                 return false;
             }
         }
     }
     return true;
-};
-
-
-/** Funktion die das Sudoku Brute force löst
- *
- * */
-const solve_Sudoku_BF = async () => {
-    for (let i = 0; i < 9; i++) {
-        for (let j = 0; j < 9; j++)  {
-            if (grid[i][j] === 0) {
-                for (let n = 1; n < 10; n++) {
-                    if (number_possible(i,j,n)) {
-                        grid[i][j] = n
-                        await solve_Sudoku_BF();
-                        grid[i][j] = 0;
-                    }
-                }
-                return;
-            }
-        }
-    }
-};
-solve_Sudoku_BF().then(r => console.log(grid));
-
+}
