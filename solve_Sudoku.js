@@ -24,7 +24,6 @@ var grid = [
  * @param {number} number
  * */
 const number_possible = (y, x, number) => {
-    console.log(y,x,number);
     for (let i = 0; i < 9; i++) {
         if (grid[y][i] === number) {
             return false;
