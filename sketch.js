@@ -170,7 +170,7 @@ function draw() {
         stroke(255, 0, 0);
         rect(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
     }
-    if (newArr) {
+    if (newArr.length === 9) {
         clear();
         stroke(245);
         strokeWeight(1);
