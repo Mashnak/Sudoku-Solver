@@ -133,7 +133,7 @@ function calculateSudoku() {
     console.log(newArr);
     console.log(getGrid(grid), "Returned Grid");
     numbers = [...getGrid(grid)];
-    console.log(numbers, "newArr");
+    console.log(numbers, "numbers");
     while (numbers.length) newArr.push(numbers.splice(0, 9));
     resultsDiv.html(newArr.splice(0, 9));
     console.log(newArr, "newArr");
