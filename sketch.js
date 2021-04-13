@@ -247,24 +247,6 @@ function mousePressed() {
 }
 
 /**
- * @param err
- * @param results
- */
-function gotResults(err, results) {
-    if (err) {
-        console.error(err);
-        return;
-    }
-    let label = results[0].label;
-    let confidence = nf(100 * results[0].confidence, 2, 0);
-    if (confidence >= 50) {
-        numbers1d.push(int(label));
-    } else {
-        numbers1d.push(0);
-    }
-}
-
-/**
  *
  * */
 function setup() {
