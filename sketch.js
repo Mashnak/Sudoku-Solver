@@ -10,7 +10,7 @@ let img = null;
 let img2 = null;
 let clearCanvas = false;
 let subimg;
-
+let logo;
 let x = 0;
 let y = 0;
 let video;
@@ -266,6 +266,8 @@ function resetVideo() {
  * */
 function setup() {
     let canvas = createCanvas(windowWidth, windowHeight - 100);
+    logo = loadImage("Logo.jpg");
+    logo.size(windowWidth,windowWidth);
     background(255);
     /** Erstellen der Buttons zur Steuerung durch die App*/
     uploadButton = createButton('Sudoku hochladen');
@@ -331,7 +333,7 @@ function mousePressed() {
  */
 function draw() {
     if (_startScreen) {
-
+        image(logo, 0,0);
     }
 
     if (_uploadScreen) {
