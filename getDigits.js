@@ -34,14 +34,13 @@ function getDigits(img) {
             numberClassifier.classify({image: subimg}, gotResults);
         }
     }
-    if (numbers.length===81) {
-        console.log(numbers,"nbumbers");
+    if (numbers.length === 81) {
+        console.log(numbers, "nbumbers");
         return numbers;
     }
     console.log(numbers, "numebrs");
     let newArr = [];
-    for(let i = 0; i < grid.length; i++)
-    {
+    for (let i = 0; i < grid.length; i++) {
         newArr = newArr.concat(grid[i]);
     }
     return newArr;
