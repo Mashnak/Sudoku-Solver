@@ -336,7 +336,41 @@ function draw() {
 
     if (_uploadImageScreen) {
         clear();
-        image(img2, 0, 0, windowWidth, windowWidth);
+        stroke(245);
+        strokeWeight(1);
+        for (let i = 1; i < 9; i++) {
+            line(cell_size * (1 / 2 + i), cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2));
+            line(cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i));
+        }
+        stroke(45);
+        for (let i = 0; i <= 3; i++) {
+            line(cell_size * (1 / 2 + i * 3), cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2));
+            line(cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i * 3));
+        }
+        noStroke();
+        textSize(20);
+
+        for (let i = 0; i < 9; i++) {
+            for (let j = 0; j < 9; j++) {
+                if (numbers2d[i][j] !== 0) {
+                    stroke("black");
+                    fill("black");
+                    text(numbers2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
+                } else if (newArr[i][j] > 0) {
+                    stroke("green");
+                    fill("green");
+                    text(numbers2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
+                } else if (numbers2d[i][j] === 0) {
+                    stroke("green");
+                    fill("green");
+                    text(numbers2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
+                } else {
+                    stroke("orange");
+                    fill("orange");
+                    text(numbers2d[i][j], cell_size * (j + 1) - 12, cell_size * (i + 1) + (j % 3 - 1) * 12 + 6);
+                }
+            }
+        }
     }
 
     if (_imageScreen) {
