@@ -249,7 +249,7 @@ function setup() {
     cropImgButton.mousePressed(sudokuScreen);
     cropImgButton.hide();
     resetButton = createButton('Reset');
-    resetButton.style("border-radius", 25);
+    resetButton.style();
     resetButton.position(20, windowHeight - 150);
     resetButton.size(160, 50);
     resetButton.mousePressed(resetVideo);
