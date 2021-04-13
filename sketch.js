@@ -156,6 +156,7 @@ function uploadImageScreen() {
     resetButton.show();
     /***********************/
     getDigits(img2);
+    console.log(numbers1d);
     while (numbers1d.length) numbers2d.push(numbers1d.splice(0, 9));
 
 }
@@ -220,6 +221,7 @@ function sudokuScreen() {
     resetButton.show();
     /***********************/
     getDigits(img2);
+    console.log(numbers1d);
     while (numbers1d.length) numbers2d.push(numbers1d.splice(0, 9));
 }
 
