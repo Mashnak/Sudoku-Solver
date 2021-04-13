@@ -27,7 +27,7 @@ function getDigits(img) {
         }
     }
 
-    console.log(numbers, "numbers2");
+    console.log(numbers, "numbers3");
     let newArr = [];
     for (let i = 0; i < grid.length; i++) {
         newArr = newArr.concat(grid[i]);
