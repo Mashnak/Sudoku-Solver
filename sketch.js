@@ -108,6 +108,25 @@ function videoScreen() {
     calculateButton.hide();
     resetButton.hide();
 }
+function uploadImageScreen() {
+    console.log("UploadImageScreen");
+    _startScreen = false;
+    _uploadScreen = true;
+    _videoScreen = false;
+    _imageScreen = false;
+    _sudokuScreen = false;
+    _calculatedScreen = false;
+    /***********************/
+    video.hide();
+    uploadButton.hide();
+    videoButton.hide();
+    uploadImageButton.show();
+    getImageButton.hide();
+    cropImgButton.hide();
+    calculateButton.hide();
+    resetButton.hide();
+    /***********************/
+}
 function imageScreen() {
     console.log("ImageScreen");
     _startScreen = false;
@@ -129,9 +148,6 @@ function imageScreen() {
     img = video.get(0, 0, video.width, video.height);
     video.stop();
     video.hide();
-    getImageButton.hide();
-    resetButton.show();
-    calculateButton.show();
     mouselicksx = [];
     mouselicksy = [];
     showSquare = true;
@@ -215,7 +231,7 @@ function setup() {
     uploadImageButton = createButton('Foto');
     uploadImageButton.position(windowWidth / 2 - 25, windowHeight - 75);
     uploadImageButton.size(50, 50);
-    uploadImageButton.mousePressed(imageScreen);
+    uploadImageButton.mousePressed(uploadImageScreen);
     uploadImageButton.hide();
     getImageButton = createButton('Foto');
     getImageButton.position(windowWidth / 2 - 25, windowHeight - 75);
@@ -252,24 +268,13 @@ function setup() {
     }
     video.position(0, 0);
     video.hide();
-
-
-
-
-
 }
-
-
 
 
 function mousePressed() {
     mouselicksx.push(mouseX);
     mouselicksy.push(mouseY);
 }
-
-
-
-
 
 
 function draw() {
@@ -292,6 +297,7 @@ function draw() {
         stroke(0, 0, 0);
         text('Bitte linke obere und rechte untere Ecke des Sudokufelds anklicken!', 10, 30);
         image(img, 0, 50);
+
     }
 
     if (_sudokuScreen) {
