@@ -17,7 +17,7 @@ let video;
 
 
 let showSquare = false;
-let cell_size = windowWidth/10;
+let cell_size =35;
 
 /**
  * Steuervariablen für das UI
