@@ -79,12 +79,12 @@ function setup() {
         uploadButton = createButton('Sudoku hochladen');
         uploadButton.position(windowWidth / 2 - 125, windowHeight - 75);
         uploadButton.size(100, 50);
-        uploadButton.mousePressed(_uploadScreen=true, _startScreen = false);
+        //uploadButton.mousePressed(_uploadScreen=true, _startScreen = false);
 
         videoButton = createButton('Sudoku aufnehmen');
         videoButton.position(windowWidth / 2 + 125, windowHeight - 75);
         videoButton.size(100, 50);
-        videoButton.mousePressed(_videoScreen=true, _startScreen = false);
+        //videoButton.mousePressed(_videoScreen=true, _startScreen = false);
     }
 
     if(_uploadScreen) {
