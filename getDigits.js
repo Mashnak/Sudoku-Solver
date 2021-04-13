@@ -21,6 +21,7 @@ function getDigits(img) {
             numberClassifier.classify({image: subimg}, gotResults);
         }
     }
+    console.log(numbers);
     if(numbers>0) {
         return numbers;
     }
