@@ -21,8 +21,10 @@ function getDigits(img) {
         }
     }
     if (numbers.length===81) {
+        console.log(numbers,"nbumbers");
         return numbers;
     }
+    console.log(grid2, "grid2");
     return grid2;
 }
 
