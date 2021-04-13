@@ -17,7 +17,7 @@ let video;
 
 
 let showSquare = false;
-let cell_size = 40;
+let cell_size = windowWidth/10;
 
 /**
  * Steuervariablen für das UI
@@ -345,7 +345,7 @@ function draw() {
 
     if (_uploadImageScreen) {
         clear();
-        image(img2, 0, 0);
+        image(img2, 0, 0, windowWidth, windowWidth);
     }
 
     if (_imageScreen) {
