@@ -250,7 +250,6 @@ function calculatedScreen() {
     /***********************/
     y++;
     showSquare = false;
-    img2.resize(252, 252);
     let imgwidth = img2.width / 9;
     let imgheight = img2.height / 9;
     for (let i = 0; i < 9; i++) {
