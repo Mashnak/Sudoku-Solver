@@ -111,20 +111,6 @@ function uploadScreen() {
  */
 function videoScreen() {
     console.log("VideoScreen");
-    if (getDeviceType() === 'mobile' || getDeviceType() === 'tablet') {
-        video =
-            createCapture({
-                audio: false,
-                video: {
-                    facingMode: {
-                        exact: "environment"
-                    }
-                }
-            });
-    } else {
-        video = createCapture(VIDEO);
-    }
-    video.position(0, 0);
     _startScreen = false;
     _uploadScreen = false;
     _videoScreen = true;
@@ -310,6 +296,21 @@ function setup() {
     calculateButton.size(160, 50);
     calculateButton.mousePressed(calculatedScreen);
     calculateButton.hide();
+    if (getDeviceType() === 'mobile' || getDeviceType() === 'tablet') {
+        video =
+            createCapture({
+                audio: false,
+                video: {
+                    facingMode: {
+                        exact: "environment"
+                    }
+                }
+            });
+    } else {
+        video = createCapture(VIDEO);
+    }
+    video.position(0, 0, windowWidth);
+    video.hide();
 }
 
 /**
