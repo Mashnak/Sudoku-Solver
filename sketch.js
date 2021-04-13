@@ -77,6 +77,15 @@ function uploadScreen() {
     _imageScreen = false;
     _sudokuScreen = false;
     _calculatedScreen = false;
+    /***********************/
+    video.hide();
+    uploadButton.hide();
+    videoButton.hide();
+    getImageButton.show();
+    cropImgButton.hide();
+    resetButton.hide();
+    calculateButton.hide();
+    /***********************/
 }
 
 function videoScreen() {
@@ -87,6 +96,14 @@ function videoScreen() {
     _imageScreen = false;
     _sudokuScreen = false;
     _calculatedScreen = false;
+    /***********************/
+    video.show();
+    uploadButton.hide();
+    videoButton.hide();
+    getImageButton.show();
+    cropImgButton.hide();
+    resetButton.hide();
+    calculateButton.hide();
 }
 function imageScreen() {
     console.log("ImageScreen");
@@ -96,6 +113,14 @@ function imageScreen() {
     _imageScreen = true;
     _sudokuScreen = false;
     _calculatedScreen = false;
+    /***********************/
+    uploadButton.hide();
+    videoButton.hide();
+    getImageButton.show();
+    cropImgButton.hide();
+    resetButton.hide();
+    calculateButton.hide();
+    /***********************/
     clearCanvas = false;
     img = video.get(0, 0, video.width, video.height);
     video.stop();
@@ -115,6 +140,14 @@ function sudokuScreen() {
     _imageScreen = false;
     _sudokuScreen = true;
     _calculatedScreen = false;
+    /***********************/
+    uploadButton.hide();
+    videoButton.hide();
+    getImageButton.show();
+    cropImgButton.hide();
+    resetButton.hide();
+    calculateButton.hide();
+    /***********************/
 }
 function calculatedScreen() {
     console.log("CalculatedScreen");
@@ -124,6 +157,14 @@ function calculatedScreen() {
     _imageScreen = false;
     _sudokuScreen = false;
     _calculatedScreen = true;
+    /***********************/
+    uploadButton.hide();
+    videoButton.hide();
+    getImageButton.show();
+    cropImgButton.hide();
+    resetButton.hide();
+    calculateButton.hide();
+    /***********************/
     if (img != null) {
         //img2 = img.get(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
         img2 = loadImage("Sudoku.jpg");
@@ -199,6 +240,7 @@ function setup() {
         video = createCapture(VIDEO);
     }
     video.position(0, 0);
+    video.hide();
 
 
 
