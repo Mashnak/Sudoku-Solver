@@ -11,7 +11,6 @@ let img2 = null; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let clearCanvas = false; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let subimg; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let logo; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-let x = 0; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let y = 0; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let video; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let showSquare = false; // Variable die das neuronale Netz aus ML5 zwischenspeichert
@@ -476,9 +475,8 @@ function gotResults(err, results) {
     let confidence = nf(100 * results[0].confidence, 2, 0);
     console.log(label, confidence);
     if (confidence >= 50) {
-        numbers[x] = int(label);
+        numbers.push(int(label));
     } else {
-        numbers[x] = 0;
+        numbers.push(0);
     }
-    x++;
 }
