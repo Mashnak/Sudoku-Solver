@@ -23,10 +23,10 @@ function getDigits(img) {
         }
     }
     if (numbers.length === 81) {
-        console.log(numbers, "nbumbers");
+        console.log(numbers, "numbers1");
         return numbers;
     }
-    console.log(numbers, "numebrs");
+    console.log(numbers, "numbers2");
     let newArr = [];
     for (let i = 0; i < grid.length; i++) {
         newArr = newArr.concat(grid[i]);
