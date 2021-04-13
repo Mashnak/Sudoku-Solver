@@ -96,8 +96,8 @@ function videoScreen() {
     } else {
         video = createCapture(VIDEO);
     }
-    video.position(0,0);
-    video.size(windowWidth, windowWidth+100);
+    video.position(0, 0);
+    video.size(windowWidth, windowWidth + 100);
     _startScreen = false;
     _uploadScreen = false;
     _videoScreen = true;
@@ -178,7 +178,7 @@ function imageScreen() {
  */
 function sudokuScreen() {
     if (img != null) {
-        if(mouselicksx.length>=3) {
+        if (mouselicksx.length >= 3) {
             img2 = img.get(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
         } else {
             img2 = img;
@@ -259,21 +259,21 @@ function setup() {
     uploadButton.size(160, 50);
     uploadButton.mousePressed(uploadScreen);
     videoButton = createButton('Sudoku aufnehmen');
-    videoButton.position(windowWidth-180, windowHeight - 150);
+    videoButton.position(windowWidth - 180, windowHeight - 150);
     videoButton.size(160, 50);
     videoButton.mousePressed(videoScreen);
     uploadImageButton = createButton('Foto hochladen');
-    uploadImageButton.position(windowWidth-180, windowHeight - 150);
-    uploadImageButton.size(160,50);
+    uploadImageButton.position(windowWidth - 180, windowHeight - 150);
+    uploadImageButton.size(160, 50);
     uploadImageButton.mousePressed(uploadImageScreen);
     uploadImageButton.hide();
     getImageButton = createButton('Foto aufnehmen');
-    getImageButton.position(windowWidth-180, windowHeight - 150);
+    getImageButton.position(windowWidth - 180, windowHeight - 150);
     getImageButton.size(160, 50);
     getImageButton.mousePressed(imageScreen);
     getImageButton.hide();
     cropImgButton = createButton('Sudoku zuschneiden');
-    cropImgButton.position(windowWidth-180, windowHeight - 150);
+    cropImgButton.position(windowWidth - 180, windowHeight - 150);
     cropImgButton.size(160, 50);
     cropImgButton.mousePressed(sudokuScreen);
     cropImgButton.hide();
@@ -283,7 +283,7 @@ function setup() {
     resetButton.mousePressed(resetVideo);
     resetButton.hide();
     calculateButton = createButton('Sudoku berechnen!');
-    calculateButton.position(windowWidth-180, windowHeight - 150);
+    calculateButton.position(windowWidth - 180, windowHeight - 150);
     calculateButton.size(160, 50);
     calculateButton.mousePressed(calculatedScreen);
     calculateButton.hide();
@@ -294,7 +294,7 @@ function setup() {
  */
 function draw() {
     if (_startScreen) {
-        image(logo, 0,0,windowWidth, windowWidth);
+        image(logo, 0, 0, windowWidth, windowWidth);
     }
 
     if (_uploadScreen) {
@@ -434,7 +434,6 @@ function draw() {
         }
     }
 }
-
 
 
 /**
