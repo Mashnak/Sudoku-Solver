@@ -197,6 +197,7 @@ function imageScreen() {
     /***********************/
     clearCanvas = false;
     img = video.get(0, 0, video.width, video.height);
+    console.log(video.width, video.height);
     video.stop();
     video.hide();
     mouselicksx = [];
