@@ -223,6 +223,7 @@ function sudokuScreen() {
     calculateButton.show();
     resetButton.show();
     /***********************/
+    console.log(img2.width, img2.height);
     let imgwidth = img2.width / 9;
     let imgheight = img2.height / 9;
     for (let i = 0; i < 9; i++) {
@@ -234,6 +235,7 @@ function sudokuScreen() {
     }
     console.log(numbers, numbers.length);
     if(numbers.length===81){
+        console.log("test");
         while (numbers.length && newArr.length < 9) newArr.push(numbers.splice(0, 9));
     }
     console.log(numbers, newArr);
