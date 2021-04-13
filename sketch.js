@@ -259,7 +259,7 @@ function resetVideo() {
  *
  * */
 function setup() {
-    let canvas = createCanvas(windowWidth, windowHeight - 125);
+    let canvas = createCanvas(windowWidth, windowHeight - 100);
     logo = loadImage("Logo.jpg");
     background(255);
     /** Erstellen der Buttons zur Steuerung durch die App*/
@@ -277,7 +277,7 @@ function setup() {
     uploadImageButton.mousePressed(uploadImageScreen);
     uploadImageButton.hide();
     getImageButton = createButton('Foto aufnehmen');
-    getImageButton.position(windowWidth-180, windowHeight - 150);
+    getImageButton.position(windowWidth-180, windowHeight - 100);
     getImageButton.size(160, 50);
     getImageButton.mousePressed(imageScreen);
     getImageButton.hide();
