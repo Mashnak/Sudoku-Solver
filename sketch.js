@@ -473,9 +473,4 @@ const getDeviceType = () => {
     return "desktop";
 };
 
-/**
- * Callback Funktionen für die Rückmeldungen der verschiedenen Funktionen
- */
-function modelLoaded() {
-    console.log('Model loaded!');
-}
+
