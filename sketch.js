@@ -2,7 +2,9 @@
  ***  Methoden um das vorhandene und erkannte Sudoku vollständig zu lösen.  ***
  *****************************************************************************/
 
-/** Definition der globalen Variablen */
+/**
+ * Definition der globalen Variablen
+ */
 let numberClassifier; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let img = null;
 let img2 = null;
@@ -17,7 +19,9 @@ let video;
 let showSquare = false;
 let cell_size = 40;
 
-/** Steuervariablen für das UI */
+/**
+ * Steuervariablen für das UI
+ */
 let _startScreen = true; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
 let _uploadScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
 let _videoScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
@@ -25,13 +29,17 @@ let _imageScreen = false; // Screen um die Auswahl ob Upload oder über Kamera a
 let _sudokuScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
 let _calculatedScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
 
-/** Definition der Arrays die zur Speicherung der verschiedenen Zustände des Sudokus gebraucht werden */
+/**
+ * Definition der Arrays die zur Speicherung der verschiedenen Zustände des Sudokus gebraucht werden
+ */
 let mouselicksx = [];
 let mouselicksy = [];
 let numbers = [];
 let newArr = [];
 
-/** Definition der benötigten Buttons zur Steuerung der App */
+/**
+ * Definition der benötigten Buttons zur Steuerung der App
+ */
 let uploadButton;
 let videoButton;
 let uploadImageButton;
@@ -40,7 +48,9 @@ let cropImgButton;
 let resetButton;
 let calculateButton;
 
-/** Definition des gemockten Sudokufeldes, da die Erkennung der Felder nicht 100% funktioniert */
+/**
+ * Definition des gemockten Sudokufeldes, da die Erkennung der Felder nicht 100% funktioniert
+ */
 const grid = [
     [5, 3, 0, 0, 7, 0, 0, 0, 0],
     [0, 0, 0, 1, 9, 5, 0, 0, 0],
@@ -54,7 +64,9 @@ const grid = [
 ];
 
 
-/**  */
+/**
+ *
+ */
 function preload() {
     let options = {
         inputs: [28, 28, 4],
@@ -69,6 +81,9 @@ function preload() {
     numberClassifier.load(modelDetails, modelLoaded);
 }
 
+/**
+ *
+ */
 function uploadScreen() {
     console.log("UploadScreen");
     _startScreen = false;
@@ -89,6 +104,9 @@ function uploadScreen() {
     /***********************/
 }
 
+/**
+ *
+ */
 function videoScreen() {
     console.log("VideoScreen");
     _startScreen = false;
@@ -107,6 +125,10 @@ function videoScreen() {
     calculateButton.hide();
     resetButton.show();
 }
+
+/**
+ *
+ */
 function uploadImageScreen() {
     console.log("UploadImageScreen");
     _startScreen = false;
@@ -126,6 +148,10 @@ function uploadImageScreen() {
     resetButton.show();
     /***********************/
 }
+
+/**
+ *
+ */
 function imageScreen() {
     console.log("ImageScreen");
     _startScreen = false;
@@ -151,6 +177,10 @@ function imageScreen() {
     mouselicksy = [];
     showSquare = true;
 }
+
+/**
+ *
+ */
 function sudokuScreen() {
     if (img != null) {
         if(mouselicksx.length>=3) {
@@ -176,6 +206,10 @@ function sudokuScreen() {
     resetButton.show();
     /***********************/
 }
+
+/**
+ *
+ */
 function calculatedScreen() {
     console.log("CalculatedScreen");
     _startScreen = false;
@@ -217,10 +251,13 @@ function resetVideo() {
     window.location.reload();
 }
 
-/** */
+/**
+ *
+ * */
 function setup() {
     let canvas = createCanvas(windowWidth, windowHeight - 100);
     background(255);
+    /** Erstellen der Buttons zur Steuerung durch die App*/
     uploadButton = createButton('Sudoku hochladen');
     uploadButton.position(windowWidth / 2 - 125, windowHeight - 75);
     uploadButton.size(160, 50);
@@ -271,13 +308,17 @@ function setup() {
     video.hide();
 }
 
-
+/**
+ *
+ */
 function mousePressed() {
     mouselicksx.push(mouseX);
     mouselicksy.push(mouseY);
 }
 
-
+/**
+ *
+ */
 function draw() {
     if (_startScreen) {
 
@@ -355,7 +396,9 @@ function draw() {
 
 
 
-/** Funktion zur Bestimmung des aktuellen Gerätes */
+/**
+ * Funktion zur Bestimmung des aktuellen Gerätes
+ */
 const getDeviceType = () => {
     const ua = navigator.userAgent;
     if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
@@ -371,11 +414,18 @@ const getDeviceType = () => {
     return "desktop";
 };
 
-/** Callback Funktionen für die Rückmeldungen der verschiedenen Funktionen */
+/**
+ * Callback Funktionen für die Rückmeldungen der verschiedenen Funktionen
+ */
 function modelLoaded() {
     console.log('Model loaded!');
 }
 
+/**
+ *
+ * @param err
+ * @param results
+ */
 function gotResults(err, results) {
     if (err) {
         console.error(err);
