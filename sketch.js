@@ -54,12 +54,26 @@ const grid = [
 
 /**  */
 function preload() {
-
+    let options = {
+        inputs: [28, 28, 4],
+        task: 'imageClassification',
+    }
+    numberClassifier = ml5.neuralNetwork(options);
+    const modelDetails = {
+        model: 'model/model.json',
+        metadata: 'model/model_meta.json',
+        weights: 'model/model.weights.bin'
+    }
+    numberClassifier.load(modelDetails, modelLoaded);
+    let resultsDiv = createDiv("Model loaded!");
 }
 
 
 /** */
 function setup() {
+    canvas = createCanvas(windowWidth, windowHeight - 100);
+    background(255);
+
     if(_startScreen) {
         uploadButton = createButton('Sudoku hochladen');
         uploadButton.position(windowWidth / 2 - 125, windowHeight - 75);
@@ -77,7 +91,20 @@ function setup() {
     }
 
     if(_videoScreen) {
-
+        if (getDeviceType() === 'mobile' || getDeviceType() === 'tablet') {
+            video =
+                createCapture({
+                    audio: false,
+                    video: {
+                        facingMode: {
+                            exact: "environment"
+                        }
+                    }
+                });
+        } else {
+            video = createCapture(VIDEO);
+        }
+        video.position(0, 0);
     }
 
     if(_imageScreen) {
@@ -91,22 +118,9 @@ function setup() {
     if(_calculatedScreen) {
 
     }
-    canvas = createCanvas(windowWidth, windowHeight - 100);
-    background(255);
-    if (getDeviceType() === 'mobile' || getDeviceType() === 'tablet') {
-        video =
-            createCapture({
-                audio: false,
-                video: {
-                    facingMode: {
-                        exact: "environment"
-                    }
-                }
-            });
-    } else {
-        video = createCapture(VIDEO);
-    }
-    video.position(0, 0);
+
+
+
     getImageButton = createButton('Foto');
     getImageButton.position(windowWidth / 2 - 25, windowHeight - 75);
     getImageButton.size(50, 50);
@@ -121,18 +135,8 @@ function setup() {
     calculateButton.size(160, 50);
     calculateButton.mousePressed(calculateSudoku);
     calculateButton.hide();
-    let options = {
-        inputs: [28, 28, 4],
-        task: 'imageClassification',
-    }
-    numberClassifier = ml5.neuralNetwork(options);
-    const modelDetails = {
-        model: 'model/model.json',
-        metadata: 'model/model_meta.json',
-        weights: 'model/model.weights.bin'
-    }
-    numberClassifier.load(modelDetails, modelLoaded);
-    resultsDiv = createDiv("Model loaded!");
+
+
 }
 
 
