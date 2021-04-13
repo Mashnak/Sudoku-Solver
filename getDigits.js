@@ -19,8 +19,8 @@ function getDigits(img) {
         for (let j = 0; j < 9; j++) {
             let subimg = img.get(j * imgwidth, i * imgheight, imgwidth, imgheight);
             subimg.resize(28, 28);
-            numberClassifier.classify({image: subimg}, gotResults);
-            console.log(numbers.length)
+             numberClassifier.classify({image: subimg}, gotResults);
+            console.log(numberClassifier.classify({image: subimg}, gotResults));
             if (numbers.length === 81) {
                 console.log(numbers, "numbers1");
                 return numbers;
