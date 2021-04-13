@@ -194,6 +194,7 @@ function sudokuScreen() {
         } else {
             img2 = img;
         }
+        img2.resize(252,252);
     }
     console.log("SudokuScreen");
     _startScreen = false;
