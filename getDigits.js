@@ -11,14 +11,6 @@ const grid = [
     [0, 0, 0, 0, 8, 0, 0, 7, 9]
 ];
 
-
-/**
- * Callback Funktionen für die Rückmeldungen der verschiedenen Funktionen
- */
-function modelLoaded() {
-    console.log('Model loaded!');
-}
-
 function getDigits(img) {
     let numberClassifier; // Variable die das neuronale Netz aus ML5 zwischenspeichert
     let options = {
@@ -58,6 +50,12 @@ function getDigits(img) {
 }
 
 
+/**
+ * Callback Funktionen für die Rückmeldungen der verschiedenen Funktionen
+ */
+function modelLoaded() {
+    console.log('Model loaded!');
+}
 
 /**
  *
