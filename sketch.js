@@ -212,6 +212,11 @@ function setup() {
     videoButton.position(windowWidth / 2 + 125, windowHeight - 75);
     videoButton.size(100, 50);
     videoButton.mousePressed(videoScreen);
+    uploadImageButton = createButton('Foto');
+    uploadImageButton.position(windowWidth / 2 - 25, windowHeight - 75);
+    uploadImageButton.size(50, 50);
+    uploadImageButton.mousePressed(imageScreen);
+    uploadImageButton.hide();
     getImageButton = createButton('Foto');
     getImageButton.position(windowWidth / 2 - 25, windowHeight - 75);
     getImageButton.size(50, 50);
