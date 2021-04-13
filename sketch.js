@@ -121,7 +121,7 @@ function setup() {
 
 
 
-    getImageButton = createButton('Foto');
+    /*getImageButton = createButton('Foto');
     getImageButton.position(windowWidth / 2 - 25, windowHeight - 75);
     getImageButton.size(50, 50);
     getImageButton.mousePressed(getImage);
@@ -134,7 +134,7 @@ function setup() {
     calculateButton.position(windowWidth / 2 - 80, windowHeight - 100);
     calculateButton.size(160, 50);
     calculateButton.mousePressed(calculateSudoku);
-    calculateButton.hide();
+    calculateButton.hide();*/
 
 
 }
