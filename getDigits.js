@@ -1,4 +1,5 @@
 let numbers = [];
+let x = 0;
 const grid = [
     [5, 3, 0, 0, 7, 0, 0, 0, 0],
     [6, 0, 0, 1, 9, 5, 0, 0, 0],
@@ -48,8 +49,9 @@ function gotResults(err, results) {
     let confidence = nf(100 * results[0].confidence, 2, 0);
     console.log(label, confidence);
     if (confidence >= 80) {
-        numbers.concat(int(label));
+        numbers[x]=(int(label));
     } else {
-        numbers.concat(0);
+        numbers[x]=0;
     }
+    x++;
 }
