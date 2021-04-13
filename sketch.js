@@ -352,7 +352,6 @@ function draw() {
 
     if (_sudokuScreen) {
         clear();
-        img = null;
         image(img2, 0, 0);
     }
 
