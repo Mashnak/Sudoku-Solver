@@ -73,22 +73,25 @@ function preload() {
 function setup() {
     canvas = createCanvas(windowWidth, windowHeight - 100);
     background(255);
+    uploadButton = createButton('Sudoku hochladen');
+    uploadButton.position(windowWidth / 2 - 125, windowHeight - 75);
+    uploadButton.size(100, 50);
+    uploadButton.mousePressed(_uploadScreen=true, _startScreen = false);
+    videoButton = createButton('Sudoku aufnehmen');
+    videoButton.position(windowWidth / 2 + 125, windowHeight - 75);
+    videoButton.size(100, 50);
+    videoButton.mousePressed(_videoScreen=true, _startScreen = false);
 
     if(_startScreen) {
         console.log(_startScreen,_uploadScreen,_videoScreen,_imageScreen,_sudokuScreen,_calculatedScreen, "StartScreen");
-        uploadButton = createButton('Sudoku hochladen');
-        uploadButton.position(windowWidth / 2 - 125, windowHeight - 75);
-        uploadButton.size(100, 50);
-        //uploadButton.mousePressed(_uploadScreen=true, _startScreen = false);
-
-        videoButton = createButton('Sudoku aufnehmen');
-        videoButton.position(windowWidth / 2 + 125, windowHeight - 75);
-        videoButton.size(100, 50);
-        //videoButton.mousePressed(_videoScreen=true, _startScreen = false);
+        uploadButton.show();
+        videoButton.show();
     }
 
     if(_uploadScreen) {
         console.log(_startScreen,_uploadScreen,_videoScreen,_imageScreen,_sudokuScreen,_calculatedScreen, "UploadScreen");
+        uploadButton.hide();
+        videoButton.hide();
     }
 
     if(_videoScreen) {
