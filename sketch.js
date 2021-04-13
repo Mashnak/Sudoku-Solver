@@ -11,7 +11,6 @@ let img2 = null; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let clearCanvas = false; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let subimg; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let logo; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-let y = 0; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let video; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let showSquare = false; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 const cell_size = 36; // Variable die das neuronale Netz aus ML5 zwischenspeichert
@@ -262,7 +261,6 @@ function calculatedScreen() {
     calculateButton.hide();
     resetButton.show();
     /***********************/
-    y++;
     showSquare = false;
     numbers = [...getGrid(grid)];
     while (numbers.length && newArr.length < 9) newArr.push(numbers.splice(0, 9));
