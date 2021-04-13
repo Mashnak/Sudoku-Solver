@@ -267,7 +267,7 @@ function resetVideo() {
 function setup() {
     let canvas = createCanvas(windowWidth, windowHeight - 100);
     logo = loadImage("Logo.jpg");
-    logo.size(windowWidth,windowWidth);
+    logo.resize(windowWidth,windowWidth);
     background(255);
     /** Erstellen der Buttons zur Steuerung durch die App*/
     uploadButton = createButton('Sudoku hochladen');
