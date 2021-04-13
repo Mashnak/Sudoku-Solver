@@ -6,16 +6,16 @@
  * Definition der globalen Variablen
  */
 let numberClassifier; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-let img = null;
-let img2 = null;
-let clearCanvas = false;
-let subimg;
-let logo;
-let x = 0;
-let y = 0;
-let video;
-let showSquare = false;
-const cell_size = 36;
+let img = null; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let img2 = null; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let clearCanvas = false; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let subimg; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let logo; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let x = 0; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let y = 0; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let video; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let showSquare = false; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+const cell_size = 36; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 
 /**
  * Steuervariablen für das UI
@@ -31,21 +31,21 @@ let _calculatedScreen = false; // Screen um die Auswahl ob Upload oder über Kam
 /**
  * Definition der Arrays die zur Speicherung der verschiedenen Zustände des Sudokus gebraucht werden
  */
-let mouselicksx = [];
-let mouselicksy = [];
-let numbers = [];
-let newArr = [];
+let mouselicksx = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let mouselicksy = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let numbers = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let newArr = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 
 /**
  * Definition der benötigten Buttons zur Steuerung der App
  */
-let uploadButton;
-let videoButton;
-let uploadImageButton;
-let getImageButton;
-let cropImgButton;
-let resetButton;
-let calculateButton;
+let uploadButton; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let videoButton; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let uploadImageButton; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let getImageButton; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let cropImgButton; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let resetButton; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let calculateButton; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 
 /**
  * Definition des gemockten Sudokufeldes, da die Erkennung der Felder nicht 100% funktioniert
@@ -151,7 +151,6 @@ function uploadImageScreen() {
     calculateButton.show();
     resetButton.show();
     /***********************/
-
 }
 
 /**
@@ -259,7 +258,7 @@ function resetVideo() {
  *
  * */
 function setup() {
-    createCanvas(windowWidth-100, windowHeight - 100);
+    createCanvas(windowWidth, windowHeight - 100);
     logo = loadImage("Logo.jpg");
     background(255);
     /** Erstellen der Buttons zur Steuerung durch die App*/
