@@ -153,8 +153,11 @@ function imageScreen() {
 }
 function sudokuScreen() {
     if (img != null) {
-        //img2 = img.get(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
-        img2 = loadImage("Sudoku.jpg");
+        if(mouselicksx.length>=3) {
+            img2 = img.get(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
+        } else {
+            img2 = loadImage("Sudoku.jpg");
+        }
     }
     console.log("SudokuScreen");
     _startScreen = false;
