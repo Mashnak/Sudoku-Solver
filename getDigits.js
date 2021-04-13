@@ -25,7 +25,6 @@ function getDigits(img) {
         return numbers;
     }
     console.log(numbers, "numebrs");
-    console.log(grid2, "grid2");
     let newArr = [];
 
 
