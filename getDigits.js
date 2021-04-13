@@ -1,5 +1,4 @@
 let numbers = [];
-let numbers2 = [];
 const grid = [
     [5, 3, 0, 0, 7, 0, 0, 0, 0],
     [6, 0, 0, 1, 9, 5, 0, 0, 0],
@@ -22,8 +21,7 @@ function getDigits(img) {
             numberClassifier.classify({image: subimg}, gotResults);
         }
     }
-    while (numbers.length) numbers2.push(numbers.splice(0, 9));
-    console.log(numbers2);
+    console.log(numbers);
     if(numbers>0) {
         return numbers;
     }
