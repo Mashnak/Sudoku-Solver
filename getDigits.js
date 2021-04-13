@@ -1,4 +1,5 @@
 let numbers = [];
+let numberClassifier; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 const grid = [
     [5, 3, 0, 0, 7, 0, 0, 0, 0],
     [6, 0, 0, 1, 9, 5, 0, 0, 0],
@@ -12,7 +13,7 @@ const grid = [
 ];
 
 function getDigits(img) {
-    let numberClassifier; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+
     let options = {
         inputs: [28, 28, 4],
         task: 'imageClassification',
@@ -40,9 +41,7 @@ function getDigits(img) {
     }
     console.log(numbers, "numebrs");
     let newArr = [];
-
-
-    for(var i = 0; i < grid.length; i++)
+    for(let i = 0; i < grid.length; i++)
     {
         newArr = newArr.concat(grid[i]);
     }
