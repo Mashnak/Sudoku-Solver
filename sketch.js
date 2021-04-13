@@ -361,7 +361,7 @@ function draw() {
 
     if (_calculatedScreen) {
         clear();
-        image(img2,400,0);
+        image(img2,0,400);
         image(subimg,400,400);
         stroke(245);
         strokeWeight(1);
