@@ -188,7 +188,8 @@ function imageScreen() {
     resetButton.show();
     /***********************/
     clearCanvas = false;
-    img = video.get(0, 0, video.width, video.height);
+    //img = video.get(0, 0, video.width, video.height);
+    img = loadImage("Sudoku.jpg");
     video.stop();
     video.hide();
     mouselicksx = [];
@@ -434,7 +435,7 @@ function gotResults(err, results) {
     }
     let label = results[0].label;
     let confidence = nf(100 * results[0].confidence, 2, 0);
-    console.log(results[0].label);
+    console.log(label, confidence);
     if (confidence >= 50) {
         numbers[x] = int(label);
     } else {
