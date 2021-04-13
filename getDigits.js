@@ -21,6 +21,11 @@ function getDigits(img) {
             numberClassifier.classify({image: subimg}, gotResults);
         }
     }
+    let newArr = [];
+    for (let i = 0; i < grid.length; i++) {
+        newArr = newArr.concat(grid[i]);
+    }
+    return newArr;
 }
 
 
@@ -35,7 +40,6 @@ function gotResults(err, results) {
         return;
     }
     let label = results[0].label;
-    console.log(typeof label);
     let confidence = nf(100 * results[0].confidence, 2, 0);
     if (confidence >= 80) {
         numbers1d[x]=(int(label));
