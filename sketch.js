@@ -259,13 +259,19 @@ function calculatedScreen() {
             numberClassifier.classify({image: subimg}, gotResults);
         }
     }
-    console.log(numbers);
-
     numbers = [...getGrid(grid)];
     while (numbers.length && newArr.length < 9) newArr.push(numbers.splice(0, 9));
 }
 function resetVideo() {
     window.location.reload();
+}
+
+/**
+ *
+ */
+function mousePressed() {
+    mouselicksx.push(mouseX);
+    mouselicksy.push(mouseY);
 }
 
 /**
@@ -309,14 +315,6 @@ function setup() {
     calculateButton.size(160, 50);
     calculateButton.mousePressed(calculatedScreen);
     calculateButton.hide();
-}
-
-/**
- *
- */
-function mousePressed() {
-    mouselicksx.push(mouseX);
-    mouselicksy.push(mouseY);
 }
 
 /**
@@ -436,6 +434,7 @@ function gotResults(err, results) {
     }
     let label = results[0].label;
     let confidence = nf(100 * results[0].confidence, 2, 0);
+    console.log(confidence);
     if (confidence >= 50) {
         numbers[x] = int(label);
     } else {
