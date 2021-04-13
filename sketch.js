@@ -235,7 +235,7 @@ function sudokuScreen() {
         }
     }
     console.log(numbers, newArr);
-    if(numbers.length==81){
+    if(numbers.length===81){
         while (numbers.length && newArr.length < 9) newArr.push(numbers.splice(0, 9));
     }
 }
