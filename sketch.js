@@ -273,6 +273,10 @@ function calculatedScreen() {
     numbers = [...getGrid(grid)];
     while (numbers.length && newArr.length < 9) newArr.push(numbers.splice(0, 9));
 }
+
+/**
+ *
+ */
 function resetVideo() {
     window.location.reload();
 }
