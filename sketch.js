@@ -282,7 +282,7 @@ function setup() {
     getImageButton.mousePressed(imageScreen);
     getImageButton.hide();
     cropImgButton = createButton('Sudoku zuschneiden');
-    cropImgButton.position(windowWidth-180, windowHeight - 150);
+    cropImgButton.position(windowWidth-180, windowHeight - 100);
     cropImgButton.size(160, 50);
     cropImgButton.mousePressed(sudokuScreen);
     cropImgButton.hide();
