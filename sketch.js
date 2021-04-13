@@ -267,23 +267,67 @@ function draw() {
     }
 
     if (_uploadScreen) {
-
+        clear();
     }
 
     if (_videoScreen) {
-
+        clear();
     }
 
     if (_imageScreen) {
-
+        clear();
+        textSize(5);
+        strokeWeight(1);
+        stroke(0, 0, 0);
+        text('Bitte linke obere und rechte untere Ecke des Sudokufelds anklicken!', 10, 30);
+        image(img, 0, 50);
     }
 
     if (_sudokuScreen) {
-
+        clear();
+        img = null;
+        image(img2, 0, 0);
     }
 
     if (_calculatedScreen) {
+        clear();
+        stroke(245);
+        strokeWeight(1);
+        for (let i = 1; i < 9; i++) {
+            line(cell_size * (1 / 2 + i), cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2));
+            line(cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i));
+        }
+        stroke(45);
+        for (let i = 0; i <= 3; i++) {
+            line(cell_size * (1 / 2 + i * 3), cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2));
+            line(cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i * 3));
+        }
+        noStroke();
+        textSize(20);
 
+        for (let i = 0; i < 9; i++) {
+            for (let j = 0; j < 9; j++) {
+                if (newArr[i][j] !== 0) {
+                    stroke("black");
+                    fill("black");
+                    text(newArr[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
+                } else if (newArr[i][j] > 0) {
+                    stroke("green");
+                    fill("green");
+                    text(newArr[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
+                } else if (newArr[i][j] === 0) {
+                    stroke("green");
+                    fill("green");
+                    text(newArr[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
+                } else {
+                    stroke("orange");
+                    fill("orange");
+                    text(newArr[i][j], cell_size * (j + 1) - 12, cell_size * (i + 1) + (j % 3 - 1) * 12 + 6);
+                }
+            }
+        }
+        img2.resize(400,400);
+        image(img2, 20, 400);
     }
 }
 
@@ -293,16 +337,10 @@ function draw() {
         calculateSudoku();
     }
     if (img != null) {
-        textSize(5);
-        strokeWeight(1);
-        stroke(0, 0, 0);
-        text('Bitte linke obere und rechte untere Ecke des Sudokufelds anklicken!', 10, 30);
-        image(img, 0, 50);
+
     }
     if (img2 != null) {
-        clear();
-        img = null;
-        image(img2, 0, 0);
+
     }
     if (clearCanvas) {
         clear();
