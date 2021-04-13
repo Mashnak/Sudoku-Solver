@@ -471,7 +471,6 @@ function gotResults(err, results) {
     }
     let label = results[0].label;
     let confidence = nf(100 * results[0].confidence, 2, 0);
-    console.log(label, confidence);
     if (confidence >= 50) {
         numbers.push(int(label));
     } else {
