@@ -13,7 +13,6 @@ const grid = [
 ];
 
 function getDigits(img) {
-
     let options = {
         inputs: [28, 28, 4],
         task: 'imageClassification',
@@ -47,7 +46,6 @@ function getDigits(img) {
     }
     return newArr;
 }
-
 
 /**
  * Callback Funktionen für die Rückmeldungen der verschiedenen Funktionen
