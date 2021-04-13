@@ -223,6 +223,7 @@ function sudokuScreen() {
     calculateButton.show();
     resetButton.show();
     /***********************/
+    img2.resize(img2.width, img2.width);
     console.log(img2.width, img2.height);
     let imgwidth = img2.width / 9;
     let imgheight = img2.height / 9;
