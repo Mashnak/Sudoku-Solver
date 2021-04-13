@@ -362,7 +362,7 @@ function draw() {
     if (_calculatedScreen) {
         clear();
         image(img2,0,400);
-        image(subimg,500,500);
+        image(subimg,400,0);
         stroke(245);
         strokeWeight(1);
         for (let i = 1; i < 9; i++) {
