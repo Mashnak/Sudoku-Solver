@@ -143,10 +143,10 @@ function uploadImageScreen() {
     video.hide();
     uploadButton.hide();
     videoButton.hide();
-    uploadImageButton.show();
+    uploadImageButton.hide();
     getImageButton.hide();
     cropImgButton.hide();
-    calculateButton.hide();
+    calculateButton.show();
     resetButton.show();
     /***********************/
 
