@@ -8,20 +8,37 @@ let img = null;
 let img2 = null;
 let clearCanvas = false;
 let subimg;
-let resultsDiv;
-let numbers = [];
-let newArr = [];
+
 let x = 0;
 let y = 0;
 let video;
-let getImageButton;
-let resetButton;
-let calculateButton;
-let mouselicksx = [];
-let mouselicksy = [];
+
+
 let showSquare = false;
 let cell_size = 40;
 
+/** Steuervariablen für das UI */
+let _startScreen = true; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
+let _uploadScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
+let _videoScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
+let _imageScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
+let _sudokuScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
+let _calculatedScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
+
+/** Definition der Arrays die zur Speicherung der verschiedenen Zustände des Sudokus gebraucht werden */
+let mouselicksx = [];
+let mouselicksy = [];
+let numbers = [];
+let newArr = [];
+
+/** Definition der benötigten Buttons zur Steuerung der App */
+let uploadButton;
+let videoButton;
+let getImageButton;
+let resetButton;
+let calculateButton;
+
+/** Definition des gemockten Sudokufeldes, da die Erkennung der Felder nicht 100% funktioniert */
 const grid = [
     [5,3,0,0,7,0,0,0,0],
     [0,0,0,1,9,5,0,0,0],
@@ -43,6 +60,37 @@ function preload() {
 
 /** */
 function setup() {
+    if(_startScreen) {
+        uploadButton = createButton('Sudoku hochladen');
+        uploadButton.position(windowWidth / 2 - 125, windowHeight - 75);
+        uploadButton.size(100, 50);
+        uploadButton.mousePressed(_uploadScreen=true, _startScreen = false);
+
+        videoButton = createButton('Sudoku aufnehmen');
+        videoButton.position(windowWidth / 2 + 125, windowHeight - 75);
+        videoButton.size(100, 50);
+        videoButton.mousePressed(_videoScreen=true, _startScreen = false);
+    }
+
+    if(_uploadScreen) {
+
+    }
+
+    if(_videoScreen) {
+
+    }
+
+    if(_imageScreen) {
+
+    }
+
+    if(_sudokuScreen) {
+
+    }
+
+    if(_calculatedScreen) {
+
+    }
     canvas = createCanvas(windowWidth, windowHeight - 100);
     background(255);
     if (getDeviceType() === 'mobile' || getDeviceType() === 'tablet') {
@@ -104,7 +152,6 @@ function getImage() {
 function mousePressed() {
     mouselicksx.push(mouseX);
     mouselicksy.push(mouseY);
-    //console.log(mouselicksx,mouselicksy);
 }
 
 function calculateSudoku() {
@@ -143,6 +190,33 @@ function resetVideo() {
     window.location.reload();
 }
 
+function draw() {
+    if(_startScreen) {
+
+    }
+
+    if(_uploadScreen) {
+
+    }
+
+    if(_videoScreen) {
+
+    }
+
+    if(_imageScreen) {
+
+    }
+
+    if(_sudokuScreen) {
+
+    }
+
+    if(_calculatedScreen) {
+
+    }
+}
+
+/*
 function draw() {
     if (y > 0 && y <= 1) {
         calculateSudoku();
@@ -209,6 +283,7 @@ function draw() {
         image(img2, 20, 400);
     }
 }
+*/
 
 /** Funktion zur Bestimmung des aktuellen Gerätes */
 const getDeviceType = () => {
