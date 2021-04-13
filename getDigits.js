@@ -1,5 +1,3 @@
-let numbers = [];
-
 function getDigits(subimg) {
     subimg.resize(28, 28);
     return numberClassifier.classify({image: subimg}, gotResults);
