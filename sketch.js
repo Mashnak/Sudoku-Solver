@@ -14,10 +14,8 @@ let logo;
 let x = 0;
 let y = 0;
 let video;
-
-
 let showSquare = false;
-let cell_size =35;
+
 
 /**
  * Steuervariablen für das UI
@@ -267,6 +265,7 @@ function resetVideo() {
 function setup() {
     let canvas = createCanvas(windowWidth, windowHeight - 100);
     logo = loadImage("Logo.jpg");
+    const cell_size = windowWidth/10;
     background(255);
     /** Erstellen der Buttons zur Steuerung durch die App*/
     uploadButton = createButton('Sudoku hochladen');
