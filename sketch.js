@@ -310,7 +310,6 @@ function setup() {
         video = createCapture(VIDEO);
     }
     video.position(0, 0);
-    video.size(windowWidth, windowHeight);
     video.hide();
 }
 
