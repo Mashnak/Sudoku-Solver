@@ -332,7 +332,7 @@ function mousePressed() {
  */
 function draw() {
     if (_startScreen) {
-        image(logo, 0,0,100,100);
+        image(logo, 0,0,windowWidth, windowWidth);
     }
 
     if (_uploadScreen) {
