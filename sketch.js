@@ -186,8 +186,8 @@ function imageScreen() {
     resetButton.show();
     /***********************/
     clearCanvas = false;
-    img = video.get(0, 0, video.width, video.height);
-    //img = loadImage("Sudoku.jpg");
+    //img = video.get(0, 0, video.width, video.height);
+    img = loadImage("Sudoku.jpg");
     video.stop();
     video.hide();
     mouselicksx = [];
