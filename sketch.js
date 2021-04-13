@@ -18,8 +18,8 @@ let showSquare = false;
 let cell_size = 40;
 
 /** Steuervariablen für das UI */
-let _startScreen = true; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
-let _uploadScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
+let _startScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
+let _uploadScreen = true; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
 let _videoScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
 let _imageScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
 let _sudokuScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
