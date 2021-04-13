@@ -237,11 +237,7 @@ function calculatedScreen() {
     /***********************/
     y++;
     showSquare = false;
-    //img2 = img.get(mouselicksx[1],mouselicksy[1],mouselicksx[2]-mouselicksx[1],mouselicksy[2]-mouselicksy[1]);
-    //console.log(img.width, img.height);
     img2.resize(252, 252);
-    console.log(img2.width, img2.height);
-    //clearCanvas = true;
     let imgwidth = img2.width / 9;
     let imgheight = img2.height / 9;
     for (let i = 0; i < 9; i++) {
