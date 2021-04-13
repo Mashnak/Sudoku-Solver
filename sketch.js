@@ -171,7 +171,9 @@ function uploadImageScreen() {
             numberClassifier.classify({image: subimg}, gotResults);
         }
     }
-    while (numbers.length && newArr.length < 9) newArr.push(numbers.splice(0, 9));
+    while (numbers.length && newArr.length < 9) {
+        newArr.push(numbers.splice(0, 9));
+    }
     console.log(numbers, newArr);
 }
 
@@ -288,6 +290,24 @@ function resetVideo() {
 function mousePressed() {
     mouselicksx.push(mouseX);
     mouselicksy.push(mouseY);
+}
+
+/**
+ * @param err
+ * @param results
+ */
+function gotResults(err, results) {
+    if (err) {
+        console.error(err);
+        return;
+    }
+    let label = results[0].label;
+    let confidence = nf(100 * results[0].confidence, 2, 0);
+    if (confidence >= 50) {
+        numbers.push(int(label));
+    } else {
+        numbers.push(0);
+    }
 }
 
 /**
@@ -438,23 +458,4 @@ const getDeviceType = () => {
  */
 function modelLoaded() {
     console.log('Model loaded!');
-}
-
-/**
- *
- * @param err
- * @param results
- */
-function gotResults(err, results) {
-    if (err) {
-        console.error(err);
-        return;
-    }
-    let label = results[0].label;
-    let confidence = nf(100 * results[0].confidence, 2, 0);
-    if (confidence >= 50) {
-        numbers.push(int(label));
-    } else {
-        numbers.push(0);
-    }
 }
