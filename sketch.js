@@ -153,6 +153,9 @@ function imageScreen() {
     showSquare = true;
 }
 function sudokuScreen() {
+    if (img != null) {
+        //img2 = img.get(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
+        img2 = loadImage("Sudoku.jpg");
     console.log("SudokuScreen");
     _startScreen = false;
     _uploadScreen = false;
@@ -187,10 +190,6 @@ function calculatedScreen() {
     calculateButton.hide();
     resetButton.show();
     /***********************/
-    if (img != null) {
-        //img2 = img.get(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
-        img2 = loadImage("Sudoku.jpg");
-
     }
     y++;
     showSquare = false;
