@@ -24,8 +24,16 @@ function getDigits(img) {
         console.log(numbers,"nbumbers");
         return numbers;
     }
+    console.log(numbers, "numebrs");
     console.log(grid2, "grid2");
-    return grid2;
+    let newArr = [];
+
+
+    for(var i = 0; i < grid2.length; i++)
+    {
+        newArr = newArr.concat(grid2[i]);
+    }
+    return newArr;
 }
 
 
