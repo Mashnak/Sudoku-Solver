@@ -15,7 +15,7 @@ let x = 0;
 let y = 0;
 let video;
 let showSquare = false;
-const cell_size = 37;
+const cell_size = 36;
 
 /**
  * Steuervariablen für das UI
