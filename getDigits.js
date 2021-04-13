@@ -1,4 +1,4 @@
-let x = 0;
+let numbers = [];
 const grid = [
     [5, 3, 0, 0, 7, 0, 0, 0, 0],
     [6, 0, 0, 1, 9, 5, 0, 0, 0],
@@ -21,6 +21,9 @@ function getDigits(img) {
             numberClassifier.classify({image: subimg}, gotResults);
         }
     }
+    if(numbers>0) {
+        return numbers;
+    }
     let newArr = [];
     for (let i = 0; i < grid.length; i++) {
         newArr = newArr.concat(grid[i]);
@@ -42,9 +45,8 @@ function gotResults(err, results) {
     let label = results[0].label;
     let confidence = nf(100 * results[0].confidence, 2, 0);
     if (confidence >= 80) {
-        numbers1d[x]=(int(label));
+        numbers.push(int(label));
     } else {
-        numbers1d[x]=0;
+        numbers.push(0);
     }
-    x++;
 }
