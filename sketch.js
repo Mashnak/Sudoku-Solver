@@ -351,68 +351,7 @@ function draw() {
     }
 }
 
-/*
-function draw() {
-    if (y > 0 && y <= 1) {
-        calculateSudoku();
-    }
-    if (img != null) {
 
-    }
-    if (img2 != null) {
-
-    }
-    if (clearCanvas) {
-        clear();
-    }
-    if (showSquare) {
-        strokeWeight(1);
-        noFill();
-        stroke(255, 0, 0);
-        rect(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
-    }
-    if (newArr.length === 9) {
-        clear();
-        stroke(245);
-        strokeWeight(1);
-        for (let i = 1; i < 9; i++) {
-            line(cell_size * (1 / 2 + i), cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2));
-            line(cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i));
-        }
-        stroke(45);
-        for (let i = 0; i <= 3; i++) {
-            line(cell_size * (1 / 2 + i * 3), cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2));
-            line(cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i * 3));
-        }
-        noStroke();
-        textSize(20);
-
-        for (let i = 0; i < 9; i++) {
-            for (let j = 0; j < 9; j++) {
-                if (newArr[i][j] !== 0) {
-                    stroke("black");
-                    fill("black");
-                    text(newArr[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
-                } else if (newArr[i][j] > 0) {
-                    stroke("green");
-                    fill("green");
-                    text(newArr[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
-                } else if (newArr[i][j] === 0) {
-                    stroke("green");
-                    fill("green");
-                    text(newArr[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
-                } else {
-                    stroke("orange");
-                    fill("orange");
-                    text(newArr[i][j], cell_size * (j + 1) - 12, cell_size * (i + 1) + (j % 3 - 1) * 12 + 6);
-                }
-            }
-        }
-        img2.resize(400,400);
-        image(img2, 20, 400);
-    }
-}
-*/
 
 /** Funktion zur Bestimmung des aktuellen Gerätes */
 const getDeviceType = () => {
@@ -429,7 +368,6 @@ const getDeviceType = () => {
     }
     return "desktop";
 };
-
 
 /** Callback Funktionen für die Rückmeldungen der verschiedenen Funktionen */
 function modelLoaded() {
