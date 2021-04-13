@@ -233,12 +233,7 @@ function sudokuScreen() {
             numberClassifier.classify({image: subimg}, gotResults);
         }
     }
-    console.log(numbers, numbers.length);
-    if(numbers.length===81){
-        console.log("test");
-        while (numbers.length && newArr.length < 9) newArr.push(numbers.splice(0, 9));
-    }
-    console.log(numbers, newArr);
+    while (numbers.length && newArr.length < 9) newArr.push(numbers.splice(0, 9));
 }
 
 /**
