@@ -99,20 +99,6 @@ function setup() {
     videoButton.position(windowWidth / 2 + 125, windowHeight - 75);
     videoButton.size(100, 50);
     videoButton.mousePressed(videoScreen);
-
-    if(_startScreen) {
-        console.log(_startScreen,_uploadScreen,_videoScreen,_imageScreen,_sudokuScreen,_calculatedScreen, "StartScreen");
-        uploadButton.show();
-        videoButton.show();
-    }
-
-    if(_uploadScreen) {
-        console.log(_startScreen,_uploadScreen,_videoScreen,_imageScreen,_sudokuScreen,_calculatedScreen, "UploadScreen");
-        uploadButton.hide();
-        videoButton.hide();
-    }
-
-    if(_videoScreen) {
         console.log(_startScreen,_uploadScreen,_videoScreen,_imageScreen,_sudokuScreen,_calculatedScreen, "VideoScreen");
         uploadButton.hide();
         videoButton.hide();
@@ -130,19 +116,6 @@ function setup() {
             video = createCapture(VIDEO);
         }
         video.position(0, 0);
-    }
-
-    if(_imageScreen) {
-        console.log(_startScreen,_uploadScreen,_videoScreen,_imageScreen,_sudokuScreen,_calculatedScreen, "ImageScreen");
-    }
-
-    if(_sudokuScreen) {
-        console.log(_startScreen,_uploadScreen,_videoScreen,_imageScreen,_sudokuScreen,_calculatedScreen, "SudokuScreen");
-    }
-
-    if(_calculatedScreen) {
-        console.log(_startScreen,_uploadScreen,_videoScreen,_imageScreen,_sudokuScreen,_calculatedScreen, "CalcScreen");
-    }
 
 
 
