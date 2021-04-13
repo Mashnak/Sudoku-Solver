@@ -86,6 +86,7 @@ function setup() {
         console.log(_startScreen,_uploadScreen,_videoScreen,_imageScreen,_sudokuScreen,_calculatedScreen, "StartScreen");
         uploadButton.show();
         videoButton.show();
+        video.hide();
     }
 
     if(_uploadScreen) {
