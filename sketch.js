@@ -340,11 +340,7 @@ function draw() {
 
     if (_imageScreen) {
         clear();
-        textSize(5);
-        strokeWeight(1);
-        stroke(0, 0, 0);
-        text('Bitte linke obere und rechte untere Ecke des Sudokufelds anklicken!', 10, 30);
-        image(img, 0, 50);
+        image(img, 0, 0);
         if (showSquare) {
             strokeWeight(1);
             noFill();
