@@ -34,6 +34,7 @@ let newArr = [];
 /** Definition der benötigten Buttons zur Steuerung der App */
 let uploadButton;
 let videoButton;
+let uploadImageButton;
 let getImageButton;
 let cropImgButton;
 let resetButton;
@@ -81,10 +82,11 @@ function uploadScreen() {
     video.hide();
     uploadButton.hide();
     videoButton.hide();
-    getImageButton.show();
+    uploadImageButton.show();
+    getImageButton.hide();
     cropImgButton.hide();
-    resetButton.hide();
     calculateButton.hide();
+    resetButton.hide();
     /***********************/
 }
 
@@ -100,10 +102,11 @@ function videoScreen() {
     video.show();
     uploadButton.hide();
     videoButton.hide();
+    uploadImageButton.hide();
     getImageButton.show();
     cropImgButton.hide();
-    resetButton.hide();
     calculateButton.hide();
+    resetButton.hide();
 }
 function imageScreen() {
     console.log("ImageScreen");
@@ -116,10 +119,11 @@ function imageScreen() {
     /***********************/
     uploadButton.hide();
     videoButton.hide();
-    getImageButton.show();
-    cropImgButton.hide();
-    resetButton.hide();
+    uploadImageButton.hide();
+    getImageButton.hide();
+    cropImgButton.show();
     calculateButton.hide();
+    resetButton.show();
     /***********************/
     clearCanvas = false;
     img = video.get(0, 0, video.width, video.height);
@@ -143,10 +147,11 @@ function sudokuScreen() {
     /***********************/
     uploadButton.hide();
     videoButton.hide();
-    getImageButton.show();
+    uploadImageButton.hide();
+    getImageButton.hide();
     cropImgButton.hide();
-    resetButton.hide();
-    calculateButton.hide();
+    calculateButton.show();
+    resetButton.show();
     /***********************/
 }
 function calculatedScreen() {
@@ -160,10 +165,11 @@ function calculatedScreen() {
     /***********************/
     uploadButton.hide();
     videoButton.hide();
-    getImageButton.show();
+    uploadImageButton.hide();
+    getImageButton.hide();
     cropImgButton.hide();
-    resetButton.hide();
     calculateButton.hide();
+    resetButton.show();
     /***********************/
     if (img != null) {
         //img2 = img.get(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
