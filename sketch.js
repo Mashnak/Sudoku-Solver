@@ -31,8 +31,10 @@ let _calculatedScreen = false; // Screen um die Auswahl ob Upload oder über Kam
  */
 let mouselicksx = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let mouselicksy = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-let numbers = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-let newArr = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let numbers1d = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let numbers2d = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let final1d = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let final2d = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 
 /**
  * Definition der benötigten Buttons zur Steuerung der App
@@ -171,10 +173,10 @@ function uploadImageScreen() {
             numberClassifier.classify({image: subimg}, gotResults);
         }
     }
-    while (numbers.length && newArr.length < 9) {
-        newArr.push(numbers.splice(0, 9));
+    while (numbers1d.length) {
+        numbers2d.push(numbers1d.splice(0, 9));
     }
-    console.log(numbers, newArr);
+    console.log(numbers1d, numbers2d);
 }
 
 /**
@@ -248,7 +250,9 @@ function sudokuScreen() {
             numberClassifier.classify({image: subimg}, gotResults);
         }
     }
-    while (numbers.length && newArr.length < 9) newArr.push(numbers.splice(0, 9));
+    while (numbers1d.length) {
+        numbers2d.push(numbers1d.splice(0, 9));
+    }
 }
 
 /**
@@ -273,8 +277,8 @@ function calculatedScreen() {
     resetButton.show();
     /***********************/
     showSquare = false;
-    numbers = [...getGrid(grid)];
-    while (numbers.length && newArr.length < 9) newArr.push(numbers.splice(0, 9));
+    final1d = [...getGrid(grid)];
+    while (final1d.length) final2d.push(final1d.splice(0, 9));
 }
 
 /**
@@ -304,9 +308,9 @@ function gotResults(err, results) {
     let label = results[0].label;
     let confidence = nf(100 * results[0].confidence, 2, 0);
     if (confidence >= 50) {
-        numbers.push(int(label));
+        numbers1d.push(int(label));
     } else {
-        numbers.push(0);
+        numbers1d.push(0);
     }
 }
 
@@ -411,22 +415,22 @@ function draw() {
 
         for (let i = 0; i < 9; i++) {
             for (let j = 0; j < 9; j++) {
-                if (newArr[i][j] !== 0) {
+                if (final2d[i][j] !== 0) {
                     stroke("black");
                     fill("black");
-                    text(newArr[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
+                    text(final2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
                 } else if (newArr[i][j] > 0) {
                     stroke("green");
                     fill("green");
-                    text(newArr[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
-                } else if (newArr[i][j] === 0) {
+                    text(final2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
+                } else if (final2d[i][j] === 0) {
                     stroke("green");
                     fill("green");
-                    text(newArr[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
+                    text(final2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
                 } else {
                     stroke("orange");
                     fill("orange");
-                    text(newArr[i][j], cell_size * (j + 1) - 12, cell_size * (i + 1) + (j % 3 - 1) * 12 + 6);
+                    text(final2d[i][j], cell_size * (j + 1) - 12, cell_size * (i + 1) + (j % 3 - 1) * 12 + 6);
                 }
             }
         }
