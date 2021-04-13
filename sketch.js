@@ -277,12 +277,12 @@ function setup() {
     uploadImageButton.mousePressed(uploadImageScreen);
     uploadImageButton.hide();
     getImageButton = createButton('Foto aufnehmen');
-    getImageButton.position(windowWidth-180, windowHeight - 100);
+    getImageButton.position(windowWidth-180, windowHeight - 150);
     getImageButton.size(160, 50);
     getImageButton.mousePressed(imageScreen);
     getImageButton.hide();
     cropImgButton = createButton('Sudoku zuschneiden');
-    cropImgButton.position(windowWidth-180, windowHeight - 100);
+    cropImgButton.position(windowWidth-180, windowHeight - 150);
     cropImgButton.size(160, 50);
     cropImgButton.mousePressed(sudokuScreen);
     cropImgButton.hide();
