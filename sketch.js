@@ -434,7 +434,7 @@ function gotResults(err, results) {
     }
     let label = results[0].label;
     let confidence = nf(100 * results[0].confidence, 2, 0);
-    console.log(confidence);
+    console.log(results[0].label);
     if (confidence >= 50) {
         numbers[x] = int(label);
     } else {
