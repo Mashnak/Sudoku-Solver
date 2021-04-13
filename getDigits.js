@@ -20,6 +20,7 @@ function getDigits(img) {
             let subimg = img.get(j * imgwidth, i * imgheight, imgwidth, imgheight);
             subimg.resize(28, 28);
             numberClassifier.classify({image: subimg}, gotResults);
+            console.log(numbers.length)
             if (numbers.length === 81) {
                 console.log(numbers, "numbers1");
                 return numbers;
@@ -27,7 +28,6 @@ function getDigits(img) {
         }
     }
 
-    console.log(numbers, "numbers3");
     let newArr = [];
     for (let i = 0; i < grid.length; i++) {
         newArr = newArr.concat(grid[i]);
@@ -48,7 +48,6 @@ function gotResults(err, results) {
     }
     let label = results[0].label;
     let confidence = nf(100 * results[0].confidence, 2, 0);
-    console.log(label, confidence);
     if (confidence >= 80) {
         numbers[x]=(int(label));
     } else {
