@@ -75,6 +75,7 @@ function setup() {
     background(255);
 
     if(_startScreen) {
+        console.log(_startScreen,_uploadScreen,_videoScreen,_imageScreen,_sudokuScreen,_calculatedScreen, "StartScreen");
         uploadButton = createButton('Sudoku hochladen');
         uploadButton.position(windowWidth / 2 - 125, windowHeight - 75);
         uploadButton.size(100, 50);
@@ -87,10 +88,11 @@ function setup() {
     }
 
     if(_uploadScreen) {
-
+        console.log(_startScreen,_uploadScreen,_videoScreen,_imageScreen,_sudokuScreen,_calculatedScreen, "UploadScreen");
     }
 
     if(_videoScreen) {
+        console.log(_startScreen,_uploadScreen,_videoScreen,_imageScreen,_sudokuScreen,_calculatedScreen, "VideoScreen");
         if (getDeviceType() === 'mobile' || getDeviceType() === 'tablet') {
             video =
                 createCapture({
@@ -108,15 +110,15 @@ function setup() {
     }
 
     if(_imageScreen) {
-
+        console.log(_startScreen,_uploadScreen,_videoScreen,_imageScreen,_sudokuScreen,_calculatedScreen, "ImageScreen");
     }
 
     if(_sudokuScreen) {
-
+        console.log(_startScreen,_uploadScreen,_videoScreen,_imageScreen,_sudokuScreen,_calculatedScreen, "SudokuScreen");
     }
 
     if(_calculatedScreen) {
-
+        console.log(_startScreen,_uploadScreen,_videoScreen,_imageScreen,_sudokuScreen,_calculatedScreen, "CalcScreen");
     }
 
 
