@@ -276,7 +276,7 @@ function calculatedScreen() {
     resetButton.show();
     /***********************/
     showSquare = false;
-    final1d = [...getGrid(grid)];
+    final1d = [...getGrid(numbers2d)];
     while (final1d.length) final2d.push(final1d.splice(0, 9));
 }
 
