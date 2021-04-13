@@ -176,7 +176,6 @@ function uploadImageScreen() {
     while (numbers1d.length) {
         numbers2d.push(numbers1d.splice(0, 9));
     }
-    console.log(numbers1d, numbers2d);
 }
 
 /**
