@@ -5,6 +5,7 @@
 /**
  * Definition der globalen Variablen
  */
+let numberClassifier; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let img = null; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let img2 = null; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let clearCanvas = false; // Variable die das neuronale Netz aus ML5 zwischenspeichert
@@ -50,7 +51,24 @@ let calculateButton; // Variable die das neuronale Netz aus ML5 zwischenspeicher
  *
  */
 function preload() {
+    let options = {
+        inputs: [28, 28, 4],
+        task: 'imageClassification',
+    }
+    numberClassifier = ml5.neuralNetwork(options);
+    const modelDetails = {
+        model: 'model/model.json',
+        metadata: 'model/model_meta.json',
+        weights: 'model/model.weights.bin'
+    }
+    numberClassifier.load(modelDetails, modelLoaded);
+}
 
+/**
+ * Callback Funktionen für die Rückmeldungen der verschiedenen Funktionen
+ */
+function modelLoaded() {
+    console.log('Model loaded!');
 }
 
 /**

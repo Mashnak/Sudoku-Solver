@@ -1,5 +1,4 @@
 let numbers = [];
-let numberClassifier; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 const grid = [
     [5, 3, 0, 0, 7, 0, 0, 0, 0],
     [6, 0, 0, 1, 9, 5, 0, 0, 0],
@@ -13,17 +12,7 @@ const grid = [
 ];
 
 function getDigits(img) {
-    let options = {
-        inputs: [28, 28, 4],
-        task: 'imageClassification',
-    }
-    numberClassifier = ml5.neuralNetwork(options);
-    const modelDetails = {
-        model: 'model/model.json',
-        metadata: 'model/model_meta.json',
-        weights: 'model/model.weights.bin'
-    }
-    numberClassifier.load(modelDetails, modelLoaded);
+
     let imgwidth = img.width / 9;
     let imgheight = img.height / 9;
     for (let i = 0; i < 9; i++) {
@@ -46,12 +35,6 @@ function getDigits(img) {
     return newArr;
 }
 
-/**
- * Callback Funktionen für die Rückmeldungen der verschiedenen Funktionen
- */
-function modelLoaded() {
-    console.log('Model loaded!');
-}
 
 /**
  *
