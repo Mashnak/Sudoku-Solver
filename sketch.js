@@ -366,7 +366,6 @@ function draw() {
         }
         noStroke();
         textSize(20);
-        console.log(numbers);
         /*for (let i = 0; i < 9; i++) {
             for (let j = 0; j < 9; j++) {
                 if (newArr[i][j] !== 0) {
