@@ -69,20 +69,20 @@ function preload() {
 }
 
 function uploadScreen() {
-    let _startScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
-    let _uploadScreen = true; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
-    let _videoScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
-    let _imageScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
-    let _sudokuScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
-    let _calculatedScreen = false;
+    _startScreen = false;
+    _uploadScreen = true;
+    _videoScreen = false;
+    _imageScreen = false;
+    _sudokuScreen = false;
+    _calculatedScreen = false;
 }
 function videoScreen() {
-    let _startScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
-    let _uploadScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
-    let _videoScreen = true; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
-    let _imageScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
-    let _sudokuScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
-    let _calculatedScreen = false;
+    _startScreen = false;
+    _uploadScreen = false;
+    _videoScreen = true;
+    _imageScreen = false;
+    _sudokuScreen = false;
+    _calculatedScreen = false;
 }
 
 /** */
