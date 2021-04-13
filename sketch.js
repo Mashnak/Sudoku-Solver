@@ -225,6 +225,15 @@ function sudokuScreen() {
     calculateButton.show();
     resetButton.show();
     /***********************/
+    let imgwidth = img2.width / 9;
+    let imgheight = img2.height / 9;
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            subimg = get(j * imgwidth, i * imgheight, imgwidth, imgheight);
+            subimg.resize(28, 28);
+            numberClassifier.classify({image: subimg}, gotResults);
+        }
+    }
 }
 
 /**
@@ -250,15 +259,6 @@ function calculatedScreen() {
     /***********************/
     y++;
     showSquare = false;
-    let imgwidth = img2.width / 9;
-    let imgheight = img2.height / 9;
-    for (let i = 0; i < 9; i++) {
-        for (let j = 0; j < 9; j++) {
-            subimg = get(j * imgwidth, i * imgheight, imgwidth, imgheight);
-            subimg.resize(28, 28);
-            numberClassifier.classify({image: subimg}, gotResults);
-        }
-    }
     numbers = [...getGrid(grid)];
     while (numbers.length && newArr.length < 9) newArr.push(numbers.splice(0, 9));
 }
