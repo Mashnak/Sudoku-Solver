@@ -19,7 +19,6 @@ function getDigits(img) {
             let subimg = img.get(j * imgwidth, i * imgheight, imgwidth, imgheight);
             subimg.resize(28, 28);
             numberClassifier.classify({image: subimg}, gotResults);
-            console.log(numberClassifier.classify({image: subimg}, gotResults));
         }
     }
 }
