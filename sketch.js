@@ -124,7 +124,6 @@ function videoScreen() {
         video = createCapture(VIDEO);
     }
     video.position(0,0);
-    video.size(windowWidth, windowWidth);
     _startScreen = false;
     _uploadScreen = false;
     _videoScreen = true;
