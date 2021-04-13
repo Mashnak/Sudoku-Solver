@@ -69,6 +69,7 @@ function preload() {
 }
 
 function uploadScreen() {
+    console.log("UploadScreen");
     _startScreen = false;
     _uploadScreen = true;
     _videoScreen = false;
@@ -77,6 +78,7 @@ function uploadScreen() {
     _calculatedScreen = false;
 }
 function videoScreen() {
+    console.log("VideoScreen");
     _startScreen = false;
     _uploadScreen = false;
     _videoScreen = true;
