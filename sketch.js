@@ -163,7 +163,14 @@ function uploadImageScreen() {
     calculateButton.show();
     resetButton.show();
     /***********************/
-    numbers1d = [...getDigits(img2)];
+    let imgwidth = img2.width / 9;
+    let imgheight = img2.height / 9;
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            let subimg = img2.get(j * imgwidth, i * imgheight, imgwidth, imgheight);
+            numbers1d.push(getDigits(subimg));
+        }
+    }
     console.log(numbers1d);
     while (numbers1d.length) numbers2d.push(numbers1d.splice(0, 9));
 }
