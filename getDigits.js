@@ -48,8 +48,8 @@ function gotResults(err, results) {
     let confidence = nf(100 * results[0].confidence, 2, 0);
     console.log(label, confidence);
     if (confidence >= 80) {
-        numbers.push(int(label));
+        numbers.concat(int(label));
     } else {
-        numbers.push(0);
+        numbers.concat(0);
     }
 }
