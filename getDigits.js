@@ -1,5 +1,5 @@
 let numbers = [];
-const grid2 = [
+const grid = [
     [5, 3, 0, 0, 7, 0, 0, 0, 0],
     [6, 0, 0, 1, 9, 5, 0, 0, 0],
     [0, 9, 8, 0, 0, 0, 0, 6, 0],
@@ -28,9 +28,9 @@ function getDigits(img) {
     let newArr = [];
 
 
-    for(var i = 0; i < grid2.length; i++)
+    for(var i = 0; i < grid.length; i++)
     {
-        newArr = newArr.concat(grid2[i]);
+        newArr = newArr.concat(grid[i]);
     }
     return newArr;
 }
