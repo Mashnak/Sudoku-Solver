@@ -12,14 +12,12 @@ const grid = [
 ];
 
 function getDigits(img) {
-
     let imgwidth = img.width / 9;
     let imgheight = img.height / 9;
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
             let subimg = img.get(j * imgwidth, i * imgheight, imgwidth, imgheight);
             subimg.resize(28, 28);
-            console.log(numberClassifier);
             numberClassifier.classify({image: subimg}, gotResults);
         }
     }
