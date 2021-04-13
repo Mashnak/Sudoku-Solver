@@ -234,7 +234,7 @@ function sudokuScreen() {
             numberClassifier.classify({image: subimg}, gotResults);
         }
     }
-    console.log(numbers);
+    console.log(numbers, newArr);
     while (numbers.length && newArr.length < 9) newArr.push(numbers.splice(0, 9));
 }
 
