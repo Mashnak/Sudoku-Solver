@@ -169,10 +169,12 @@ function setup() {
     getImageButton.position(windowWidth / 2 - 25, windowHeight - 75);
     getImageButton.size(50, 50);
     getImageButton.mousePressed(imageScreen);
+    getImageButton.hide();
     cropImgButton = createButton('Foto');
     cropImgButton.position(windowWidth / 2 - 25, windowHeight - 75);
     cropImgButton.size(50, 50);
     cropImgButton.mousePressed(sudokuScreen);
+    cropImgButton.hide();
     resetButton = createButton('Neues Foto aufnehmen!');
     resetButton.position(windowWidth / 2 - 80, windowHeight - 150);
     resetButton.size(160, 50);
@@ -183,8 +185,6 @@ function setup() {
     calculateButton.size(160, 50);
     calculateButton.mousePressed(calculatedScreen);
     calculateButton.hide();
-    uploadButton.hide();
-    videoButton.hide();
     if (getDeviceType() === 'mobile' || getDeviceType() === 'tablet') {
         video =
             createCapture({
