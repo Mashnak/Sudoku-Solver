@@ -25,6 +25,7 @@ let cell_size = 40;
 let _startScreen = true; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
 let _uploadScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
 let _videoScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
+let _uploadImageScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
 let _imageScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
 let _sudokuScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
 let _calculatedScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
@@ -89,6 +90,7 @@ function uploadScreen() {
     _startScreen = false;
     _uploadScreen = true;
     _videoScreen = false;
+    _uploadImageScreen = false;
     _imageScreen = false;
     _sudokuScreen = false;
     _calculatedScreen = false;
@@ -114,6 +116,7 @@ function videoScreen() {
     _startScreen = false;
     _uploadScreen = false;
     _videoScreen = true;
+    _uploadImageScreen = false;
     _imageScreen = false;
     _sudokuScreen = false;
     _calculatedScreen = false;
@@ -134,8 +137,9 @@ function videoScreen() {
 function uploadImageScreen() {
     console.log("UploadImageScreen");
     _startScreen = false;
-    _uploadScreen = true;
+    _uploadScreen = false;
     _videoScreen = false;
+    _uploadImageScreen = true;
     _imageScreen = false;
     _sudokuScreen = false;
     _calculatedScreen = false;
@@ -160,6 +164,7 @@ function imageScreen() {
     _startScreen = false;
     _uploadScreen = false;
     _videoScreen = false;
+    _uploadImageScreen = false;
     _imageScreen = true;
     _sudokuScreen = false;
     _calculatedScreen = false;
@@ -196,6 +201,7 @@ function sudokuScreen() {
     _startScreen = false;
     _uploadScreen = false;
     _videoScreen = false;
+    _uploadImageScreen = false;
     _imageScreen = false;
     _sudokuScreen = true;
     _calculatedScreen = false;
@@ -218,6 +224,7 @@ function calculatedScreen() {
     _startScreen = false;
     _uploadScreen = false;
     _videoScreen = false;
+    _uploadImageScreen = false;
     _imageScreen = false;
     _sudokuScreen = false;
     _calculatedScreen = true;
@@ -333,6 +340,11 @@ function draw() {
 
     if (_videoScreen) {
         clear();
+    }
+
+    if (_uploadImageScreen) {
+        clear();
+        image(img2, 0, 0);
     }
 
     if (_imageScreen) {
