@@ -166,7 +166,7 @@ function uploadImageScreen() {
     let imgheight = img2.height / 9;
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
-            subimg = get(j * imgwidth, i * imgheight, imgwidth, imgheight);
+            subimg = img2.get(j * imgwidth, i * imgheight, imgwidth, imgheight);
             subimg.resize(28, 28);
             console.log("test");
             numberClassifier.classify({image: subimg}, gotResults);
