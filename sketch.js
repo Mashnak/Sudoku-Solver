@@ -68,6 +68,22 @@ function preload() {
     let resultsDiv = createDiv("Model loaded!");
 }
 
+function uploadScreen() {
+    let _startScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
+    let _uploadScreen = true; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
+    let _videoScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
+    let _imageScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
+    let _sudokuScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
+    let _calculatedScreen = false;
+}
+function videoScreen() {
+    let _startScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
+    let _uploadScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
+    let _videoScreen = true; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
+    let _imageScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
+    let _sudokuScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
+    let _calculatedScreen = false;
+}
 
 /** */
 function setup() {
@@ -76,17 +92,16 @@ function setup() {
     uploadButton = createButton('Sudoku hochladen');
     uploadButton.position(windowWidth / 2 - 125, windowHeight - 75);
     uploadButton.size(100, 50);
-    uploadButton.mousePressed(_uploadScreen=true, _startScreen = false);
+    uploadButton.mousePressed(uploadScreen);
     videoButton = createButton('Sudoku aufnehmen');
     videoButton.position(windowWidth / 2 + 125, windowHeight - 75);
     videoButton.size(100, 50);
-    videoButton.mousePressed(_videoScreen=true, _startScreen = false);
+    videoButton.mousePressed(videoScreen);
 
     if(_startScreen) {
         console.log(_startScreen,_uploadScreen,_videoScreen,_imageScreen,_sudokuScreen,_calculatedScreen, "StartScreen");
         uploadButton.show();
         videoButton.show();
-        video.hide();
     }
 
     if(_uploadScreen) {
@@ -97,6 +112,8 @@ function setup() {
 
     if(_videoScreen) {
         console.log(_startScreen,_uploadScreen,_videoScreen,_imageScreen,_sudokuScreen,_calculatedScreen, "VideoScreen");
+        uploadButton.hide();
+        videoButton.hide();
         if (getDeviceType() === 'mobile' || getDeviceType() === 'tablet') {
             video =
                 createCapture({
