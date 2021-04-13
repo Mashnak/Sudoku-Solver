@@ -86,7 +86,7 @@ function uploadScreen() {
     getImageButton.hide();
     cropImgButton.hide();
     calculateButton.hide();
-    resetButton.hide();
+    resetButton.show();
     /***********************/
 }
 
@@ -106,7 +106,7 @@ function videoScreen() {
     getImageButton.show();
     cropImgButton.hide();
     calculateButton.hide();
-    resetButton.hide();
+    resetButton.show();
 }
 function uploadImageScreen() {
     console.log("UploadImageScreen");
