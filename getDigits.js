@@ -1,3 +1,17 @@
+var numberClassifier; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let options = {
+    inputs: [28, 28, 4],
+    task: 'imageClassification',
+}
+numberClassifier = ml5.neuralNetwork(options);
+const modelDetails = {
+    model: 'model/model.json',
+    metadata: 'model/model_meta.json',
+    weights: 'model/model.weights.bin'
+}
+numberClassifier.load(modelDetails, modelLoaded);
+
+
 let numbers = [];
 const grid = [
     [5, 3, 0, 0, 7, 0, 0, 0, 0],
