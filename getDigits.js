@@ -1,7 +1,21 @@
+let numbers = [];
+
 function getDigits(subimg) {
-    subimg.resize(28, 28);
-    return numberClassifier.classify({image: subimg}, gotResults);
+    let imgwidth = img.width / 9;
+    let imgheight = img.height / 9;
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            subimg = img.get(j * imgwidth, i * imgheight, imgwidth, imgheight);
+            subimg.resize(28, 28);
+            numberClassifier.classify({image: subimg}, gotResults);
+        }
+    }
+    if (numbers.length===81) {
+        return numbers;
+    }
 }
+
+
 
 /**
  *
@@ -16,8 +30,8 @@ function gotResults(err, results) {
     let label = results[0].label;
     let confidence = nf(100 * results[0].confidence, 2, 0);
     if (confidence >= 50) {
-        return label;
+        numbers.push(int(label));
     } else {
-        return 0;
+        numbers.push(0);
     }
 }
