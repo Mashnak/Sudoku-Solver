@@ -236,6 +236,17 @@ function sudokuScreen() {
     /***********************/
     img2.resize(img2.width, img2.width);
     console.log(img2.width, img2.height);
+    let imgwidth = img2.width / 9;
+    let imgheight = img2.height / 9;
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            subimg = img2.get(j * imgwidth, i * imgheight, imgwidth, imgheight);
+            subimg.resize(28, 28);
+            console.log("test");
+            numberClassifier.classify({image: subimg}, gotResults);
+        }
+    }
+    while (numbers.length && newArr.length < 9) newArr.push(numbers.splice(0, 9));
 }
 
 /**
