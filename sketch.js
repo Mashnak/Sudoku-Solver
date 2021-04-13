@@ -297,6 +297,12 @@ function draw() {
         stroke(0, 0, 0);
         text('Bitte linke obere und rechte untere Ecke des Sudokufelds anklicken!', 10, 30);
         image(img, 0, 50);
+        if (showSquare) {
+            strokeWeight(1);
+            noFill();
+            stroke(255, 0, 0);
+            rect(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
+        }
 
     }
 
