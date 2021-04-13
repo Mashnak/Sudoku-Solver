@@ -124,7 +124,7 @@ function uploadImageScreen() {
     getImageButton.hide();
     cropImgButton.hide();
     calculateButton.hide();
-    resetButton.hide();
+    resetButton.show();
     /***********************/
 }
 function imageScreen() {
