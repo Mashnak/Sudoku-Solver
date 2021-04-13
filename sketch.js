@@ -127,6 +127,20 @@ function videoScreen() {
     cropImgButton.hide();
     calculateButton.hide();
     resetButton.show();
+    if (getDeviceType() === 'mobile' || getDeviceType() === 'tablet') {
+        video =
+            createCapture({
+                audio: false,
+                video: {
+                    facingMode: {
+                        exact: "environment"
+                    }
+                }
+            });
+    } else {
+        video = createCapture(VIDEO);
+    }
+    video.position(0, 0);
 }
 
 /**
@@ -295,20 +309,6 @@ function setup() {
     calculateButton.size(160, 50);
     calculateButton.mousePressed(calculatedScreen);
     calculateButton.hide();
-    if (getDeviceType() === 'mobile' || getDeviceType() === 'tablet') {
-        video =
-            createCapture({
-                audio: false,
-                video: {
-                    facingMode: {
-                        exact: "environment"
-                    }
-                }
-            });
-    } else {
-        video = createCapture(VIDEO);
-    }
-    video.position(0, 0, windowWidth);
     video.hide();
 }
 
