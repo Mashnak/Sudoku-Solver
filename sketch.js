@@ -102,6 +102,8 @@ function uploadScreen() {
     calculateButton.hide();
     resetButton.show();
     /***********************/
+    img = loadImage("Sudoku.jpg");
+    img2 = img;
 }
 
 /**
@@ -147,6 +149,7 @@ function uploadImageScreen() {
     calculateButton.hide();
     resetButton.show();
     /***********************/
+
 }
 
 /**
