@@ -20,12 +20,13 @@ function getDigits(img) {
             let subimg = img.get(j * imgwidth, i * imgheight, imgwidth, imgheight);
             subimg.resize(28, 28);
             numberClassifier.classify({image: subimg}, gotResults);
+            if (numbers.length === 81) {
+                console.log(numbers, "numbers1");
+                return numbers;
+            }
         }
     }
-    if (numbers.length === 81) {
-        console.log(numbers, "numbers1");
-        return numbers;
-    }
+
     console.log(numbers, "numbers2");
     let newArr = [];
     for (let i = 0; i < grid.length; i++) {
