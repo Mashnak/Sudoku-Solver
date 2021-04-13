@@ -325,7 +325,7 @@ function draw() {
 
     if (_uploadImageScreen) {
         clear();
-        image(img2,0,0);
+        image(img2,0,0,windowWidth,windowWidth);
     }
 
     if (_imageScreen) {
@@ -342,7 +342,7 @@ function draw() {
 
     if (_sudokuScreen) {
         clear();
-        image(img2,0,0);
+        image(img2,0,0, windowWidth, windowWidth);
     }
 
     if (_calculatedScreen) {
