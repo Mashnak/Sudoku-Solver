@@ -67,7 +67,6 @@ function preload() {
         weights: 'model/model.weights.bin'
     }
     numberClassifier.load(modelDetails, modelLoaded);
-    let resultsDiv = createDiv("Model loaded!");
 }
 
 function uploadScreen() {
