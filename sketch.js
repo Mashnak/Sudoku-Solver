@@ -259,7 +259,7 @@ function resetVideo() {
  *
  * */
 function setup() {
-    let canvas = createCanvas(windowWidth, windowHeight - 100);
+    let canvas = createCanvas(windowWidth, windowHeight - 125);
     logo = loadImage("Logo.jpg");
     background(255);
     /** Erstellen der Buttons zur Steuerung durch die App*/
