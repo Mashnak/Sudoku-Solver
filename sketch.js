@@ -309,7 +309,6 @@ function setup() {
     calculateButton.size(160, 50);
     calculateButton.mousePressed(calculatedScreen);
     calculateButton.hide();
-    video.hide();
 }
 
 /**
