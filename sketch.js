@@ -186,7 +186,7 @@ function sudokuScreen() {
         if(mouselicksx.length>=3) {
             img2 = img.get(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
         } else {
-            img2 = loadImage("Sudoku.jpg");
+            img2 = img;
         }
     }
     console.log("SudokuScreen");
