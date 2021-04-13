@@ -9,7 +9,6 @@ let numberClassifier; // Variable die das neuronale Netz aus ML5 zwischenspeiche
 let img = null; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let img2 = null; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let clearCanvas = false; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-let subimg; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let logo; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let video; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let showSquare = false; // Variable die das neuronale Netz aus ML5 zwischenspeichert
@@ -164,15 +163,7 @@ function uploadImageScreen() {
     calculateButton.show();
     resetButton.show();
     /***********************/
-    let imgwidth = img2.width / 9;
-    let imgheight = img2.height / 9;
-    for (let i = 0; i < 9; i++) {
-        for (let j = 0; j < 9; j++) {
-            subimg = img2.get(j * imgwidth, i * imgheight, imgwidth, imgheight);
-            subimg.resize(28, 28);
-            numberClassifier.classify({image: subimg}, gotResults);
-        }
-    }
+    numbers1d = [...getDigits(img2)];
     while (numbers1d.length) {
         numbers2d.push(numbers1d.splice(0, 9));
     }
@@ -237,18 +228,7 @@ function sudokuScreen() {
     calculateButton.show();
     resetButton.show();
     /***********************/
-    img2.resize(img2.width, img2.width);
-    console.log(img2.width, img2.height);
-    let imgwidth = img2.width / 9;
-    let imgheight = img2.height / 9;
-    for (let i = 0; i < 9; i++) {
-        for (let j = 0; j < 9; j++) {
-            subimg = img2.get(j * imgwidth, i * imgheight, imgwidth, imgheight);
-            subimg.resize(28, 28);
-            console.log("test");
-            numberClassifier.classify({image: subimg}, gotResults);
-        }
-    }
+
     while (numbers1d.length) {
         numbers2d.push(numbers1d.splice(0, 9));
     }
@@ -396,8 +376,6 @@ function draw() {
 
     if (_calculatedScreen) {
         clear();
-        image(img2,0,400);
-        image(subimg,400,0);
         stroke(245);
         strokeWeight(1);
         for (let i = 1; i < 9; i++) {

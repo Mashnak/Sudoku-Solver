@@ -1,9 +1,26 @@
+let numbers = [];
+
+function getDigits(img) {
+    let imgwidth = img.width / 9;
+    let imgheight = img.height / 9;
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            subimg = img.get(j * imgwidth, i * imgheight, imgwidth, imgheight);
+            subimg.resize(28, 28);
+            numberClassifier.classify({image: subimg}, gotResults);
+        }
+    }
+    return numbers;
+}
+
+
+
 /**
  *
  * @param err
  * @param results
  */
-function gotResultss(err, results) {
+function gotResults(err, results) {
     if (err) {
         console.error(err);
         return;
