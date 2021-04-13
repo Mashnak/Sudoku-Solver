@@ -93,7 +93,6 @@ function uploadScreen() {
     _sudokuScreen = false;
     _calculatedScreen = false;
     /***********************/
-    video.hide();
     uploadButton.hide();
     videoButton.hide();
     uploadImageButton.show();
@@ -156,7 +155,6 @@ function uploadImageScreen() {
     _sudokuScreen = false;
     _calculatedScreen = false;
     /***********************/
-    video.hide();
     uploadButton.hide();
     videoButton.hide();
     uploadImageButton.hide();
