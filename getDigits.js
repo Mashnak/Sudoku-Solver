@@ -1,3 +1,6 @@
+const model = await tf.loadLayersModel('https://mashnak.github.io/Sudoku-Solver/model/Sudoku_Solver.json');
+
+
 let numbers = [];
 const grid = [
     [5, 3, 0, 0, 7, 0, 0, 0, 0],
