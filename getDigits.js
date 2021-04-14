@@ -1,5 +1,5 @@
-let numbers = [];
-const grid = [
+let numbers = []; // Feld in dem die Ziffern gespeichert werden
+const grid = [ // Fallback Feld, da die Erkennung nicht gut funktioniert
     [5, 3, 0, 0, 7, 0, 0, 0, 0],
     [6, 0, 0, 1, 9, 5, 0, 0, 0],
     [0, 9, 8, 0, 0, 0, 0, 6, 0],
@@ -11,6 +11,11 @@ const grid = [
     [0, 0, 0, 0, 8, 0, 0, 7, 9]
 ];
 
+/**
+ * Funktion zur Erkennung der Ziffern
+ * @param img Aufgenommenes Foto eines Sudokus auf dem die Ziffern erkannt werden sollen
+ * @returns {*[]} Eindimensionales Feld mit den erkannten Ziffern
+ */
 function getDigits(img) {
     let imgwidth = img.width / 9;
     let imgheight = img.height / 9;
@@ -34,7 +39,7 @@ function getDigits(img) {
 
 
 /**
- *
+ * Callbackfunktion der Klassifizierungsfunktion von ML5
  * @param err
  * @param results
  */
