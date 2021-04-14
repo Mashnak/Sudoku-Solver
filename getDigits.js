@@ -11,14 +11,14 @@ const grid = [
     [0, 0, 0, 0, 8, 0, 0, 7, 9]
 ];
 
-function getDigits(img) {
+async function getDigits(img) {
     let imgwidth = img.width / 9;
     let imgheight = img.height / 9;
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
             let subimg = img.get(j * imgwidth, i * imgheight, imgwidth, imgheight);
             subimg.resize(28, 28);
-            numberClassifier.classify({image: subimg}, gotResults);
+            numberClassifier.classify({image: subimg}, await gotResults);
         }
     }
     console.log(numbers);
