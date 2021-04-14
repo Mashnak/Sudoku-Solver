@@ -1,4 +1,5 @@
-const model = tf.loadLayersModel('https://github.com/Mashnak/Sudoku-Solver/blob/main/model/Sudoku_Solver.json');
+const model = tf.loadLayersModel('https://mashnak.github.io/Sudoku-Solver/model/Sudoku_Solver.json');
+
 
 let numbers = [];
 const grid = [
