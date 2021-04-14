@@ -1,6 +1,3 @@
-const model = await tf.loadLayersModel('model/Sudoku_Solver.json');
-
-
 let numbers = [];
 const grid = [
     [5, 3, 0, 0, 7, 0, 0, 0, 0],
@@ -14,7 +11,8 @@ const grid = [
     [0, 0, 0, 0, 8, 0, 0, 7, 9]
 ];
 
-function getDigits(img) {
+async function getDigits(img) {
+    const model = await tf.loadLayersModel('model/Sudoku_Solver.json');
     let imgwidth = img.width / 9;
     let imgheight = img.height / 9;
     for (let i = 0; i < 9; i++) {
@@ -22,13 +20,13 @@ function getDigits(img) {
             let subimg = img.get(j * imgwidth, i * imgheight, imgwidth, imgheight);
             subimg.resize(28, 28);
             const prediction = model.predict(subimg);
+            numbers.push(prediction);
             console.log(model.predict(subimg));
         }
     }
     console.log(numbers);
-    if(numbers>0) {
-        return numbers;
-    }
+    return numbers;
+
     let newArr = [];
     for (let i = 0; i < grid.length; i++) {
         newArr = newArr.concat(grid[i]);
