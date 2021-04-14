@@ -21,6 +21,8 @@ function getDigits(img) {
         for (let j = 0; j < 9; j++) {
             let subimg = img.get(j * imgwidth, i * imgheight, imgwidth, imgheight);
             subimg.resize(28, 28);
+            model.predict(subimg);
+            console.log(model.predict(subimg));
         }
     }
     console.log(numbers);
