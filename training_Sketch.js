@@ -1,68 +1,38 @@
-/*****************************************************************************
- ***  Methoden um das vorhandene und erkannte Sudoku vollständig zu lösen.  ***
- *****************************************************************************/
+import {MnistData} from './data.js';
 
-let one = [];
-let two = [];
-let three = [];
-let four = [];
-let five = [];
-let six = [];
-let seven = [];
-let eight = [];
-let nine = [];
+async function showExamples(data) {
+	// Create a container in the visor
+	const surface =
+		tfvis.visor().surface({ name: 'Input Data Examples', tab: 'Input Data'});
 
-let numberClassifier;
+	// Get the examples
+	const examples = data.nextTestBatch(20);
+	const numExamples = examples.xs.shape[0];
 
+	// Create a canvas element to render each example
+	for (let i = 0; i < numExamples; i++) {
+		const imageTensor = tf.tidy(() => {
+			// Reshape the image to 28x28 px
+			return examples.xs
+				.slice([i, 0], [1, examples.xs.shape[1]])
+				.reshape([28, 28, 1]);
+		});
 
+		const canvas = document.createElement('canvas');
+		canvas.width = 28;
+		canvas.height = 28;
+		canvas.style = 'margin: 4px;';
+		await tf.browser.toPixels(imageTensor, canvas);
+		surface.drawArea.appendChild(canvas);
 
-function preload() {
-	for (let i = 0; i < 1500; i++){
-		let index = nf(i+1);
-		one[i] = loadImage('newtrainingSet/1/Img'+index+'.jpg');
-		two[i] = loadImage('newtrainingSet/2/Img'+index+'.jpg');
-		three[i] = loadImage('newtrainingSet/3/Img'+index+'.jpg');
-		four[i] = loadImage('newtrainingSet/4/Img'+index+'.jpg');
-		five[i] = loadImage('newtrainingSet/5/Img'+index+'.jpg');
-		six[i] = loadImage('newtrainingSet/6/Img'+index+'.jpg');
-		seven[i] = loadImage('newtrainingSet/7/Img'+index+'.jpg');
-		eight[i] = loadImage('newtrainingSet/8/Img'+index+'.jpg');
-		nine[i] = loadImage('newtrainingSet/9/Img'+index+'.jpg');
-		if (i%100===0) {
-			console.log((i/100+1)*100+' images loaded!');
-		}
+		imageTensor.dispose();
 	}
 }
 
-function setup() {
-
-	let options = {
-		inputs: [28,28,4],
-		task: 'imageClassification',
-		debug: true
-	}
-	console.log(one.length);
-	numberClassifier = ml5.neuralNetwork(options);
-	for (let j = 0; j < one.length; j++) {
-		numberClassifier.addData({image:one[j]},{label:'1'});
-		numberClassifier.addData({image:two[j]},{label:'2'});
-		numberClassifier.addData({image:three[j]},{label:'3'});
-		numberClassifier.addData({image:four[j]},{label:'4'});
-		numberClassifier.addData({image:five[j]},{label:'5'});
-		numberClassifier.addData({image:six[j]},{label:'6'});
-		numberClassifier.addData({image:seven[j]},{label:'7'});
-		numberClassifier.addData({image:eight[j]},{label:'8'});
-		numberClassifier.addData({image:nine[j]},{label:'9'});
-	}
-	numberClassifier.normalizeData();
-	numberClassifier.train({epochs: 50}, finishedTraining);
+async function run() {
+	const data = new MnistData();
+	await data.load();
+	await showExamples(data);
 }
 
-function finishedTraining() {
-	numberClassifier.save();
-	console.log("Training finished!");
-
-}
-
-function draw() {
-}
+document.addEventListener('DOMContentLoaded', run);
