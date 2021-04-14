@@ -18,7 +18,6 @@ function getDigits(img) {
         for (let j = 0; j < 9; j++) {
             let subimg = img.get(j * imgwidth, i * imgheight, imgwidth, imgheight);
             subimg.resize(28, 28);
-            numberClassifier.classify({image: subimg}, gotResults);
         }
     }
     console.log(numbers);
@@ -32,22 +31,3 @@ function getDigits(img) {
     return newArr;
 }
 
-
-/**
- *
- * @param err
- * @param results
- */
-function gotResults(err, results) {
-    if (err) {
-        console.error(err);
-        return;
-    }
-    let label = results[0].label;
-    let confidence = nf(100 * results[0].confidence, 2, 0);
-    if (confidence >= 80) {
-        numbers.push(int(label));
-    } else {
-        numbers.push(0);
-    }
-}
