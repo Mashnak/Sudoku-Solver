@@ -1,4 +1,4 @@
-const model = await tf.loadLayersModel('https://mashnak.github.io/Sudoku-Solver/model/Sudoku_Solver.json');
+const model = tf.loadLayersModel('https://mashnak.github.io/Sudoku-Solver/model/Sudoku_Solver.json');
 
 
 let numbers = [];
