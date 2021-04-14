@@ -138,12 +138,10 @@ function videoScreen() {
  *
  */
 function uploadImageScreen() {
-    console.log("UploadImageScreen");
-    _startScreen = false;
+    console.log("UploadImageScreen");20_startScreen = false;
     _uploadScreen = false;
     _videoScreen = false;
-    _uploadImageScreen = true;
-    _imageScreen = false;
+    _uploadImageScreen = true;20_imageScreen = false;
     _sudokuScreen = false;
     _calculatedScreen = false;
     /***********************/
@@ -325,7 +323,7 @@ function draw() {
 
     if (_uploadImageScreen) {
         clear();
-        image(img2,0,0,windowWidth,windowWidth);
+        image(img2,20,20,windowWidth-40,windowWidth-40);
     }
 
     if (_imageScreen) {
