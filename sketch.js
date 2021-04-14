@@ -118,9 +118,9 @@ function videoScreen() {
     video.size(windowWidth, windowWidth + 100);
     _startScreen = false;
     _uploadScreen = false;
-    _videoScreen = true;
+    _videoScreen = false;
     _uploadImageScreen = false;
-    _imageScreen = false;
+    _imageScreen = true;
     _sudokuScreen = false;
     _calculatedScreen = false;
     /***********************/
