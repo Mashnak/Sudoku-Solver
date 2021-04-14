@@ -1,4 +1,5 @@
-const model = tf.loadLayersModel('model/Sudoku_Solver.json');
+import * as tf from '@tensorflow/tfjs';
+const model = await tf.loadLayersModel('model/Sudoku_Solver.json');
 
 
 let numbers = [];
@@ -21,7 +22,7 @@ function getDigits(img) {
         for (let j = 0; j < 9; j++) {
             let subimg = img.get(j * imgwidth, i * imgheight, imgwidth, imgheight);
             subimg.resize(28, 28);
-            model.predict(subimg);
+            const prediction = model.predict(subimg);
             console.log(model.predict(subimg));
         }
     }
