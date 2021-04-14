@@ -138,10 +138,12 @@ function videoScreen() {
  *
  */
 function uploadImageScreen() {
-    console.log("UploadImageScreen");20_startScreen = false;
+    console.log("UploadImageScreen");
+    _startScreen = false;
     _uploadScreen = false;
     _videoScreen = false;
-    _uploadImageScreen = true;20_imageScreen = false;
+    _uploadImageScreen = true;
+    _imageScreen = false;
     _sudokuScreen = false;
     _calculatedScreen = false;
     /***********************/
