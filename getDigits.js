@@ -26,7 +26,9 @@ function getDigits(img) {
             numberClassifier.classify({image: subimg}, gotResults);
         }
     }
-    return numbers;
+    if(numbers.length>0) {
+        return numbers;
+    }
     let newArr = [];
     for (let i = 0; i < grid.length; i++) {
         newArr = newArr.concat(grid[i]);
