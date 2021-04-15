@@ -370,10 +370,10 @@ function draw() {
         line(cell_size / 2 + cell_size * 7, cell_size / 2, cell_size / 2 + cell_size * 7, cell_size / 2 + cell_size * 9);
         line(cell_size / 2 + cell_size * 8, cell_size / 2, cell_size / 2 + cell_size * 8, cell_size / 2 + cell_size * 9);
         stroke(255,255,130);
-        line(cell_size / 2, cell_size / 2 + cell_size * 7, cell_size / 2, cell_size / 2 + cell_size * 8);
-        line(cell_size / 2 + cell_size * 9, cell_size / 2 + cell_size * 7, cell_size / 2 + cell_size * 9, cell_size / 2 + cell_size * 8);
+        line(cell_size / 2, cell_size / 2 + cell_size * 6, cell_size / 2, cell_size / 2 + cell_size * 7);
+        line(cell_size / 2 + cell_size * 9, cell_size / 2 + cell_size * 6, cell_size / 2 + cell_size * 9, cell_size / 2 + cell_size * 7);
+        line(cell_size / 2, cell_size / 2 + cell_size * 6, cell_size / 2 + cell_size * 9, cell_size / 2 + cell_size * 6);
         line(cell_size / 2, cell_size / 2 + cell_size * 7, cell_size / 2 + cell_size * 9, cell_size / 2 + cell_size * 7);
-        line(cell_size / 2, cell_size / 2 + cell_size * 8, cell_size / 2 + cell_size * 9, cell_size / 2 + cell_size * 8);
         strokeWeight(1);
         noStroke();
         textSize(20);
