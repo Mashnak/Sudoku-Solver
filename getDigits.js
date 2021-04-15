@@ -29,6 +29,7 @@ function getDigits(img) {
     if(numbers.length>0) {
         return numbers;
     }
+    console.log(numbers,"Numbers in getDigits function");
     let newArr = [];
     for (let i = 0; i < grid.length; i++) {
         newArr = newArr.concat(grid[i]);
@@ -49,6 +50,7 @@ function gotResults(err,results) {
     }
     let label = results[0].label;
     let confidence = nf(100 * results[0].confidence, 2, 0);
+    console.log(label, confidence, "label & confidence");
     if (confidence >= 80) {
         numbers.push(int(label));
     } else {
