@@ -362,8 +362,8 @@ function draw() {
         stroke(255,0,0);
         line(cell_size / 2, cell_size / 2, cell_size / 2, cell_size * 3 + cell_size/2);
         line(cell_size / 2, cell_size / 2, cell_size * 3 + cell_size/2, cell_size / 2);
-        line(cell_size / 2, cell_size * 3 + cell_size/2,  cell_size * 3 + cell_size/2, cell_size * 3 + cell_size/2);
-        line(cell_size / 2, cell_size * 3 + cell_size/2,  cell_size * 3 + cell_size/2, cell_size * 3 + cell_size/2);
+        line(cell_size * 3 + cell_size / 2, cell_size / 2,  cell_size * 3 + cell_size/2, cell_size * 3 + cell_size/2);
+        line(cell_size / 2, cell_size * 3 + cell_size / 2,  cell_size * 3 + cell_size/2, cell_size * 3 + cell_size/2);
         /*stroke(255,255,0);
         line(cell_size / 2, cell_size / 2, cell_size / 2, cell_size * 3 + cell_size/2);
         line(cell_size / 2, cell_size / 2, cell_size / 2, cell_size * 3 + cell_size/2);
