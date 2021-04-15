@@ -225,10 +225,10 @@ function sudokuScreen() {
  *
  */
 function calculatedScreen() {
+    console.log("CalculatedScreen");
     while (numbers1d.length) numbers2d.push(numbers1d.splice(0, 9));
     console.log(numbers1d,"numbers1d");
     console.log(numbers1d,"numbers2d");
-    console.log("CalculatedScreen");
     _startScreen = false;
     _uploadScreen = false;
     _videoScreen = false;
