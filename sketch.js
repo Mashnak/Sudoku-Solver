@@ -352,11 +352,17 @@ function draw() {
             line(cell_size * (1 / 2 + i), cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2));
             line(cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i));
         }
-        stroke(0,255,0);
+        stroke(45);
         for (let i = 0; i <= 3; i++) {
             line(cell_size * (1 / 2 + i * 3), cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2));
             line(cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i * 3));
         }
+        // Draw Areas
+        strokeWeight(3);
+        stroke(255,0,0);
+        line(cell_size / 2, cell_size / 2, cell_size / 2, cell_size * 3);
+
+        strokeWeight(1);
         noStroke();
         textSize(20);
 
