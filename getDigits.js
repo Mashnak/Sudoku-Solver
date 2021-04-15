@@ -43,7 +43,7 @@ function getDigits(img) {
  * @param err
  * @param results
  */
-function gotResults(err, results) {
+function gotResults(results,err) {
     if (err) {
         console.error(err);
         return;
