@@ -364,17 +364,16 @@ function draw() {
         line(cell_size / 2, cell_size / 2, cell_size * 3 + cell_size/2, cell_size / 2);
         line(cell_size * 3 + cell_size / 2, cell_size / 2,  cell_size * 3 + cell_size/2, cell_size * 3 + cell_size/2);
         line(cell_size / 2, cell_size * 3 + cell_size / 2,  cell_size * 3 + cell_size/2, cell_size * 3 + cell_size/2);
-        /*stroke(255,255,0);
-        line(cell_size / 2, cell_size / 2, cell_size / 2, cell_size * 3 + cell_size/2);
-        line(cell_size / 2, cell_size / 2, cell_size / 2, cell_size * 3 + cell_size/2);
-        line(cell_size / 2, cell_size / 2, cell_size / 2, cell_size * 3 + cell_size/2);
-        line(cell_size / 2, cell_size / 2, cell_size / 2, cell_size * 3 + cell_size/2);
-        stroke(0,255,0);
-        line(cell_size / 2, cell_size / 2, cell_size / 2, cell_size * 3 + cell_size/2);
-        line(cell_size / 2, cell_size / 2, cell_size / 2, cell_size * 3 + cell_size/2);
-        line(cell_size / 2, cell_size / 2, cell_size / 2, cell_size * 3 + cell_size/2);
-        line(cell_size / 2, cell_size / 2, cell_size / 2, cell_size * 3 + cell_size/2);
-        */
+        stroke(255,255,0);
+        line(cell_size / 2 + cell_size * 7, cell_size / 2, cell_size / 2 + cell_size * 8, cell_size / 2);
+        line(cell_size / 2 + cell_size * 7, cell_size / 2 + cell_size * 9, cell_size / 2 + cell_size * 8, cell_size / 2 + cell_size * 9);
+        line(cell_size / 2 + cell_size * 7, cell_size / 2, cell_size / 2 + cell_size * 7, cell_size / 2 + cell_size * 9);
+        line(cell_size / 2 + cell_size * 8, cell_size / 2, cell_size / 2 + cell_size * 8, cell_size / 2 + cell_size * 9);
+        //stroke(0,255,0);
+        //line(cell_size / 2, cell_size / 2, cell_size / 2, cell_size * 3 + cell_size/2);
+        //line(cell_size / 2, cell_size / 2, cell_size / 2, cell_size * 3 + cell_size/2);
+        //line(cell_size / 2, cell_size / 2, cell_size / 2, cell_size * 3 + cell_size/2);
+        //line(cell_size / 2, cell_size / 2, cell_size / 2, cell_size * 3 + cell_size/2);
         strokeWeight(1);
         noStroke();
         textSize(20);
