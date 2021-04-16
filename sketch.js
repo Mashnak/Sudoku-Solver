@@ -434,10 +434,10 @@ function draw() {
     if (_sudokuScreen) {
         clear();
         if (is_desktop) {
-            image(img2, windowWidth/2 - img2.width, 0);
+            image(img2, windowWidth/2, 0);
         }
         else {
-            img(img2, 0, 0);
+            image(img2, 0, 0);
         }
     }
 
