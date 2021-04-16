@@ -339,7 +339,7 @@ function draw() {
     if (_uploadImageScreen) {
         clear();
         if (is_desktop) {
-            image(img2, windowWidth/2-logo.width/2-20, 20, img2.width, img2.height);
+            image(img2, windowWidth/2-img2.width/2, 20, img2.width, img2.height);
         } else {
             image(img2,20,20,windowWidth-40,windowWidth-40);
         }
