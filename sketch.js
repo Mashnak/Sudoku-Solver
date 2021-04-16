@@ -219,6 +219,7 @@ function sudokuScreen() {
     resetButton.show();
     /***********************/
     numbers1d = [...getDigits(img2)];
+    while (numbers1d.length) numbers2d.push(numbers1d.splice(0, 9));
 }
 
 /**
@@ -226,7 +227,6 @@ function sudokuScreen() {
  */
 function calculatedScreen() {
     console.log("CalculatedScreen");
-    while (numbers1d.length) numbers2d.push(numbers1d.splice(0, 9));
     _startScreen = false;
     _uploadScreen = false;
     _videoScreen = false;
@@ -357,28 +357,8 @@ function draw() {
             line(cell_size * (1 / 2 + i * 3), cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2));
             line(cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i * 3));
         }
-/*
-        strokeWeight(3);
-        stroke(255,0,0);
-        line(cell_size / 2, cell_size / 2, cell_size / 2, cell_size * 3 + cell_size/2);
-        line(cell_size / 2, cell_size / 2, cell_size * 3 + cell_size/2, cell_size / 2);
-        line(cell_size * 3 + cell_size / 2, cell_size / 2,  cell_size * 3 + cell_size/2, cell_size * 3 + cell_size/2);
-        line(cell_size / 2, cell_size * 3 + cell_size / 2,  cell_size * 3 + cell_size/2, cell_size * 3 + cell_size/2);
-        stroke(0,255,0);
-        line(cell_size / 2 + cell_size * 7, cell_size / 2, cell_size / 2 + cell_size * 8, cell_size / 2);
-        line(cell_size / 2 + cell_size * 7, cell_size / 2 + cell_size * 9, cell_size / 2 + cell_size * 8, cell_size / 2 + cell_size * 9);
-        line(cell_size / 2 + cell_size * 7, cell_size / 2, cell_size / 2 + cell_size * 7, cell_size / 2 + cell_size * 9);
-        line(cell_size / 2 + cell_size * 8, cell_size / 2, cell_size / 2 + cell_size * 8, cell_size / 2 + cell_size * 9);
-        stroke(255,160,0);
-        line(cell_size / 2, cell_size / 2 + cell_size * 6, cell_size / 2, cell_size / 2 + cell_size * 7);
-        line(cell_size / 2 + cell_size * 9, cell_size / 2 + cell_size * 6, cell_size / 2 + cell_size * 9, cell_size / 2 + cell_size * 7);
-        line(cell_size / 2, cell_size / 2 + cell_size * 6, cell_size / 2 + cell_size * 9, cell_size / 2 + cell_size * 6);
-        line(cell_size / 2, cell_size / 2 + cell_size * 7, cell_size / 2 + cell_size * 9, cell_size / 2 + cell_size * 7);
-*/
-        strokeWeight(1);
         noStroke();
         textSize(20);
-
         for (let i = 0; i < 9; i++) {
             for (let j = 0; j < 9; j++) {
                 if (numbers2d[i][j] !== 0) {
