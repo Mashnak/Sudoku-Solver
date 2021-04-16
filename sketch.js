@@ -13,6 +13,7 @@ let logo; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let video; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let showSquare = false; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 const cell_size = 36; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let is_desktop;
 
 /**
  * Steuervariablen für das UI
@@ -62,6 +63,8 @@ function preload() {
         weights: 'model/model.weights.bin'
     }
     numberClassifier.load(modelDetails, modelLoaded);
+
+    is_desktop = getDeviceType();
 }
 
 /**
@@ -101,7 +104,10 @@ function uploadScreen() {
  */
 function videoScreen() {
     console.log("VideoScreen");
-    if (getDeviceType() === 'mobile' || getDeviceType() === 'tablet') {
+    if (is_desktop) {
+        video = createCapture(VIDEO);
+
+    } else {
         video =
             createCapture({
                 audio: false,
@@ -111,8 +117,6 @@ function videoScreen() {
                     }
                 }
             });
-    } else {
-        video = createCapture(VIDEO);
     }
     video.position(0, 0);
     console.log(video.width, video.height);
@@ -271,38 +275,40 @@ function setup() {
     createCanvas(windowWidth, windowHeight - 100);
     logo = loadImage("Logo.jpg");
     background(255);
+    let buttonwidth = 140;
+    let buttonheight = 50;
     /** Erstellen der Buttons zur Steuerung durch die App*/
     uploadButton = createButton('Sudoku hochladen');
-    uploadButton.position(windowWidth/2 - 180, windowHeight - 150);
-    uploadButton.size(160, 50);
+    uploadButton.position(windowWidth/2 - 40 - buttonwidth, windowHeight - 150);
+    uploadButton.size(buttonwidth, buttonheight);
     uploadButton.mousePressed(uploadScreen);
     videoButton = createButton('Sudoku aufnehmen');
-    videoButton.position(windowWidth/2 + 20, windowHeight - 150);
-    videoButton.size(160, 50);
+    videoButton.position(windowWidth/2 + 40, windowHeight - 150);
+    videoButton.size(buttonwidth, buttonheight);
     videoButton.mousePressed(videoScreen);
     uploadImageButton = createButton('Foto hochladen');
-    uploadImageButton.position(windowWidth/2 + 20, windowHeight - 150);
-    uploadImageButton.size(160, 50);
+    uploadImageButton.position(windowWidth/2 + 40, windowHeight - 150);
+    uploadImageButton.size(buttonwidth, buttonheight);
     uploadImageButton.mousePressed(uploadImageScreen);
     uploadImageButton.hide();
     getImageButton = createButton('Foto aufnehmen');
-    getImageButton.position(windowWidth/2 + 20, windowHeight - 150);
-    getImageButton.size(160, 50);
+    getImageButton.position(windowWidth/2 + 40, windowHeight - 150);
+    getImageButton.size(buttonwidth, buttonheight);
     getImageButton.mousePressed(imageScreen);
     getImageButton.hide();
     cropImgButton = createButton('Sudoku zuschneiden');
-    cropImgButton.position(windowWidth/2 + 20, windowHeight - 150);
-    cropImgButton.size(160, 50);
+    cropImgButton.position(windowWidth/2 + 40, windowHeight - 150);
+    cropImgButton.size(buttonwidth, buttonheight);
     cropImgButton.mousePressed(sudokuScreen);
     cropImgButton.hide();
     resetButton = createButton('Reset');
-    resetButton.position(windowWidth/2 - 180, windowHeight - 150);
-    resetButton.size(160, 50);
+    resetButton.position(windowWidth/2 - 40 - buttonwidth, windowHeight - 150);
+    resetButton.size(buttonwidth, buttonheight);
     resetButton.mousePressed(resetVideo);
     resetButton.hide();
     calculateButton = createButton('Sudoku berechnen!');
-    calculateButton.position(windowWidth/2 + 20, windowHeight - 150);
-    calculateButton.size(160, 50);
+    calculateButton.position(windowWidth/2 + 40, windowHeight - 150);
+    calculateButton.size(buttonwidth, buttonheight);
     calculateButton.mousePressed(calculatedScreen);
     calculateButton.hide();
 }
@@ -312,10 +318,10 @@ function setup() {
  */
 function draw() {
     if (_startScreen) {
-        if (windowWidth < windowHeight) {
-            image(logo, 0, 0, windowWidth, windowWidth);
-        } else {
+        if (is_desktop) {
             image(logo, windowWidth/2-logo.width/2, 0, logo.width, logo.height);
+        } else {
+            image(logo, 0, 0, windowWidth, windowWidth);
         }
     }
 
@@ -332,10 +338,10 @@ function draw() {
 
     if (_uploadImageScreen) {
         clear();
-        if (windowWidth < windowHeight) {
-            image(img2,20,20,windowWidth-40,windowWidth-40);
-        } else {
+        if (is_desktop) {
             image(img2, windowWidth/2-logo.width/2-20, 20, img2.width, img2.height);
+        } else {
+            image(img2,20,20,windowWidth-40,windowWidth-40);
         }
 
     }
@@ -438,16 +444,16 @@ function draw() {
 const getDeviceType = () => {
     const ua = navigator.userAgent;
     if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
-        return "tablet";
+        return false;
     }
     if (
         /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
             ua
         )
     ) {
-        return "mobile";
+        return false;
     }
-    return "desktop";
+    return true;
 };
 
 
