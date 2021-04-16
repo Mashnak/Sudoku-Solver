@@ -233,7 +233,7 @@ function getGrid(grid) {
 
     for(var i = 0; i < solve(grid).length; i++)
     {
-        newArr = newArr.push(solve(grid)[i]);
+        newArr = newArr.concat(solve(grid)[i]);
     }
     return newArr;
 }
