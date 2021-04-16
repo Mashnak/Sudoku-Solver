@@ -244,7 +244,7 @@ function calculatedScreen() {
     /***********************/
     showSquare = false;
     console.log(numbers2d);
-    final1d = [...getGrid(numbers2d)];
+    final1d = getGrid(numbers2d);
     console.log(final1d);
     while (final1d.length) final2d.push(final1d.splice(0, 9));
 }
