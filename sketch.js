@@ -332,7 +332,12 @@ function draw() {
 
     if (_uploadImageScreen) {
         clear();
-        image(img2,20,20,windowWidth-40,windowWidth-40);
+        if (windowWidth < windowHeight) {
+            image(img2,20,20,windowWidth-40,windowWidth-40);
+        } else {
+            image(img2, windowWidth/2-logo.width/2-20, 20, img2.width, img2.height);
+        }
+
     }
 
     if (_imageScreen) {
