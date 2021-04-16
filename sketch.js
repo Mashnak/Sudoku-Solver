@@ -155,7 +155,7 @@ function uploadImageScreen() {
     calculateButton.show();
     resetButton.show();
     /***********************/
-    numbers2d = [...getDigits(img2)];
+    numbers2d = getDigits(img2);
     console.log(numbers2d);
 }
 
