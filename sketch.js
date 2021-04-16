@@ -329,10 +329,11 @@ function draw() {
 
     if (_imageScreen) {
         clear();
+
+        text("Links oben und rechts unten klicken!");
+        image(img, 0,0 );
         noStroke();
         textSize(20);
-        text("Links oben und rechts unten klicken!");
-        image(img, 0, 0);
         if (showSquare) {
             strokeWeight(1);
             noFill();
