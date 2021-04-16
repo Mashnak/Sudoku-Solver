@@ -316,10 +316,10 @@ function draw() {
     }
 
     if (_uploadScreen) {
+        clear();
         noStroke();
         textSize(20);
         text("Hier sollte eigentlich ein BildUpload sein!", windowWidth/2-100,windowHeight/2);
-        clear();
     }
 
     if (_videoScreen) {
