@@ -121,7 +121,7 @@ function videoScreen() {
 
     console.log(video.width, video.height);
     if (is_desktop) {
-        video.position(windowWidth / 2 - video.width, 0);
+        video.position(windowWidth/2-video.width, 0);
     } else {
         video.position(0, 0);
         video.size(windowWidth, windowWidth + 100);
@@ -285,35 +285,35 @@ function setup() {
     let buttonheight = 50;
     /** Erstellen der Buttons zur Steuerung durch die App*/
     uploadButton = createButton('Sudoku hochladen');
-    uploadButton.position(windowWidth / 2 - 40 - buttonwidth, windowHeight - 150);
+    uploadButton.position(windowWidth/2 - 40 - buttonwidth, windowHeight - 150);
     uploadButton.size(buttonwidth, buttonheight);
     uploadButton.mousePressed(uploadScreen);
     videoButton = createButton('Sudoku aufnehmen');
-    videoButton.position(windowWidth / 2 + 40, windowHeight - 150);
+    videoButton.position(windowWidth/2 + 40, windowHeight - 150);
     videoButton.size(buttonwidth, buttonheight);
     videoButton.mousePressed(videoScreen);
     uploadImageButton = createButton('Foto hochladen');
-    uploadImageButton.position(windowWidth / 2 + 40, windowHeight - 150);
+    uploadImageButton.position(windowWidth/2 + 40, windowHeight - 150);
     uploadImageButton.size(buttonwidth, buttonheight);
     uploadImageButton.mousePressed(uploadImageScreen);
     uploadImageButton.hide();
     getImageButton = createButton('Foto aufnehmen');
-    getImageButton.position(windowWidth / 2 + 40, windowHeight - 150);
+    getImageButton.position(windowWidth/2 + 40, windowHeight - 150);
     getImageButton.size(buttonwidth, buttonheight);
     getImageButton.mousePressed(imageScreen);
     getImageButton.hide();
     cropImgButton = createButton('Sudoku zuschneiden');
-    cropImgButton.position(windowWidth / 2 + 40, windowHeight - 150);
+    cropImgButton.position(windowWidth/2 + 40, windowHeight - 150);
     cropImgButton.size(buttonwidth, buttonheight);
     cropImgButton.mousePressed(sudokuScreen);
     cropImgButton.hide();
     resetButton = createButton('Reset');
-    resetButton.position(windowWidth / 2 - 40 - buttonwidth, windowHeight - 150);
+    resetButton.position(windowWidth/2 - 40 - buttonwidth, windowHeight - 150);
     resetButton.size(buttonwidth, buttonheight);
     resetButton.mousePressed(resetVideo);
     resetButton.hide();
     calculateButton = createButton('Sudoku berechnen!');
-    calculateButton.position(windowWidth / 2 + 40, windowHeight - 150);
+    calculateButton.position(windowWidth/2 + 40, windowHeight - 150);
     calculateButton.size(buttonwidth, buttonheight);
     calculateButton.mousePressed(calculatedScreen);
     calculateButton.hide();
@@ -325,7 +325,7 @@ function setup() {
 function draw() {
     if (_startScreen) {
         if (is_desktop) {
-            image(logo, windowWidth / 2 - logo.width / 2, 0, logo.width, logo.height);
+            image(logo, windowWidth/2-logo.width/2, 0, logo.width, logo.height);
         } else {
             image(logo, 0, 0, windowWidth, windowWidth);
         }
@@ -335,7 +335,7 @@ function draw() {
         clear();
         noStroke();
         textSize(20);
-        text("Hier sollte eigentlich ein BildUpload sein!", windowWidth / 2 - 200, windowHeight / 2);
+        text("Hier sollte eigentlich ein BildUpload sein!", windowWidth/2-200,windowHeight/2);
     }
 
     if (_videoScreen) {
@@ -345,35 +345,25 @@ function draw() {
     if (_uploadImageScreen) {
         clear();
         if (is_desktop) {
-            image(img2, windowWidth / 2 - img2.width / 2, 20, img2.width, img2.height);
+            image(img2, windowWidth/2-img2.width/2, 20, img2.width, img2.height);
         } else {
-            image(img2, 20, 20, windowWidth - 40, windowWidth - 40);
+            image(img2,20,20,windowWidth-40,windowWidth-40);
         }
 
     }
 
     if (_imageScreen) {
         clear();
-        if (is_desktop) {
-            image(img, windowWidth / 2 - img.width, 0);
-            if (showSquare) {
-                strokeWeight(1);
-                noFill();
-                stroke(255, 0, 0);
-                rect(mouselicksx[1] - windowWidth / 2 - video.width, mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
-            } else {
-                image(img, 0, 0);
-                if (showSquare) {
-                    strokeWeight(1);
-                    noFill();
-                    stroke(255, 0, 0);
-                    rect(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
-                }
-
-            }
-
+        image(img, 0,0 );
+        if (showSquare) {
+            strokeWeight(1);
+            noFill();
+            stroke(255, 0, 0);
+            rect(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
         }
+
     }
+
     if (_sudokuScreen) {
         clear();
         stroke(245);
