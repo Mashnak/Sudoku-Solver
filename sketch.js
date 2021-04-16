@@ -357,7 +357,7 @@ function draw() {
             line(cell_size * (1 / 2 + i * 3), cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2));
             line(cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i * 3));
         }
-
+        /*
         strokeWeight(3);
         stroke(255,0,0);
         line(cell_size / 2, cell_size / 2, cell_size / 2, cell_size * 3 + cell_size/2);
@@ -374,7 +374,7 @@ function draw() {
         line(cell_size / 2 + cell_size * 9, cell_size / 2 + cell_size * 6, cell_size / 2 + cell_size * 9, cell_size / 2 + cell_size * 7);
         line(cell_size / 2, cell_size / 2 + cell_size * 6, cell_size / 2 + cell_size * 9, cell_size / 2 + cell_size * 6);
         line(cell_size / 2, cell_size / 2 + cell_size * 7, cell_size / 2 + cell_size * 9, cell_size / 2 + cell_size * 7);
-
+*/
         strokeWeight(1);
         noStroke();
         textSize(20);
