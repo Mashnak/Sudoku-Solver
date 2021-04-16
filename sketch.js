@@ -356,12 +356,20 @@ function draw() {
         clear();
 
 
-        image(img, 0,0 );
-        if (showSquare) {
-            strokeWeight(1);
-            noFill();
-            stroke(255, 0, 0);
-            rect(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
+        if (is_desktop) {
+            image(img, windowWidth/2-img.width,0 );
+            if (showSquare) {
+                strokeWeight(1);
+                noFill();
+                stroke(255, 0, 0);
+                rect(mouselicksx[1]-windowWidth/2-img.width, mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
+        }else{        image(img, 0,0 );
+            if (showSquare) {
+                strokeWeight(1);
+                noFill();
+                stroke(255, 0, 0);
+                rect(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);}
+
         }
 
     }
