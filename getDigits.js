@@ -17,7 +17,7 @@ const grid = [ // Fallback Feld, da die Erkennung nicht gut funktioniert
  * @returns {*[]} Eindimensionales Feld mit den erkannten Ziffern
  */
 function getDigits(img) {
-    let imgwidth = img.width / 9;
+/*    let imgwidth = img.width / 9;
     let imgheight = img.height / 9;
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
@@ -28,7 +28,7 @@ function getDigits(img) {
     }
     if(numbers.length>0) {
         return numbers;
-    }
+    }*/
     let newArr = [];
     for (let i = 0; i < grid.length; i++) {
         newArr = newArr.concat(grid[i]);
