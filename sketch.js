@@ -294,28 +294,28 @@ function setup() {
     videoButton.mousePressed(videoScreen);
     uploadImageButton = createButton('Foto hochladen');
     uploadImageButton.position(windowWidth/2 + 40, windowHeight - 150);
-    uploadImageButton.size(buttonwidth, buttonheight);
-    uploadImageButton.mousePressed(uploadImageScreen);
-    uploadImageButton.hide();
-    getImageButton = createButton('Foto aufnehmen');
-    getImageButton.position(windowWidth/2 + 40, windowHeight - 150);
-    getImageButton.size(buttonwidth, buttonheight);
-    getImageButton.mousePressed(imageScreen);
-    getImageButton.hide();
-    cropImgButton = createButton('Sudoku zuschneiden');
-    cropImgButton.position(windowWidth/2 + 40, windowHeight - 150);
-    cropImgButton.size(buttonwidth, buttonheight);
-    cropImgButton.mousePressed(sudokuScreen);
-    cropImgButton.hide();
-    resetButton = createButton('Reset');
-    resetButton.position(windowWidth/2 - 40 - buttonwidth, windowHeight - 150);
-    resetButton.size(buttonwidth, buttonheight);
-    resetButton.mousePressed(resetVideo);
-    resetButton.hide();
-    calculateButton = createButton('Sudoku berechnen!');
-    calculateButton.position(windowWidth/2 + 40, windowHeight - 150);
-    calculateButton.size(buttonwidth, buttonheight);
-    calculateButton.mousePressed(calculatedScreen);
+    uploadImageButton.size(buttonwidth, buttonheight)
+    uploadImageButton.mousePressed(uploadImageScreen)
+    uploadImageButton.hide()
+    getImageButton = createButton('Foto aufnehmen')
+    getImageButton.position(windowWidth/2 + 40, windowHeight - 150)
+    getImageButton.size(buttonwidth, buttonheight)
+    getImageButton.mousePressed(imageScreen)
+    getImageButton.hide()
+    cropImgButton = createButton('Sudoku zuschneiden')
+    cropImgButton.position(windowWidth/2 + 40, windowHeight - 150)
+    cropImgButton.size(buttonwidth, buttonheight)
+    cropImgButton.mousePressed(sudokuScreen)
+    cropImgButton.hide()
+    resetButton = createButton('Reset')
+    resetButton.position(windowWidth/2 - 40 - buttonwidth, windowHeight - 150)
+    resetButton.size(buttonwidth, buttonheight)
+    resetButton.mousePressed(resetVideo)
+    resetButton.hide()
+    calculateButton = createButton('Sudoku berechnen!')
+    calculateButton.position(windowWidth/2 + 40, windowHeight - 150)
+    calculateButton.size(buttonwidth, buttonheight)
+    calculateButton.mousePressed(calculatedScreen)
     calculateButton.hide();
 }
 
@@ -325,9 +325,9 @@ function setup() {
 function draw() {
     if (_startScreen) {
         if (is_desktop) {
-            image(logo, windowWidth/2-logo.width/2, 0, logo.width, logo.height);
+            image(logo, windowWidth/2-logo.width/2, 0, logo.width, logo.height)
         } else {
-            image(logo, 0, 0, windowWidth, windowWidth);
+            image(logo, 0, 0, windowWidth, windowWidth)
         }
     }
 
