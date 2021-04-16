@@ -318,7 +318,7 @@ function draw() {
     if (_uploadScreen) {
         noStroke();
         textSize(20);
-        text("Hier sollte eigentlich ein BildUpload sein!", 20,img.height+30);
+        text("Hier sollte eigentlich ein BildUpload sein!", windowWidth/2-100,windowHeight/2);
         clear();
     }
 
