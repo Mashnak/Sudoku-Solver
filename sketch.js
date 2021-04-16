@@ -31,9 +31,9 @@ let _calculatedScreen = false; // Screen um die Auswahl ob Upload oder über Kam
 let mouselicksx = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let mouselicksy = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let numbers1d = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-var numbers2d = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-var final1d = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-var final2d = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let numbers2d = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let final1d = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
+let final2d = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 
 /**
  * Definition der benötigten Buttons zur Steuerung der App

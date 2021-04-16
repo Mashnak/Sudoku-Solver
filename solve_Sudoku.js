@@ -227,6 +227,7 @@ function print_cell(value) {
 
 
 function getGrid(grid) {
+    console.log(grid);
     let newArr = [];
 
 
