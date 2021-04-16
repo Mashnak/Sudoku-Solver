@@ -382,7 +382,7 @@ function draw() {
                 } else if (numbers2d[i][j] === 0) {
                     stroke("green");
                     fill("green");
-                    text(numbers2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
+                    text("", cell_size * (j + 1), cell_size * (i + 1) + 6);
                 } else {
                     stroke("orange");
                     fill("orange");
