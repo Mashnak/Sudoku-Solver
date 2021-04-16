@@ -312,7 +312,11 @@ function setup() {
  */
 function draw() {
     if (_startScreen) {
-        image(logo, 0, 0, windowWidth, windowWidth);
+        if (windowWidth < WindowHeight) {
+            image(logo, 0, 0, windowWidth, windowWidth);
+        } else {
+            image(logo, windowWidth/2-logo.width/2, 0);
+        }
     }
 
     if (_uploadScreen) {
