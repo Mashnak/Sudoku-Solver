@@ -33,6 +33,7 @@ function getDigits(img) {
     for (let i = 0; i < grid.length; i++) {
         newArr = newArr.concat(grid[i]);
     }
+    console.log("test");
     return newArr;
 }
 
