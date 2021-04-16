@@ -312,7 +312,7 @@ function setup() {
  */
 function draw() {
     if (_startScreen) {
-        if (windowWidth < WindowHeight) {
+        if (windowWidth < windowHeight) {
             image(logo, 0, 0, windowWidth, windowWidth);
         } else {
             image(logo, windowWidth/2-logo.width/2, 0, logo.width, logo.height);
