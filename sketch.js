@@ -78,7 +78,6 @@ function modelLoaded() {
  *
  */
 function uploadScreen() {
-    console.log(is_desktop);
     console.log("UploadScreen");
     _startScreen = false;
     _uploadScreen = true;
@@ -119,10 +118,12 @@ function videoScreen() {
                 }
             });
     }
-    video.position(0, 0);
+
     console.log(video.width, video.height);
     if (is_desktop) {
+        video.position(windowWidth/2-video.width, 0);
     } else {
+        video.position(0, 0);
         video.size(windowWidth, windowWidth + 100);
     }
 
