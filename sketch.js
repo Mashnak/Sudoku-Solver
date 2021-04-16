@@ -78,6 +78,7 @@ function modelLoaded() {
  *
  */
 function uploadScreen() {
+    console.log(is_desktop);
     console.log("UploadScreen");
     _startScreen = false;
     _uploadScreen = true;
