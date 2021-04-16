@@ -381,22 +381,22 @@ function draw() {
 
         for (let i = 0; i < 9; i++) {
             for (let j = 0; j < 9; j++) {
-                if (final2d[i][j] !== 0) {
+                if (numbers2d[i][j] !== 0) {
                     stroke("black");
                     fill("black");
-                    text(final2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
+                    text(numbers2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
                 } else if (numbers2d[i][j] > 0) {
                     stroke("green");
                     fill("green");
-                    text(final2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
-                } else if (final2d[i][j] === 0) {
+                    text(numbers2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
+                } else if (numbers2d[i][j] === 0) {
                     stroke("green");
                     fill("green");
-                    text(final2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
+                    text(numbers2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
                 } else {
                     stroke("orange");
                     fill("orange");
-                    text(final2d[i][j], cell_size * (j + 1) - 12, cell_size * (i + 1) + (j % 3 - 1) * 12 + 6);
+                    text(numbers2d[i][j], cell_size * (j + 1) - 12, cell_size * (i + 1) + (j % 3 - 1) * 12 + 6);
                 }
             }
         }
