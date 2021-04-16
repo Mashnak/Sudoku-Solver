@@ -29,12 +29,7 @@ function getDigits(img) {
     if(numbers.length>0) {
         return numbers;
     }*/
-    let newArr = [];
-    for (let i = 0; i < grid.length; i++) {
-        newArr = newArr.concat(grid[i]);
-    }
-    console.log("test");
-    return newArr;
+    return grid;
 }
 
 
