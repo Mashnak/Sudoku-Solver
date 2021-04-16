@@ -331,7 +331,7 @@ function draw() {
         clear();
 
         text("Links oben und rechts unten klicken!");
-        image(img, 0,0 );
+        image(img, 0,50 );
         noStroke();
         textSize(20);
         if (showSquare) {
