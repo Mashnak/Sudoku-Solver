@@ -316,6 +316,9 @@ function draw() {
     }
 
     if (_uploadScreen) {
+        noStroke();
+        textSize(20);
+        text("Hier sollte eigentlich ein BildUpload sein!", 20,img.height+30);
         clear();
     }
 
@@ -333,9 +336,6 @@ function draw() {
 
 
         image(img, 0,0 );
-        noStroke();
-        textSize(20);
-        text("Links oben und rechts unten klicken!", 20,img.height+30);
         if (showSquare) {
             strokeWeight(1);
             noFill();
