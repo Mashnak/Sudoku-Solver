@@ -31,7 +31,6 @@ let _calculatedScreen = false; // Screen um die Auswahl ob Upload oder über Kam
  */
 let mouselicksx = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let mouselicksy = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-let numbers1d = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let numbers2d = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let final1d = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let final2d = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
@@ -51,7 +50,9 @@ let calculateButton; // Variable die das neuronale Netz aus ML5 zwischenspeicher
 /**
  *
  */
-function preload() {
+async function preload() {
+    let image = loadImage("Sudoku.jpg");
+    numbers2d = await getDigits(image);
     let options = {
         inputs: [28, 28, 4],
         task: 'imageClassification',
