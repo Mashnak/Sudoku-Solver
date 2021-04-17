@@ -355,13 +355,13 @@ function draw() {
             stroke(245);
             strokeWeight(1);
             for (let i = 1; i < 9; i++) {
-                line(cell_size * (1 / 2 + i)+windowWidth/2-cell_size*5, cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2));
-                line(cell_size / 2+windowWidth/2-cell_size*5, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i));
+                line(cell_size * (1 / 2 + i)+windowWidth/2-cell_size*5, cell_size / 2, cell_size * (1 / 2 + i)+windowWidth/2-cell_size*5, cell_size * (10 - 1 / 2));
+                line(cell_size / 2+windowWidth/2-cell_size*5, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2)+windowWidth/2-cell_size*5, cell_size * (1 / 2 + i));
             }
             stroke(45);
             for (let i = 0; i <= 3; i++) {
-                line(cell_size * (1 / 2 + i * 3)+windowWidth/2-cell_size*5, cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2));
-                line(cell_size / 2+windowWidth/2-cell_size*5, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i * 3));
+                line(cell_size * (1 / 2 + i * 3)+windowWidth/2-cell_size*5, cell_size / 2, cell_size * (1 / 2 + i * 3)+windowWidth/2-cell_size*5, cell_size * (10 - 1 / 2));
+                line(cell_size / 2+windowWidth/2-cell_size*5, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2)+windowWidth/2-cell_size*5, cell_size * (1 / 2 + i * 3));
             }
             noStroke();
             textSize(20);
