@@ -31,13 +31,16 @@ async function getDigits(img) {
                         reject(err);
                         return;
                     }
-                    let label = results[0].label;
+                    let label = int(results[0].label);
                     let confidence = nf(100 * results[0].confidence, 2, 0);
+                    if(!numbers[i]) {
+                        numbers[i] = [];
+                    }
                     if (confidence >= 80) {
-                        numbers[i*9+j] = label;
+                        numbers[i][j] = label;
                         resolve(label);
                     } else {
-                        numbers[i*9+j] = 0;
+                        numbers[i][j] = 0;
                         resolve(0);
                     }
                 });
