@@ -333,6 +333,11 @@ function draw() {
 
     if (_uploadScreen) {
         clear();
+        if (is_desktop) {
+            image(img2, windowWidth/2-logo.width/2, 0, logo.width, logo.height)
+        } else {
+            image(img2, 0, 0, windowWidth, windowWidth)
+        }
         noStroke();
         textSize(15);
         text("Hier sollte eigentlich ein BildUpload sein!", windowWidth/2-150,windowHeight/2);
