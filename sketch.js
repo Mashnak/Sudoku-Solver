@@ -236,6 +236,17 @@ async function sudokuScreen() {
  */
 function calculatedScreen() {
     console.log("CalculatedScreen");
+    const grid = [ // Fallback Feld, da die Erkennung nicht gut funktioniert
+        [5, 3, 0, 0, 7, 0, 0, 0, 0],
+        [6, 0, 0, 1, 9, 5, 0, 0, 0],
+        [0, 9, 8, 0, 0, 0, 0, 6, 0],
+        [8, 0, 0, 0, 6, 0, 0, 0, 3],
+        [4, 0, 0, 8, 0, 3, 0, 0, 1],
+        [7, 0, 0, 0, 2, 0, 0, 0, 6],
+        [0, 6, 0, 0, 0, 0, 2, 8, 0],
+        [0, 0, 0, 4, 1, 9, 0, 0, 5],
+        [0, 0, 0, 0, 8, 0, 0, 7, 9]
+    ];
     _startScreen = false;
     _uploadScreen = false;
     _videoScreen = false;
@@ -254,7 +265,7 @@ function calculatedScreen() {
     /***********************/
     showSquare = false;
     console.log(numbers2d);
-    final1d = getGrid(numbers2d);
+    final1d = getGrid(grid);
     while (final1d.length) final2d.push(final1d.splice(0, 9));
 }
 
@@ -446,17 +457,6 @@ function draw() {
     }
 
     if (_calculatedScreen) {
-        const grid = [ // Fallback Feld, da die Erkennung nicht gut funktioniert
-            [5, 3, 0, 0, 7, 0, 0, 0, 0],
-            [6, 0, 0, 1, 9, 5, 0, 0, 0],
-            [0, 9, 8, 0, 0, 0, 0, 6, 0],
-            [8, 0, 0, 0, 6, 0, 0, 0, 3],
-            [4, 0, 0, 8, 0, 3, 0, 0, 1],
-            [7, 0, 0, 0, 2, 0, 0, 0, 6],
-            [0, 6, 0, 0, 0, 0, 2, 8, 0],
-            [0, 0, 0, 4, 1, 9, 0, 0, 5],
-            [0, 0, 0, 0, 8, 0, 0, 7, 9]
-        ];
         clear();
         if (is_desktop) {
             stroke(245);
@@ -474,22 +474,22 @@ function draw() {
             textSize(20);
             for (let i = 0; i < 9; i++) {
                 for (let j = 0; j < 9; j++) {
-                    if (grid[i][j] !== 0) {
+                    if (final2d[i][j] !== 0) {
                         stroke("black");
                         fill("black");
-                        text(grid[i][j], cell_size * (j + 1) + windowWidth / 2 - cell_size * 5, cell_size * (i + 1) + 6);
-                    } else if (grid[i][j] > 0) {
+                        text(final2d[i][j], cell_size * (j + 1) + windowWidth / 2 - cell_size * 5, cell_size * (i + 1) + 6);
+                    } else if (final2d[i][j] > 0) {
                         stroke("green");
                         fill("green");
-                        text(grid[i][j], cell_size * (j + 1) + windowWidth / 2 - cell_size * 5, cell_size * (i + 1) + 6);
-                    } else if (grid[i][j] === 0) {
+                        text(final2d[i][j], cell_size * (j + 1) + windowWidth / 2 - cell_size * 5, cell_size * (i + 1) + 6);
+                    } else if (final2d[i][j] === 0) {
                         stroke("green");
                         fill("green");
                         text("", cell_size * (j + 1) + windowWidth / 2 - cell_size * 5, cell_size * (i + 1) + 6);
                     } else {
                         stroke("orange");
                         fill("orange");
-                        text(grid[i][j], cell_size * (j + 1) - 12 + windowWidth / 2 - cell_size * 5, cell_size * (i + 1) + (j % 3 - 1) * 12 + 6);
+                        text(final2d[i][j], cell_size * (j + 1) - 12 + windowWidth / 2 - cell_size * 5, cell_size * (i + 1) + (j % 3 - 1) * 12 + 6);
                     }
                 }
             }
@@ -509,22 +509,22 @@ function draw() {
             textSize(20);
             for (let i = 0; i < 9; i++) {
                 for (let j = 0; j < 9; j++) {
-                    if (grid[i][j] !== 0) {
+                    if (numbers2d[i][j] !== 0) {
                         stroke("black");
                         fill("black");
-                        text(grid[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
-                    } else if (grid[i][j] > 0) {
+                        text(final2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
+                    } else if (final2d[i][j] > 0) {
                         stroke("green");
                         fill("green");
-                        text(grid[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
-                    } else if (grid[i][j] === 0) {
+                        text(final2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
+                    } else if (final2d[i][j] === 0) {
                         stroke("green");
                         fill("green");
                         text("", cell_size * (j + 1), cell_size * (i + 1) + 6);
                     } else {
                         stroke("orange");
                         fill("orange");
-                        text(grid[i][j], cell_size * (j + 1) - 12, cell_size * (i + 1) + (j % 3 - 1) * 12 + 6);
+                        text(final2d[i][j], cell_size * (j + 1) - 12, cell_size * (i + 1) + (j % 3 - 1) * 12 + 6);
                     }
                 }
             }
