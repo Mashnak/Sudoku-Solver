@@ -148,7 +148,7 @@ function videoScreen() {
 /**
  *
  */
-function uploadImageScreen() {
+async function uploadImageScreen() {
     console.log("UploadImageScreen");
     _startScreen = false;
     _uploadScreen = false;
@@ -166,7 +166,7 @@ function uploadImageScreen() {
     calculateButton.show();
     resetButton.show();
     /***********************/
-    numbers2d = getDigits(img2);
+    numbers2d = await getDigits(img2);
     console.log(numbers2d);
 }
 
@@ -204,7 +204,7 @@ function imageScreen() {
 /**
  *
  */
-function sudokuScreen() {
+async function sudokuScreen() {
     if (img != null) {
         if (mouselicksx.length >= 3) {
             img2 = img.get(mouselicksx[1], mouselicksy[1], mouselicksx[2] - mouselicksx[1], mouselicksy[2] - mouselicksy[1]);
@@ -229,7 +229,7 @@ function sudokuScreen() {
     calculateButton.show();
     resetButton.show();
     /***********************/
-    numbers2d = [...getDigits(img2)];
+    numbers2d = await getDigits(img2);
 }
 
 /**

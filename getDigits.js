@@ -1,4 +1,3 @@
-let numbers = []; // Feld in dem die Ziffern gespeichert werden
 const grid = [ // Fallback Feld, da die Erkennung nicht gut funktioniert
     [5, 3, 0, 0, 7, 0, 0, 0, 0],
     [6, 0, 0, 1, 9, 5, 0, 0, 0],
@@ -16,39 +15,36 @@ const grid = [ // Fallback Feld, da die Erkennung nicht gut funktioniert
  * @param img Aufgenommenes Foto eines Sudokus auf dem die Ziffern erkannt werden sollen
  * @returns {*[]} Eindimensionales Feld mit den erkannten Ziffern
  */
-function getDigits(img) {
+async function getDigits(img) {
+    let numbers = []; // Feld in dem die Ziffern gespeichert werden
     let imgwidth = img.width / 9;
     let imgheight = img.height / 9;
+    const promises = [];
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
             let subimg = img.get(j * imgwidth, i * imgheight, imgwidth, imgheight);
             subimg.resize(28, 28);
-            numberClassifier.classify({image: subimg}, gotResults);
+            promises.push(new Promise(function (resolve,reject){
+                numberClassifier.classify({image: subimg}, function (err, results) {
+                    if (err) {
+                        console.error(err);
+                        reject(err);
+                        return;
+                    }
+                    let label = results[0].label;
+                    let confidence = nf(100 * results[0].confidence, 2, 0);
+                    if (confidence >= 80) {
+                        numbers[i*9+j] = label;
+                        resolve(label);
+                    } else {
+                        numbers[i*9+j] = 0;
+                        resolve(0);
+                    }
+                });
+            }));
         }
     }
-    console.log(numbers);
-    if(numbers.length>0) {
-        return numbers;
-    }
-    return grid;
+    await Promise.all(promises);
+    return numbers;
 }
 
-
-/**
- * Callbackfunktion der Klassifizierungsfunktion von ML5
- * @param err
- * @param results
- */
-function gotResults(err,results) {
-    if (err) {
-        console.error(err);
-        return;
-    }
-    let label = results[0].label;
-    let confidence = nf(100 * results[0].confidence, 2, 0);
-    if (confidence >= 80) {
-        numbers.push(int(label));
-    } else {
-        numbers.push(0);
-    }
-}
