@@ -10,7 +10,7 @@ async function getDigits(img) {
     const promises = [];
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
-            let subimg = img.get(j * imgwidth, i * imgheight, imgwidth, imgheight);
+            let subimg = img.get(j * imgwidth+imgwidth*0.2, i * imgheight+imgwidth*0.2, imgwidth*0.6, imgheight*0.6);
             subimg.resize(28, 28);
             promises.push(new Promise(function (resolve,reject){
                 numberClassifier.classify({image: subimg}, function (err, results) {
