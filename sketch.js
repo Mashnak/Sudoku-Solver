@@ -51,8 +51,6 @@ let calculateButton; // Variable die das neuronale Netz aus ML5 zwischenspeicher
  *
  */
 async function preload() {
-    let image = loadImage("Sudoku.jpg");
-    numbers2d = await getDigits(image);
     let options = {
         inputs: [28, 28, 4],
         task: 'imageClassification',
@@ -122,7 +120,7 @@ function videoScreen() {
 
     console.log(video.width, video.height);
     if (is_desktop) {
-        video.position(windowWidth/2-video.width, 0);
+        video.position(windowWidth / 2 - video.width, 0);
     } else {
         video.position(0, 0);
         video.size(windowWidth, windowWidth + 100);
@@ -286,35 +284,35 @@ function setup() {
     let buttonheight = 50;
     /** Erstellen der Buttons zur Steuerung durch die App*/
     uploadButton = createButton('Sudoku hochladen');
-    uploadButton.position(windowWidth/2 - 40 - buttonwidth, windowHeight - 150);
+    uploadButton.position(windowWidth / 2 - 40 - buttonwidth, windowHeight - 150);
     uploadButton.size(buttonwidth, buttonheight);
     uploadButton.mousePressed(uploadScreen);
     videoButton = createButton('Sudoku aufnehmen');
-    videoButton.position(windowWidth/2 + 40, windowHeight - 150);
+    videoButton.position(windowWidth / 2 + 40, windowHeight - 150);
     videoButton.size(buttonwidth, buttonheight);
     videoButton.mousePressed(videoScreen);
     uploadImageButton = createButton('Foto hochladen');
-    uploadImageButton.position(windowWidth/2 + 40, windowHeight - 150);
+    uploadImageButton.position(windowWidth / 2 + 40, windowHeight - 150);
     uploadImageButton.size(buttonwidth, buttonheight)
     uploadImageButton.mousePressed(uploadImageScreen)
     uploadImageButton.hide()
     getImageButton = createButton('Foto aufnehmen')
-    getImageButton.position(windowWidth/2 + 40, windowHeight - 150)
+    getImageButton.position(windowWidth / 2 + 40, windowHeight - 150)
     getImageButton.size(buttonwidth, buttonheight)
     getImageButton.mousePressed(imageScreen)
     getImageButton.hide()
     cropImgButton = createButton('Sudoku zuschneiden')
-    cropImgButton.position(windowWidth/2 + 40, windowHeight - 150)
+    cropImgButton.position(windowWidth / 2 + 40, windowHeight - 150)
     cropImgButton.size(buttonwidth, buttonheight)
     cropImgButton.mousePressed(sudokuScreen)
     cropImgButton.hide()
     resetButton = createButton('Reset')
-    resetButton.position(windowWidth/2 - 40 - buttonwidth, windowHeight - 150)
+    resetButton.position(windowWidth / 2 - 40 - buttonwidth, windowHeight - 150)
     resetButton.size(buttonwidth, buttonheight)
     resetButton.mousePressed(resetVideo)
     resetButton.hide()
     calculateButton = createButton('Sudoku berechnen!')
-    calculateButton.position(windowWidth/2 + 40, windowHeight - 150)
+    calculateButton.position(windowWidth / 2 + 40, windowHeight - 150)
     calculateButton.size(buttonwidth, buttonheight)
     calculateButton.mousePressed(calculatedScreen)
     calculateButton.hide();
@@ -326,7 +324,7 @@ function setup() {
 function draw() {
     if (_startScreen) {
         if (is_desktop) {
-            image(logo, windowWidth/2-logo.width/2, 0, logo.width, logo.height)
+            image(logo, windowWidth / 2 - logo.width / 2, 0, logo.width, logo.height)
         } else {
             image(logo, 0, 0, windowWidth, windowWidth)
         }
@@ -335,14 +333,14 @@ function draw() {
     if (_uploadScreen) {
         clear();
         if (is_desktop) {
-            image(img2, windowWidth/2-logo.width/2, 0, logo.width, logo.height)
+            image(img2, windowWidth / 2 - logo.width / 2, 0, logo.width, logo.height)
         } else {
             image(img2, 0, 0, windowWidth, windowWidth)
         }
         noStroke();
         textSize(15);
-        text("Hier sollte eigentlich ein BildUpload sein!", windowWidth/2-150,windowHeight/2+100);
-        text("Zum Test wird ein gemocktes Bild bereitgestellt", windowWidth/2-150,windowHeight/2+130);
+        text("Hier sollte eigentlich ein BildUpload sein!", windowWidth / 2 - 150, windowHeight / 2 + 100);
+        text("Zum Test wird ein gemocktes Bild bereitgestellt", windowWidth / 2 - 150, windowHeight / 2 + 130);
     }
 
     if (_videoScreen) {
@@ -351,83 +349,84 @@ function draw() {
 
     if (_uploadImageScreen) {
         clear();
-        if (is_desktop) {
-            stroke(245);
-            strokeWeight(1);
-            for (let i = 1; i < 9; i++) {
-                line(cell_size * (1 / 2 + i)+windowWidth/2-cell_size*5, cell_size / 2, cell_size * (1 / 2 + i)+windowWidth/2-cell_size*5, cell_size * (10 - 1 / 2));
-                line(cell_size / 2+windowWidth/2-cell_size*5, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2)+windowWidth/2-cell_size*5, cell_size * (1 / 2 + i));
-            }
-            stroke(45);
-            for (let i = 0; i <= 3; i++) {
-                line(cell_size * (1 / 2 + i * 3)+windowWidth/2-cell_size*5, cell_size / 2, cell_size * (1 / 2 + i * 3)+windowWidth/2-cell_size*5, cell_size * (10 - 1 / 2));
-                line(cell_size / 2+windowWidth/2-cell_size*5, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2)+windowWidth/2-cell_size*5, cell_size * (1 / 2 + i * 3));
-            }
-            noStroke();
-            textSize(20);
-            for (let i = 0; i < 9; i++) {
-                for (let j = 0; j < 9; j++) {
-                    if (numbers2d[i][j] !== 0) {
-                        stroke("black");
-                        fill("black");
-                        text(numbers2d[i][j], cell_size * (j + 1)+windowWidth/2-cell_size*5, cell_size * (i + 1) + 6);
-                    } else if (numbers2d[i][j] > 0) {
-                        stroke("green");
-                        fill("green");
-                        text(numbers2d[i][j], cell_size * (j + 1)+windowWidth/2-cell_size*5, cell_size * (i + 1) + 6);
-                    } else if (numbers2d[i][j] === 0) {
-                        stroke("green");
-                        fill("green");
-                        text("", cell_size * (j + 1)+windowWidth/2-cell_size*5, cell_size * (i + 1) + 6);
-                    } else {
-                        stroke("orange");
-                        fill("orange");
-                        text(numbers2d[i][j], cell_size * (j + 1) - 12+windowWidth/2-cell_size*5, cell_size * (i + 1) + (j % 3 - 1) * 12 + 6);
+        if (numbers2d.length === 9) {
+            if (is_desktop) {
+                stroke(245);
+                strokeWeight(1);
+                for (let i = 1; i < 9; i++) {
+                    line(cell_size * (1 / 2 + i) + windowWidth / 2 - cell_size * 5, cell_size / 2, cell_size * (1 / 2 + i) + windowWidth / 2 - cell_size * 5, cell_size * (10 - 1 / 2));
+                    line(cell_size / 2 + windowWidth / 2 - cell_size * 5, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2) + windowWidth / 2 - cell_size * 5, cell_size * (1 / 2 + i));
+                }
+                stroke(45);
+                for (let i = 0; i <= 3; i++) {
+                    line(cell_size * (1 / 2 + i * 3) + windowWidth / 2 - cell_size * 5, cell_size / 2, cell_size * (1 / 2 + i * 3) + windowWidth / 2 - cell_size * 5, cell_size * (10 - 1 / 2));
+                    line(cell_size / 2 + windowWidth / 2 - cell_size * 5, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2) + windowWidth / 2 - cell_size * 5, cell_size * (1 / 2 + i * 3));
+                }
+                noStroke();
+                textSize(20);
+                for (let i = 0; i < 9; i++) {
+                    for (let j = 0; j < 9; j++) {
+                        if (numbers2d[i][j] !== 0) {
+                            stroke("black");
+                            fill("black");
+                            text(numbers2d[i][j], cell_size * (j + 1) + windowWidth / 2 - cell_size * 5, cell_size * (i + 1) + 6);
+                        } else if (numbers2d[i][j] > 0) {
+                            stroke("green");
+                            fill("green");
+                            text(numbers2d[i][j], cell_size * (j + 1) + windowWidth / 2 - cell_size * 5, cell_size * (i + 1) + 6);
+                        } else if (numbers2d[i][j] === 0) {
+                            stroke("green");
+                            fill("green");
+                            text("", cell_size * (j + 1) + windowWidth / 2 - cell_size * 5, cell_size * (i + 1) + 6);
+                        } else {
+                            stroke("orange");
+                            fill("orange");
+                            text(numbers2d[i][j], cell_size * (j + 1) - 12 + windowWidth / 2 - cell_size * 5, cell_size * (i + 1) + (j % 3 - 1) * 12 + 6);
+                        }
                     }
                 }
-            }
-        } else {
-            stroke(245);
-            strokeWeight(1);
-            for (let i = 1; i < 9; i++) {
-                line(cell_size * (1 / 2 + i), cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2));
-                line(cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i));
-            }
-            stroke(45);
-            for (let i = 0; i <= 3; i++) {
-                line(cell_size * (1 / 2 + i * 3), cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2));
-                line(cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i * 3));
-            }
-            noStroke();
-            textSize(20);
-            for (let i = 0; i < 9; i++) {
-                for (let j = 0; j < 9; j++) {
-                    if (numbers2d[i][j] !== 0) {
-                        stroke("black");
-                        fill("black");
-                        text(numbers2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
-                    } else if (numbers2d[i][j] > 0) {
-                        stroke("green");
-                        fill("green");
-                        text(numbers2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
-                    } else if (numbers2d[i][j] === 0) {
-                        stroke("green");
-                        fill("green");
-                        text("", cell_size * (j + 1), cell_size * (i + 1) + 6);
-                    } else {
-                        stroke("orange");
-                        fill("orange");
-                        text(numbers2d[i][j], cell_size * (j + 1) - 12, cell_size * (i + 1) + (j % 3 - 1) * 12 + 6);
+            } else {
+                stroke(245);
+                strokeWeight(1);
+                for (let i = 1; i < 9; i++) {
+                    line(cell_size * (1 / 2 + i), cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2));
+                    line(cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i));
+                }
+                stroke(45);
+                for (let i = 0; i <= 3; i++) {
+                    line(cell_size * (1 / 2 + i * 3), cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2));
+                    line(cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i * 3));
+                }
+                noStroke();
+                textSize(20);
+                for (let i = 0; i < 9; i++) {
+                    for (let j = 0; j < 9; j++) {
+                        if (numbers2d[i][j] !== 0) {
+                            stroke("black");
+                            fill("black");
+                            text(numbers2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
+                        } else if (numbers2d[i][j] > 0) {
+                            stroke("green");
+                            fill("green");
+                            text(numbers2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
+                        } else if (numbers2d[i][j] === 0) {
+                            stroke("green");
+                            fill("green");
+                            text("", cell_size * (j + 1), cell_size * (i + 1) + 6);
+                        } else {
+                            stroke("orange");
+                            fill("orange");
+                            text(numbers2d[i][j], cell_size * (j + 1) - 12, cell_size * (i + 1) + (j % 3 - 1) * 12 + 6);
+                        }
                     }
                 }
             }
         }
-
     }
 
     if (_imageScreen) {
         clear();
-        image(img, 0,0 );
+        image(img, 0, 0);
         if (showSquare) {
             strokeWeight(1);
             noFill();
@@ -440,9 +439,8 @@ function draw() {
     if (_sudokuScreen) {
         clear();
         if (is_desktop) {
-            image(img2, windowWidth/2-img2.width, 0);
-        }
-        else {
+            image(img2, windowWidth / 2 - img2.width, 0);
+        } else {
             image(img2, 0, 0, windowWidth, windowWidth);
         }
     }
@@ -453,13 +451,13 @@ function draw() {
             stroke(245);
             strokeWeight(1);
             for (let i = 1; i < 9; i++) {
-                line(cell_size * (1 / 2 + i)+windowWidth/2-cell_size*5, cell_size / 2, cell_size * (1 / 2 + i)+windowWidth/2-cell_size*5, cell_size * (10 - 1 / 2));
-                line(cell_size / 2+windowWidth/2-cell_size*5, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2)+windowWidth/2-cell_size*5, cell_size * (1 / 2 + i));
+                line(cell_size * (1 / 2 + i) + windowWidth / 2 - cell_size * 5, cell_size / 2, cell_size * (1 / 2 + i) + windowWidth / 2 - cell_size * 5, cell_size * (10 - 1 / 2));
+                line(cell_size / 2 + windowWidth / 2 - cell_size * 5, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2) + windowWidth / 2 - cell_size * 5, cell_size * (1 / 2 + i));
             }
             stroke(45);
             for (let i = 0; i <= 3; i++) {
-                line(cell_size * (1 / 2 + i * 3)+windowWidth/2-cell_size*5, cell_size / 2, cell_size * (1 / 2 + i * 3)+windowWidth/2-cell_size*5, cell_size * (10 - 1 / 2));
-                line(cell_size / 2+windowWidth/2-cell_size*5, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2)+windowWidth/2-cell_size*5, cell_size * (1 / 2 + i * 3));
+                line(cell_size * (1 / 2 + i * 3) + windowWidth / 2 - cell_size * 5, cell_size / 2, cell_size * (1 / 2 + i * 3) + windowWidth / 2 - cell_size * 5, cell_size * (10 - 1 / 2));
+                line(cell_size / 2 + windowWidth / 2 - cell_size * 5, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2) + windowWidth / 2 - cell_size * 5, cell_size * (1 / 2 + i * 3));
             }
             noStroke();
             textSize(20);
@@ -468,19 +466,19 @@ function draw() {
                     if (final2d[i][j] !== 0) {
                         stroke("black");
                         fill("black");
-                        text(final2d[i][j], cell_size * (j + 1)+windowWidth/2-cell_size*5, cell_size * (i + 1) + 6);
+                        text(final2d[i][j], cell_size * (j + 1) + windowWidth / 2 - cell_size * 5, cell_size * (i + 1) + 6);
                     } else if (final2d[i][j] > 0) {
                         stroke("green");
                         fill("green");
-                        text(final2d[i][j], cell_size * (j + 1)+windowWidth/2-cell_size*5, cell_size * (i + 1) + 6);
+                        text(final2d[i][j], cell_size * (j + 1) + windowWidth / 2 - cell_size * 5, cell_size * (i + 1) + 6);
                     } else if (final2d[i][j] === 0) {
                         stroke("green");
                         fill("green");
-                        text("", cell_size * (j + 1)+windowWidth/2-cell_size*5, cell_size * (i + 1) + 6);
+                        text("", cell_size * (j + 1) + windowWidth / 2 - cell_size * 5, cell_size * (i + 1) + 6);
                     } else {
                         stroke("orange");
                         fill("orange");
-                        text(final2d[i][j], cell_size * (j + 1) - 12+windowWidth/2-cell_size*5, cell_size * (i + 1) + (j % 3 - 1) * 12 + 6);
+                        text(final2d[i][j], cell_size * (j + 1) - 12 + windowWidth / 2 - cell_size * 5, cell_size * (i + 1) + (j % 3 - 1) * 12 + 6);
                     }
                 }
             }
