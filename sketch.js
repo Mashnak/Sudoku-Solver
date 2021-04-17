@@ -340,8 +340,8 @@ function draw() {
         }
         noStroke();
         textSize(15);
-        text("Hier sollte eigentlich ein BildUpload sein!", windowWidth/2-150,windowHeight/2+50);
-        text("Zum Test wird ein gemocktes Bild bereitgestellt", windowWidth/2-150,windowHeight/2+80);
+        text("Hier sollte eigentlich ein BildUpload sein!", windowWidth/2-150,windowHeight/2+100);
+        text("Zum Test wird ein gemocktes Bild bereitgestellt", windowWidth/2-150,windowHeight/2+130);
     }
 
     if (_videoScreen) {
