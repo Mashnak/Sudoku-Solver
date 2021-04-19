@@ -526,6 +526,7 @@ function draw() {
 
     if (_calculatedScreen) {
         clear();
+        image(subimg,500,500);
         if (is_desktop) {
             stroke(245);
             strokeWeight(1);
