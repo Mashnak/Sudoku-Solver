@@ -461,7 +461,7 @@ function draw() {
         let imgheight = img2.height / 9;
         for (let i = 0; i < 9; i++) {
             for (let j = 0; j < 9; j++) {
-                let subimg = img^2.get(j * imgwidth+imgwidth*0.1, i * imgheight+imgwidth*0.1, imgwidth*0.8, imgheight*0.8);
+                let subimg = img2.get(j * imgwidth+imgwidth*0.1, i * imgheight+imgwidth*0.1, imgwidth*0.8, imgheight*0.8);
                 subimg.resize(28, 28);
                 image(subimg, 100+j*28, 400+i*28);
             }
