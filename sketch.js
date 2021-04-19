@@ -236,7 +236,7 @@ async function sudokuScreen() {
  */
 function calculatedScreen() {
     console.log("CalculatedScreen");
-/*    const grid = [ // Fallback Feld, da die Erkennung nicht gut funktioniert
+    const grid = [ // Fallback Feld, da die Erkennung nicht gut funktioniert
         [5, 3, 0, 0, 7, 0, 0, 0, 0],
         [6, 0, 0, 1, 9, 5, 0, 0, 0],
         [0, 9, 8, 0, 0, 0, 0, 6, 0],
@@ -246,7 +246,7 @@ function calculatedScreen() {
         [0, 6, 0, 0, 0, 0, 2, 8, 0],
         [0, 0, 0, 4, 1, 9, 0, 0, 5],
         [0, 0, 0, 0, 8, 0, 0, 7, 9]
-    ];*/
+    ];
     _startScreen = false;
     _uploadScreen = false;
     _videoScreen = false;
@@ -265,7 +265,7 @@ function calculatedScreen() {
     /***********************/
     showSquare = false;
     console.log(numbers2d);
-    final1d = getGrid(numbers2d);
+    final1d = getGrid(grid);
     while (final1d.length) final2d.push(final1d.splice(0, 9));
 }
 
