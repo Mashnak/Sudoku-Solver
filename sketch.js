@@ -447,7 +447,6 @@ function draw() {
         }
 
     }
-
     if (_sudokuScreen) {
         clear();
         if (numbers2d.length === 9) {
