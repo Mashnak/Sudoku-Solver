@@ -173,7 +173,7 @@ async function uploadImageScreen() {
  *
  */
 function imageScreen() {
-    window.alert("test");
+    window.alert("Sudoku am oberen Kamerabild einpassen, oder linkes-oberes und rechtes-unteres Eck des Sudokus anklicken!");
     console.log("ImageScreen");
     _startScreen = false;
     _uploadScreen = false;
