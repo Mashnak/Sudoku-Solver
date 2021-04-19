@@ -173,6 +173,7 @@ async function uploadImageScreen() {
  *
  */
 function imageScreen() {
+    window.alert("test");
     console.log("ImageScreen");
     _startScreen = false;
     _uploadScreen = false;
@@ -204,7 +205,6 @@ function imageScreen() {
  *
  */
 async function sudokuScreen() {
-    window.alert("test");
     if (img != null) {
         if (is_desktop){
             if (mouselicksx.length >= 3) {
@@ -567,14 +567,10 @@ const getDeviceType = () => {
     if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
         return false;
     }
-    if (
-        /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
-            ua
-        )
-    ) {
-        return false;
-    }
-    return true;
+    return !/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+        ua
+    );
+
 };
 
 
