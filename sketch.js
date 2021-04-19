@@ -337,7 +337,6 @@ function draw() {
         } else {
             image(img2, 0, 0, windowWidth, windowWidth);
         }
-
         noStroke();
         textSize(15);
         text("Hier sollte eigentlich ein BildUpload sein!", windowWidth / 2 - 150, windowHeight / 2 + 100);
@@ -361,6 +360,15 @@ function draw() {
             [0, 0, 0, 0, 8, 0, 0, 7, 9]
         ];
         clear();
+        let imgwidth = img.width / 9;
+        let imgheight = img.height / 9;
+        for (let i = 0; i < 9; i++) {
+            for (let j = 0; j < 9; j++) {
+                let subimg = img.get(j * imgwidth+imgwidth*0.1, i * imgheight+imgwidth*0.1, imgwidth*0.8, imgheight*0.8);
+                subimg.resize(28, 28);
+                image(subimg, 100+j*28, 400+i*28);
+            }
+        }
         if (numbers2d.length === 9) {
             if (is_desktop) {
                 stroke(245);
