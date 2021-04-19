@@ -24,7 +24,7 @@ async function getDigits(img) {
                     if(!numbers[i]) {
                         numbers[i] = [];
                     }
-                    if (confidence >= 80) {
+                    if (confidence >= 90) {
                         numbers[i][j] = label;
                         resolve(label);
                     } else {
