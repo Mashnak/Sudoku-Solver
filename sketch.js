@@ -204,6 +204,7 @@ function imageScreen() {
  *
  */
 async function sudokuScreen() {
+    window.alert("test");
     if (img != null) {
         if (is_desktop){
             if (mouselicksx.length >= 3) {
