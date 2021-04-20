@@ -102,6 +102,7 @@ function uploadScreen() {
  *
  */
 function videoScreen() {
+    window.alert("Sudoku am oberen Kamerabild einpassen");
     console.log("VideoScreen");
     if (is_desktop) {
         video = createCapture(VIDEO);
@@ -173,7 +174,7 @@ async function uploadImageScreen() {
  *
  */
 function imageScreen() {
-    window.alert("Sudoku am oberen Kamerabild einpassen, oder linkes-oberes und rechtes-unteres Eck des Sudokus anklicken!");
+    window.alert("Linkes-oberes und rechtes-unteres Eck des Sudokus anklicken!");
     console.log("ImageScreen");
     _startScreen = false;
     _uploadScreen = false;
@@ -535,7 +536,7 @@ function draw() {
             textSize(20);
             for (let i = 0; i < 9; i++) {
                 for (let j = 0; j < 9; j++) {
-                    if (numbers2d[i][j] !== 0) {
+                    if (final2d[i][j] !== 0) {
                         stroke("black");
                         fill("black");
                         text(final2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
