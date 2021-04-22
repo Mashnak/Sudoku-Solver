@@ -94,7 +94,7 @@ function uploadScreen() {
     calculateButton.hide();
     resetButton.show();
     /***********************/
-    img = loadImage("Sudoku.jpg");
+    img = loadImage("Images/Sudoku.jpg");
     img2 = img;
 }
 
@@ -299,7 +299,7 @@ function mousePressed() {
  * */
 function setup() {
     createCanvas(windowWidth, windowHeight - 100);
-    logo = loadImage("Logo.jpg");
+    logo = loadImage("Images/Logo.jpg");
     background(255);
     let buttonwidth = 140;
     let buttonheight = 50;
