@@ -11,6 +11,19 @@ var square_coordinates = [
     [7, 7, 7, 8, 8, 8, 9, 9, 9]
 ]
 
+
+function getGrid(grid) {
+    console.log(grid);
+    let newArr = [];
+
+
+    for(let i = 0; i < solve(grid).length; i++)
+    {
+        newArr = newArr.concat(solve(grid)[i]);
+    }
+    return newArr;
+}
+
 function get_row(board, row) {
     // Given a board, we can return a single row
     return board[row]
@@ -226,15 +239,5 @@ function print_cell(value) {
 }
 
 
-function getGrid(grid) {
-    console.log(grid);
-    let newArr = [];
 
-
-    for(let i = 0; i < solve(grid).length; i++)
-    {
-        newArr = newArr.concat(solve(grid)[i]);
-    }
-    return newArr;
-}
 
