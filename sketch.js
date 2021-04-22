@@ -479,7 +479,7 @@ function draw() {
         if (is_desktop){
             image(img2, windowWidth / 2 - logo.width / 2, 0, logo.width, logo.height);
         } else {
-        image(img2, 0 ,0);
+        image(img2, 5 ,0);
         }
     }
 
