@@ -14,6 +14,7 @@ let video; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let showSquare = false; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 const cell_size = 36; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let is_desktop;
+let got_solution=false;
 
 /**
  * Steuervariablen für das UI
@@ -168,6 +169,7 @@ async function uploadImageScreen() {
     /***********************/
     numbers2d = await getDigits(img2);
     console.log(numbers2d);
+    got_solution = true;
 }
 
 /**
@@ -275,8 +277,13 @@ function calculatedScreen() {
     /***********************/
     showSquare = false;
     console.log(numbers2d);
+    if (!got_solution){
     final1d = getGrid(grid);
     while (final1d.length) final2d.push(final1d.splice(0, 9));
+    } else {
+        final1d = getGrid(numbers2d);
+        while (final1d.length) final2d.push(final1d.splice(0, 9));
+    }
 }
 
 /**
