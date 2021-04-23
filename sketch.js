@@ -376,7 +376,7 @@ function draw() {
 
     if (_uploadImageScreen) {
         clear();
-/*        let imgwidth = img2.width / 9;
+        let imgwidth = img2.width / 9;
         let imgheight = img2.height / 9;
         for (let i = 0; i < 9; i++) {
             for (let j = 0; j < 9; j++) {
@@ -384,7 +384,7 @@ function draw() {
                 subimg.resize(28, 28);
                 image(subimg, 100+j*28, 400+i*28);
             }
-        }*/
+        }
         if (numbers2d.length === 9) {
             if (is_desktop) {
                 stroke(245);
