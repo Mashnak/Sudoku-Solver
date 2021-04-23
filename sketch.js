@@ -318,7 +318,7 @@ function setup() {
     let buttonheight = 50;
     /** Erstellen der Buttons zur Steuerung durch die App*/
     fullscreenButton = createButton('Fullscreen');
-    fullscreenButton.position()
+    fullscreenButton.position(windowWidth/2 - buttonwidth/2, windowHeight-90);
     fullscreenButton.size(buttonwidth,buttonheight);
     fullscreenButton.mousePressed(fullScreen);
     uploadButton = createButton('Sudoku hochladen');
