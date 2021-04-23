@@ -103,7 +103,7 @@ function uploadScreen() {
  *
  */
 function videoScreen() {
-    window.alert("Sudoku am oberen Kamerabild einpassen");
+    window.alert("Sudoku am oberen Kamerabild einpassen, das Sudoku wird automatisch zugeschnitten");
     console.log("VideoScreen");
     if (is_desktop) {
         video = createCapture(VIDEO);
@@ -176,7 +176,6 @@ async function uploadImageScreen() {
  *
  */
 function imageScreen() {
-    window.alert("Linkes-oberes und rechtes-unteres Eck des Sudokus anklicken!");
     console.log("ImageScreen");
     _startScreen = false;
     _uploadScreen = false;
