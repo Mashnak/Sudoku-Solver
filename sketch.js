@@ -39,6 +39,7 @@ let final2d = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 /**
  * Definition der benötigten Buttons zur Steuerung der App
  */
+let fullscreenButton;
 let uploadButton; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let videoButton; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 let uploadImageButton; // Variable die das neuronale Netz aus ML5 zwischenspeichert
@@ -301,18 +302,25 @@ function mousePressed() {
     mouselicksy.push(mouseY);
 }
 
+function fullScreen() {
+    let fs = fullscreen();
+    fullscreen(!fs);
+}
+
 /**
  *
  * */
 function setup() {
     createCanvas(windowWidth, windowHeight - 100);
-    fullscreen();
-    console.log("fullscreen");
     logo = loadImage("Images/Logo.jpg");
     background(255);
     let buttonwidth = 140;
     let buttonheight = 50;
     /** Erstellen der Buttons zur Steuerung durch die App*/
+    fullscreenButton = createButton('Fullscreen');
+    fullscreenButton.position()
+    fullscreenButton.size(buttonwidth,buttonheight);
+    fullscreenButton.mousePressed(fullScreen);
     uploadButton = createButton('Sudoku hochladen');
     uploadButton.position(windowWidth / 2 - 40 - buttonwidth, windowHeight - 120);
     uploadButton.size(buttonwidth, buttonheight);
