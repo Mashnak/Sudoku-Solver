@@ -302,11 +302,18 @@ function mousePressed() {
     mouselicksy.push(mouseY);
 }
 
-function fullScreen() {
+function touchStarted() {
     let fs = fullscreen();
-    fullscreen(!fs);
+    if (!fs) {
+        fullscreen(true);
+    }
 }
-
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+}
+document.ontouchmove = function(event) {
+    event.preventDefault();
+};
 /**
  *
  * */
@@ -317,10 +324,6 @@ function setup() {
     let buttonwidth = 140;
     let buttonheight = 50;
     /** Erstellen der Buttons zur Steuerung durch die App*/
-    fullscreenButton = createButton('Fullscreen');
-    fullscreenButton.position(windowWidth/2 - buttonwidth/2, windowHeight-90);
-    fullscreenButton.size(buttonwidth,buttonheight);
-    fullscreenButton.mousePressed(fullScreen);
     uploadButton = createButton('Sudoku hochladen');
     uploadButton.position(windowWidth / 2 - 40 - buttonwidth, windowHeight - 120);
     uploadButton.size(buttonwidth, buttonheight);
