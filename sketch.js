@@ -306,6 +306,7 @@ function mousePressed() {
  * */
 function setup() {
     createCanvas(windowWidth, windowHeight - 100);
+    fullscreen();
     logo = loadImage("Images/Logo.jpg");
     background(255);
     let buttonwidth = 140;
