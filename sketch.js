@@ -489,6 +489,7 @@ function draw() {
             }
             noStroke();
             textSize(20);
+            console.log(numbers2d)
             for (let i = 0; i < 9; i++) {
                 for (let j = 0; j < 9; j++) {
                     if (numbers2d[i][j] !== 0) {
