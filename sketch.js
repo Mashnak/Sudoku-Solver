@@ -474,6 +474,7 @@ function draw() {
     if (_sudokuScreen) {
         clear();
         if (numbers2d.length === 9) {
+            console.log(numbers2d)
             if (is_desktop) {
                 stroke(245);
                 strokeWeight(1);
