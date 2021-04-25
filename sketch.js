@@ -509,7 +509,7 @@ function draw() {
                         }
                     }
                 }
-                image(img2, windowWidth / 2 - logo.width / 2, 0, logo.width, logo.height);
+                image(img2, windowWidth / 2 - 50, 450, 100, 100);
             } else {
                 stroke(245);
                 strokeWeight(1);
