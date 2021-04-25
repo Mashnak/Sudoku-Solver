@@ -12,7 +12,7 @@ async function getDigits(img) {
         for (let j = 0; j < 9; j++) {
             let subimg = img.get(j * imgwidth+imgwidth*0.1, i * imgheight+imgwidth*0.1, imgwidth*0.8, imgheight*0.8);
             subimg.resize(28, 28);
-            const imgData = subimg.getImageData();
+            const imgData = subimg.getImageData(0,0,28,28);
             console.log(imgData);
             promises.push(new Promise(function (resolve,reject){
                 numberClassifier.classify({image: subimg}, function (err, results) {
