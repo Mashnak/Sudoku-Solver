@@ -33,7 +33,6 @@ async function getDigits(img) {
                         numbers[i][j] = 0;
                         resolve(0);
                     }
-                    console.log(label, confidence);
                 });
             }));
         }
