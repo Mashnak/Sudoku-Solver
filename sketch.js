@@ -473,80 +473,19 @@ function draw() {
     }
     if (_sudokuScreen) {
         clear();
+/*        let imgwidth = img2.width / 9;
+        let imgheight = img2.height / 9;
+        for (let i = 0; i < 9; i++) {
+            for (let j = 0; j < 9; j++) {
+                let subimg = img2.get(j * imgwidth+imgwidth*0.1, i * imgheight+imgwidth*0.1, imgwidth*0.8, imgheight*0.8);
+                subimg.resize(28, 28);
+                image(subimg, 100+j*28, 400+i*28);
+            }
+        }*/
         if (is_desktop){
-            stroke(245);
-            strokeWeight(1);
-            for (let i = 1; i < 9; i++) {
-                line(cell_size * (1 / 2 + i), cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2));
-                line(cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i));
-            }
-            stroke(45);
-            for (let i = 0; i <= 3; i++) {
-                line(cell_size * (1 / 2 + i * 3), cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2));
-                line(cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i * 3));
-            }
-            noStroke();
-            textSize(20);
-            console.log(numbers2d)
-            for (let i = 0; i < 9; i++) {
-                for (let j = 0; j < 9; j++) {
-                    if (numbers2d[i][j] !== 0) {
-                        stroke("black");
-                        fill("black");
-                        text(numbers2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
-                    } else if (numbers2d[i][j] > 0) {
-                        stroke("green");
-                        fill("green");
-                        text(numbers2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
-                    } else if (numbers2d[i][j] === 0) {
-                        stroke("green");
-                        fill("green");
-                        text("", cell_size * (j + 1), cell_size * (i + 1) + 6);
-                    } else {
-                        stroke("orange");
-                        fill("orange");
-                        text(numbers2d[i][j], cell_size * (j + 1) - 12, cell_size * (i + 1) + (j % 3 - 1) * 12 + 6);
-                    }
-                }
-            }
             image(img2, windowWidth / 2 - logo.width / 2, 0, logo.width, logo.height);
         } else {
-            stroke(245);
-            strokeWeight(1);
-            for (let i = 1; i < 9; i++) {
-                line(cell_size * (1 / 2 + i), cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2));
-                line(cell_size / 2, cell_size * (1 / 2 + i), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i));
-            }
-            stroke(45);
-            for (let i = 0; i <= 3; i++) {
-                line(cell_size * (1 / 2 + i * 3), cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2));
-                line(cell_size / 2, cell_size * (1 / 2 + i * 3), cell_size * (10 - 1 / 2), cell_size * (1 / 2 + i * 3));
-            }
-            noStroke();
-            textSize(20);
-            console.log(numbers2d)
-            for (let i = 0; i < 9; i++) {
-                for (let j = 0; j < 9; j++) {
-                    if (numbers2d[i][j] !== 0) {
-                        stroke("black");
-                        fill("black");
-                        text(numbers2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
-                    } else if (numbers2d[i][j] > 0) {
-                        stroke("green");
-                        fill("green");
-                        text(numbers2d[i][j], cell_size * (j + 1), cell_size * (i + 1) + 6);
-                    } else if (numbers2d[i][j] === 0) {
-                        stroke("green");
-                        fill("green");
-                        text("", cell_size * (j + 1), cell_size * (i + 1) + 6);
-                    } else {
-                        stroke("orange");
-                        fill("orange");
-                        text(numbers2d[i][j], cell_size * (j + 1) - 12, cell_size * (i + 1) + (j % 3 - 1) * 12 + 6);
-                    }
-                }
-            }
-        image(img2, windowWidth/2 -50 ,450, 100,100);
+        image(img2, 5 ,0);
         }
     }
 
