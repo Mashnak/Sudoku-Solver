@@ -1,5 +1,5 @@
 /*****************************************************************************
- ***  Methoden um das vorhandene und erkannte Sudoku vollständig zu lösen.  ***
+ *** Methoden und Variablen die die allgemeine Steuerung der App übernehmen ***
  *****************************************************************************/
 
 /**
