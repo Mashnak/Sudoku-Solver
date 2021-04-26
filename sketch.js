@@ -6,26 +6,25 @@
  * Definition der globalen Variablen
  */
 let numberClassifier; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-let img = null; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-let img2 = null; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-let clearCanvas = false; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-let logo; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-let video; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-let showSquare = false; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-const cell_size = 36; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-let is_desktop;
-let got_solution=false;
+let img = null; // Variable die ein Bild zwischenspeichert
+let img2 = null; // Variable die ein Bild zwischenspeichert
+let logo; // Variable die das Logo zwischenspeichert
+let video; // Variable die das Videosignal speichert
+let showSquare = false; // Variable die check ob das rote Quadrat gezeichnet werden soll
+const cell_size = 36; // Variable die die Breite und Höhe der gezeichneten Sudokufelder festlegt
+let is_desktop; // Variable die prüft welcher Typ das Gerät ist
+let got_solution=false; // Variable die prüft ob die erhaltene Ziffererkennung valide ist
 
 /**
  * Steuervariablen für das UI
  */
-let _startScreen = true; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
-let _uploadScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
-let _videoScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
-let _uploadImageScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
-let _imageScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
-let _sudokuScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
-let _calculatedScreen = false; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen;
+let _startScreen = true; // Screen um die Auswahl ob Upload oder über Kamera aufnehmen anzuzeigen
+let _uploadScreen = false; // Screen zum Upload eines Sudoku Bildes
+let _videoScreen = false; // Screen der das Videosignal darstellt
+let _uploadImageScreen = false; // Screen der das erkannte hochgeladene Bild darstellt
+let _imageScreen = false; // Screen der das Bild aus dem Videosingal darstellt
+let _sudokuScreen = false; // Screen der das zugeschnittene Bild darstellt
+let _calculatedScreen = false; // Screen der das gelöste Sudoku darstellt
 
 /**
  * Definition der Arrays die zur Speicherung der verschiedenen Zustände des Sudokus gebraucht werden
@@ -39,17 +38,16 @@ let final2d = []; // Variable die das neuronale Netz aus ML5 zwischenspeichert
 /**
  * Definition der benötigten Buttons zur Steuerung der App
  */
-let uploadButton; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-let videoButton; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-let uploadImageButton; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-let getImageButton; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-let cropImgButton; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-let resetButton; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-let calculateButton; // Variable die das neuronale Netz aus ML5 zwischenspeichert
-
+let uploadButton;
+let videoButton;
+let uploadImageButton;
+let getImageButton;
+let cropImgButton;
+let resetButton;
+let calculateButton;
 
 /**
- *
+ * Lädt das vorher trainierte Modell zur Ziffernerkennung
  */
 async function preload() {
     let options = {
@@ -67,16 +65,10 @@ async function preload() {
     is_desktop = getDeviceType();
 }
 
-/**
- * Callback Funktionen für die Rückmeldungen der verschiedenen Funktionen
- */
 function modelLoaded() {
     console.log('Model loaded!');
 }
 
-/**
- *
- */
 function uploadScreen() {
     console.log("UploadScreen");
     _startScreen = false;
@@ -99,9 +91,6 @@ function uploadScreen() {
     img2 = img;
 }
 
-/**
- *
- */
 function videoScreen() {
     window.alert("Sudoku am oberen Kamerabild einpassen, das Sudoku wird automatisch zugeschnitten");
     console.log("VideoScreen");
@@ -120,14 +109,12 @@ function videoScreen() {
             });
     }
 
-    console.log(video.width, video.height);
     if (is_desktop) {
         video.position(windowWidth / 2 - video.width, 0);
     } else {
         video.position(0, 0);
         video.size(windowWidth, windowWidth + 100);
     }
-
     _startScreen = false;
     _uploadScreen = false;
     _videoScreen = true;
@@ -146,9 +133,6 @@ function videoScreen() {
     resetButton.show();
 }
 
-/**
- *
- */
 async function uploadImageScreen() {
     console.log("UploadImageScreen");
     _startScreen = false;
@@ -172,9 +156,6 @@ async function uploadImageScreen() {
     got_solution = true;
 }
 
-/**
- *
- */
 function imageScreen() {
     console.log("ImageScreen");
     _startScreen = false;
@@ -193,7 +174,6 @@ function imageScreen() {
     calculateButton.hide();
     resetButton.show();
     /***********************/
-    clearCanvas = false;
     img = video.get(0, 0, video.width, video.height);
     console.log(video.width, video.height);
     video.stop();
@@ -202,10 +182,6 @@ function imageScreen() {
     mouselicksy = [];
     showSquare = true;
 }
-
-/**
- *
- */
 async function sudokuScreen() {
     if (img != null) {
         if (is_desktop){
@@ -242,9 +218,6 @@ async function sudokuScreen() {
     numbers2d = await getDigits(img2);
 }
 
-/**
- *
- */
 function calculatedScreen() {
     console.log("CalculatedScreen");
     const grid = [ // Fallback Feld, da die Erkennung nicht gut funktioniert
@@ -301,7 +274,7 @@ function mousePressed() {
 }
 
 /**
- *
+ * Funktion zur Platzierung aller Buttons und zum Erstellen des Canvas
  * */
 function setup() {
     createCanvas(windowWidth, windowHeight - 100);
@@ -376,15 +349,6 @@ function draw() {
 
     if (_uploadImageScreen) {
         clear();
-/*        let imgwidth = img2.width / 9;
-        let imgheight = img2.height / 9;
-        for (let i = 0; i < 9; i++) {
-            for (let j = 0; j < 9; j++) {
-                let subimg = img2.get(j * imgwidth+imgwidth*0.1, i * imgheight+imgwidth*0.1, imgwidth*0.8, imgheight*0.8);
-                subimg.resize(28, 28);
-                image(subimg, 100+j*28, 400+i*28);
-            }
-        }*/
         if (numbers2d.length === 9) {
             if (is_desktop) {
                 stroke(245);
@@ -638,7 +602,6 @@ const getDeviceType = () => {
     return !/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
         ua
     );
-
 };
 
 
