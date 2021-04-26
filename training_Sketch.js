@@ -19,15 +19,15 @@ let numberClassifier;
 function preload() {
 	for (let i = 0; i < 1500; i++){
 		let index = nf(i+1);
-		one[i] = loadImage('newtrainingSet/1/Img'+index+'.jpg');
-		two[i] = loadImage('newtrainingSet/2/Img'+index+'.jpg');
-		three[i] = loadImage('newtrainingSet/3/Img'+index+'.jpg');
-		four[i] = loadImage('newtrainingSet/4/Img'+index+'.jpg');
-		five[i] = loadImage('newtrainingSet/5/Img'+index+'.jpg');
-		six[i] = loadImage('newtrainingSet/6/Img'+index+'.jpg');
-		seven[i] = loadImage('newtrainingSet/7/Img'+index+'.jpg');
-		eight[i] = loadImage('newtrainingSet/8/Img'+index+'.jpg');
-		nine[i] = loadImage('newtrainingSet/9/Img'+index+'.jpg');
+		one[i] = loadImage('Images/ownTrainingSet/1/Img'+index+'.jpg');
+		two[i] = loadImage('Images/ownTrainingSet/2/Img'+index+'.jpg');
+		three[i] = loadImage('Images/ownTrainingSet/3/Img'+index+'.jpg');
+		four[i] = loadImage('Images/ownTrainingSet/4/Img'+index+'.jpg');
+		five[i] = loadImage('Images/ownTrainingSet/5/Img'+index+'.jpg');
+		six[i] = loadImage('Images/ownTrainingSet/6/Img'+index+'.jpg');
+		seven[i] = loadImage('Images/ownTrainingSet/7/Img'+index+'.jpg');
+		eight[i] = loadImage('Images/ownTrainingSet/8/Img'+index+'.jpg');
+		nine[i] = loadImage('Images/ownTrainingSet/9/Img'+index+'.jpg');
 		if (i%100===0) {
 			console.log((i/100+1)*100+' images loaded!');
 		}
