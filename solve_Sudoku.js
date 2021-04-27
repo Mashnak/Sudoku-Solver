@@ -11,10 +11,11 @@ var square_coordinates = [
     [7, 7, 7, 8, 8, 8, 9, 9, 9]
 ]
 
+var _grid = []
 
 function getGrid(grid) {
-    console.log(grid);
-    return solve_sudoku(grid);
+        _grid = grid
+    return solve_sudoku();
 }
 
 function get_row(board, row) {
@@ -43,32 +44,31 @@ function get_square(board, square) {
     return cells
 }
 
-solve_sudoku = (grid) =>  {
+solve_sudoku = () =>  {
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
-            if (grid[i][j] === 0) {
+            if (_grid[i][j] === 0) {
                 for (let k = 1; k < 10; k++) {
-                    if(possible(i, j, k, grid)) {
-                        grid[i][j] = k
-                        solve_sudoku(grid)
-                        grid[i][j] = 0
+                    if(possible(i, j, k)) {
+                        _grid[i][j] = k
+                        solve_sudoku()
+                        _grid[i][j] = 0
                     }
                 }
                 return
             }
         }
     }
-    return grid
 }
 
-possible = (row, column, number, grid) => {
+possible = (row, column, number) => {
     for (let i = 0; i < 9; i++) {
-        if (grid[row][i] === number) {
+        if (_grid[row][i] === number) {
             return false
         }
     }
     for( let j = 0; j < 9; j++) {
-        if ( grid[j][column]===number) {
+        if ( _grid[j][column]===number) {
             return false
         }
     }
@@ -76,7 +76,7 @@ possible = (row, column, number, grid) => {
     let new_row = Math.floor(row/3)*3
     for (let k = 0; k < 3; k++) {
         for (let l = 0; l < 3; l++) {
-            if (grid[new_row+k][new_column+l] === number) {
+            if (_grid[new_row+k][new_column+l] === number) {
                 return false
             }
         }
