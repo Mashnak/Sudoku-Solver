@@ -1,4 +1,3 @@
-// Hardcoded, minimizes need for dynamic code later
 var square_coordinates = [
     [1, 1, 1, 2, 2, 2, 3, 3, 3],
     [1, 1, 1, 2, 2, 2, 3, 3, 3],
@@ -24,12 +23,10 @@ function getGrid(grid) {
 }
 
 function get_row(board, row) {
-    // Given a board, we can return a single row
     return board[row]
 }
 
 function get_column(board, column) {
-    // Given a board, we iterate the rows to return a column
     var col = []
     for (let row = 0; row < 9; row++) {
         col.push(board[row][column]);
@@ -58,7 +55,6 @@ function couting_method(board, r, c) {
         }
     }
     if (possibilities.length === 1) {
-        // If there is only one valid possibility, fill it in
         board[r][c] = possibilities[0]
         return true
     } else {
@@ -101,19 +97,16 @@ function compare(expected, actual) {
 function is_solved(board) {
     let expected = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     let valid = true
-    // Check all rows
     for (r = 0; r < 9 && valid === true; r++) {
         if (!compare(expected, get_row(board, r))) {
             valid = false
         }
     }
-    // Check all columns
     for (c = 0; c < 9 && valid === true; c++) {
         if (!compare(expected, get_column(board, c))) {
             valid = false
         }
     }
-    // Check all quadrants
     for (q = 1; q < 9 && valid === true; q++) {
         if (!compare(expected, get_square(board, q))) {
             valid = false
@@ -153,26 +146,16 @@ function solve_backtracking(orig_board) {
 
 }
 
-// Constraint based pass.
-// Apply the rules of Sudoku and mark up the cells we are
-// 100% can only be a single value.
 function naked_single(board) {
-
-    // Set to false at the start of the loop
     updated = false
-
-    // Convert every gap into an array of possibilities
     for (let r = 0; r < 9; r++) {
         for (let c = 0; c < 9; c++) {
-            if (board[r][c] == 0) {
+            if (board[r][c] === 0) {
                 updated = couting_method(board, r, c) || updated
             }
         }
     }
 
-    // Look out for any possibility that appears as a possibility
-    // once-only in the row, column, or quadrant.
-    // If it does, fill it in!
     for (let r = 0; r < 9; r++) {
         for (let c = 0; c < 9; c++) {
             if (Array.isArray(board[r][c])) {
@@ -183,8 +166,6 @@ function naked_single(board) {
             }
         }
     }
-
-    // Reinitialize gaps back to zero before ending
     for (let r = 0; r < 9; r++) {
         for (let c = 0; c < 9; c++) {
             if (Array.isArray(board[r][c])) {
@@ -192,7 +173,6 @@ function naked_single(board) {
             }
         }
     }
-
     return updated
 }
 
