@@ -16,9 +16,9 @@ function getGrid(grid) {
     let newArr = [];
 
 
-    for(let i = 0; i < solve(grid).length; i++)
+    for(let i = 0; i < solve_sudoku(grid).length; i++)
     {
-        newArr = newArr.concat(solve(grid)[i]);
+        newArr = newArr.concat(solve_sudoku(grid)[i]);
     }
     return newArr;
 }
@@ -49,7 +49,7 @@ function get_square(board, square) {
     return cells
 }
 
-function complete_cell(board, r, c) {
+function couting_method(board, r, c) {
     let used = [...get_row(board, r), ...get_column(board, c), ...get_square(board, square_coordinates[r][c])]
     let possibilities = []
     for (let p = 1; p <= 9; p++) {
@@ -67,7 +67,7 @@ function complete_cell(board, r, c) {
     }
 }
 
-function appears_once_only(board, possibilities, segment, r, c) {
+function cross_hatching(board, possibilities, segment, r, c) {
     let updated = false
     for (i = 0; i < possibilities.length; i++) {
         let possibility = possibilities[i]
@@ -122,16 +122,13 @@ function is_solved(board) {
     return valid
 }
 
-function backtrack_based(orig_board) {
-
-    // Create a temporary board for our recursion.
+function solve_backtracking(orig_board) {
     let board = JSON.parse(JSON.stringify(orig_board));
-
+    let completed_board;
     for (let r = 0; r < 9; r++) {
         for (let c = 0; c < 9; c++) {
-            // Process each incomplete cell
             if (board[r][c] === 0) {
-                complete_cell(board, r, c)
+                couting_method(board, r, c)
                 if (is_solved(board)) return board;
                 let cell = board[r][c]
                 // If we just created a list of possibilities, iterate them and recurse
@@ -142,7 +139,7 @@ function backtrack_based(orig_board) {
                         // Choose a value
                         board_2[r][c] = cell[i]
                         // Recurse again using new board
-                        if (completed_board = backtrack_based(board_2)) {
+                        if (completed_board = solve_backtracking(board_2)) {
                             return completed_board;
                         }
                     }
@@ -159,7 +156,7 @@ function backtrack_based(orig_board) {
 // Constraint based pass.
 // Apply the rules of Sudoku and mark up the cells we are
 // 100% can only be a single value.
-function one_value_cell_constraint(board) {
+function naked_single(board) {
 
     // Set to false at the start of the loop
     updated = false
@@ -168,7 +165,7 @@ function one_value_cell_constraint(board) {
     for (let r = 0; r < 9; r++) {
         for (let c = 0; c < 9; c++) {
             if (board[r][c] == 0) {
-                updated = complete_cell(board, r, c) || updated
+                updated = couting_method(board, r, c) || updated
             }
         }
     }
@@ -180,9 +177,9 @@ function one_value_cell_constraint(board) {
         for (let c = 0; c < 9; c++) {
             if (Array.isArray(board[r][c])) {
                 let possibilities = board[r][c]
-                updated = appears_once_only(board, possibilities, get_row(board, r), r, c) ||
-                    appears_once_only(board, possibilities, get_column(board, c), r, c) ||
-                    appears_once_only(board, possibilities, get_square(board, square_coordinates[r][c]), r, c) || updated
+                updated = cross_hatching(board, possibilities, get_row(board, r), r, c) ||
+                    cross_hatching(board, possibilities, get_column(board, c), r, c) ||
+                    cross_hatching(board, possibilities, get_square(board, square_coordinates[r][c]), r, c) || updated
             }
         }
     }
@@ -199,7 +196,7 @@ function one_value_cell_constraint(board) {
     return updated
 }
 
-function solve(board) {
+function solve_sudoku(board) {
 
     let updated = true, solved = false
 
@@ -214,13 +211,13 @@ function solve(board) {
         removes the number of blank cells ahead of the brute force.
     */
     while (updated && !solved) {
-        updated = one_value_cell_constraint(board)
+        updated = naked_single(board)
         solved = is_solved(board)
     }
 
     // Hard-Evil need brute force to finish off.
     if (!solved) {
-        board = backtrack_based(board)
+        board = solve_backtracking(board)
         solved = is_solved(board)
     }
 
