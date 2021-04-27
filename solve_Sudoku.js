@@ -58,6 +58,7 @@ function checkValue(board, row, column, value) {
 
 }
 function solve(board) {
+    console.log(board)
     let emptySpot = nextEmptySpot(board);
     let row = emptySpot[0];
     let col = emptySpot[1];
