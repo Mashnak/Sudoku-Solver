@@ -15,7 +15,8 @@ var _grid = []
 
 function getGrid(grid) {
         _grid = grid
-    return solve_sudoku();
+    solve_sudoku();
+    return _grid;
 }
 
 function get_row(board, row) {
@@ -49,7 +50,7 @@ solve_sudoku = () =>  {
         for (let j = 0; j < 9; j++) {
             if (_grid[i][j] === 0) {
                 for (let k = 1; k < 10; k++) {
-                    if(possible(i, j, k)) {
+                    if (possible(i, j, k)) {
                         _grid[i][j] = k
                         solve_sudoku()
                         _grid[i][j] = 0
