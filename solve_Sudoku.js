@@ -6,10 +6,10 @@ getGrid = (grid) => {
     return newArr;
 }
 
-nextEmptySpot = (board) => {
+nextEmptySpot = (grid) => {
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
-            if (board[i][j] === 0)
+            if (grid[i][j] === 0)
                 return [i, j];
         }
     }
@@ -17,9 +17,9 @@ nextEmptySpot = (board) => {
 }
 
 
-checkRow = (board, row, value) => {
-    for(let i = 0; i < board[row].length; i++) {
-        if(board[row][i] === value) {
+checkRow = (grid, row, value) => {
+    for(let i = 0; i < grid[row].length; i++) {
+        if(grid[row][i] === value) {
             return false;
         }
     }
@@ -27,44 +27,44 @@ checkRow = (board, row, value) => {
 }
 
 
-const checkColumn = (board, column, value) => {
-    for(let i = 0; i < board.length; i++) {
-        if(board[i][column] === value) {
+const checkColumn = (grid, column, value) => {
+    for(let i = 0; i < grid.length; i++) {
+        if(grid[i][column] === value) {
             return false;
         }
     }
     return true;
 };
-const checkSquare = (board, row, column, value) => {
+const checkSquare = (grid, row, column, value) => {
     let boxRow = Math.floor(row / 3) * 3;
     let boxCol = Math.floor(column / 3) * 3;
     for (let r = 0; r < 3; r++){
         for (let c = 0; c < 3; c++){
-            if (board[boxRow + r][boxCol + c] === value)
+            if (grid[boxRow + r][boxCol + c] === value)
                 return false;
         }
     }
     return true;
 }
-counting_method = (board, row, column, value) => {
-    return checkRow(board, row, value) &&
-        checkColumn(board, column, value) &&
-        checkSquare(board, row, column, value);
+counting_method = (grid, row, column, value) => {
+    return checkRow(grid, row, value) &&
+        checkColumn(grid, column, value) &&
+        checkSquare(grid, row, column, value);
 }
-function solve(board) {
-    let emptySpot = nextEmptySpot(board);
+function solve(grid) {
+    let emptySpot = nextEmptySpot(grid);
     let row = emptySpot[0];
     let col = emptySpot[1];
     if (row === -1){
-        return board;
+        return grid;
     }
     for(let num = 1; num<=9; num++){
-        if (counting_method(board, row, col, num)){
-            board[row][col] = num;
-            solve(board);
+        if (counting_method(grid, row, col, num)){
+            grid[row][col] = num;
+            solve(grid);
         }
     }
-    if (nextEmptySpot(board)[0] !== -1)
-        board[row][col] = 0;
-    return board;
+    if (nextEmptySpot(grid)[0] !== -1)
+        grid[row][col] = 0;
+    return grid;
 }
