@@ -48,7 +48,7 @@ solve_sudoku = (grid) =>  {
         for (let j = 0; j < 9; j++) {
             if (grid[i][j] === 0) {
                 for (let k = 1; k < 10; k++) {
-                    if(possible(i, y, k, grid)) {
+                    if(possible(i, j, k, grid)) {
                         grid[i][j] = k
                         solve_sudoku(grid)
                         grid[i][j] = 0
