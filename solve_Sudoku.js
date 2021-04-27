@@ -219,7 +219,7 @@ function solve(board) {
         solved = is_solved(board)
     }
 
-    // Hard-Evil need brute force to finish off.
+
     if (!solved) {
         board = backtrack_based(board)
         solved = is_solved(board)
