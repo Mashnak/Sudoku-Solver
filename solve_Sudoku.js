@@ -14,14 +14,7 @@ var square_coordinates = [
 
 function getGrid(grid) {
     console.log(grid);
-    let newArr = [];
-
-
-    for(let i = 0; i < solve(grid).length; i++)
-    {
-        newArr = newArr.concat(solve(grid)[i]);
-    }
-    return newArr;
+    return solve_sudoku(grid);
 }
 
 function get_row(board, row) {
@@ -50,6 +43,48 @@ function get_square(board, square) {
     return cells
 }
 
+solve_sudoku = (grid) =>  {
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            if (grid[i][j] === 0) {
+                for (let k = 1; k < 10; k++) {
+                    if(possible(i, y, k, grid)) {
+                        grid[i][j] = k
+                        solve_sudoku(grid)
+                        grid[i][j] = 0
+                    }
+                }
+                return
+            }
+        }
+    }
+    return grid
+}
+
+possible = (row, column, number, grid) => {
+    for (let i = 0; i < 9; i++) {
+        if (grid[row][i] === number) {
+            return false
+        }
+    }
+    for( let j = 0; j < 9; j++) {
+        if ( grid[j][column]===number) {
+            return false
+        }
+    }
+    let new_column = Math.floor(column/3)*3
+    let new_row = Math.floor(row/3)*3
+    for (let k = 0; k < 3; k++) {
+        for (let l = 0; l < 3; l++) {
+            if (grid[new_row+k][new_column+l] === number) {
+                return false
+            }
+        }
+    }
+    return true
+}
+
+/*
 function complete_cell(board, r, c) {
     let used = [...get_row(board, r), ...get_column(board, c), ...get_square(board, square_coordinates[r][c])]
     let possibilities = []
@@ -204,7 +239,7 @@ function solve(board) {
 
     let updated = true, solved = false
 
-    /*
+    /!*
         Easy-Hard are solved via iterations where we look at the current
         board and fill in any 100% guaranteed cells. We keep using the
         same board, and fill in the gaps until solved.
@@ -213,7 +248,7 @@ function solve(board) {
         are unable to crack it entirely this way.
         Tests show doing this FIRST is quicker for Hard-Evil sudoko as it
         removes the number of blank cells ahead of the brute force.
-    */
+    *!/
     while (updated && !solved) {
         updated = one_value_cell_constraint(board)
         solved = is_solved(board)
@@ -236,7 +271,7 @@ function print_cell(value) {
     } else {
         return value
     }
-}
+}*/
 
 
 

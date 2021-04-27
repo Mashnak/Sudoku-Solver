@@ -250,12 +250,10 @@ function calculatedScreen() {
     showSquare = false;
     console.log(numbers2d);
     if (!got_solution){
-    final1d = getGrid(grid);
-    while (final1d.length) final2d.push(final1d.splice(0, 9));
+    final2d = getGrid(grid);
     } else {
-        final1d = getGrid(numbers2d);
-        while (final1d.length) final2d.push(final1d.splice(0, 9));
-    }
+        final2d = getGrid(numbers2d);
+        }
 }
 
 /**
