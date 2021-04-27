@@ -152,7 +152,6 @@ async function uploadImageScreen() {
     resetButton.show();
     /***********************/
     numbers2d = await getDigits(img2);
-    console.log(numbers2d);
     got_solution = true;
 }
 
@@ -175,7 +174,6 @@ function imageScreen() {
     resetButton.show();
     /***********************/
     img = video.get(0, 0, video.width, video.height);
-    console.log(video.width, video.height);
     video.stop();
     video.hide();
     mouselicksx = [];
@@ -248,7 +246,6 @@ function calculatedScreen() {
     resetButton.show();
     /***********************/
     showSquare = false;
-    console.log(numbers2d);
         if (!got_solution){
     final1d = getGrid(grid);
     while (final1d.length) final2d.push(final1d.splice(0, 9));

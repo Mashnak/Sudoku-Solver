@@ -13,7 +13,6 @@ var square_coordinates = [
 
 
 function getGrid(grid) {
-    console.log(grid);
     let newArr = [];
 
 
