@@ -197,25 +197,11 @@ function naked_single(board) {
 }
 
 function solve_sudoku(board) {
-
     let updated = true, solved = false
-
-    /*
-        Easy-Hard are solved via iterations where we look at the current
-        board and fill in any 100% guaranteed cells. We keep using the
-        same board, and fill in the gaps until solved.
-
-        Always do this first.  We can make the board simpler, even if we
-        are unable to crack it entirely this way.
-        Tests show doing this FIRST is quicker for Hard-Evil sudoko as it
-        removes the number of blank cells ahead of the brute force.
-    */
     while (updated && !solved) {
         updated = naked_single(board)
         solved = is_solved(board)
     }
-
-    // Hard-Evil need brute force to finish off.
     if (!solved) {
         board = solve_backtracking(board)
         solved = is_solved(board)
@@ -224,15 +210,6 @@ function solve_sudoku(board) {
     return board
 }
 
-function print_cell(value) {
-    if (Array.isArray(value)) {
-        return "."
-    } else if (value === 0) {
-        return "."
-    } else {
-        return value
-    }
-}
 
 
 
