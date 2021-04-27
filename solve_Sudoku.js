@@ -14,6 +14,7 @@ var square_coordinates = [
 var _grid = []
 
 function getGrid(grid) {
+    console.log(grid)
         _grid = grid
     solve_sudoku();
     return _grid;
